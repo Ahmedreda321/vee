@@ -1,0 +1,78 @@
+name: vee
+description: A new Flutter project.
+# Flutter version on machine: 3.29.2
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  animate_do: null
+  animator: null
+  cached_network_image: null
+  cupertino_icons: null
+  dartz: null
+  dio: null
+  easy_localization: null
+  equatable: null
+  flutter:
+    sdk: flutter
+  flutter_animate: null
+  flutter_bloc: null
+  flutter_launcher_icons: null
+  flutter_native_splash: null
+  flutter_screenutil: null
+  flutter_svg: null
+  freezed_annotation: null
+  get_it: null
+  google_fonts: null
+  intl: null
+  json_annotation: null
+  logger: ^2.5.0
+  lottie: null
+  path_drawing: ^1.0.1
+  shared_preferences: null
+
+dev_dependencies:
+  bloc_test: null
+  build_runner: null
+  flutter_lints: null
+  flutter_test:
+    sdk: flutter
+  freezed: null
+  json_serializable: null
+  mockito: null
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  # Assets
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/svgs/
+    - assets/svgs/auth/
+    - assets/icons/
+    - assets/lottie/
+    - assets/lang/
+
+  # Fonts
+  fonts:
+    - family: InstrumentSans
+      fonts:
+        - asset: assets/fonts/InstrumentSans/InstrumentSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/InstrumentSans/InstrumentSans-SemiBold.ttf
+          weight: 500
+        - asset: assets/fonts/InstrumentSans/InstrumentSans-Regular.ttf
+          weight: 400
+
+flutter_assets:
+  assets_path:
+    - assets/images/
+    - assets/svgs/
+    - assets/svgs/auth/
+    - assets/icons/
+  output_path: lib/core/constants/
+  filename: app_assets.dart
