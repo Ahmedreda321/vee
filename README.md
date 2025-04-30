@@ -1,13 +1,5 @@
-Hello Created By Abdalluh Essam 🇪🇬🇪🇬🇪
-abdallhesam100@gmail.com
-
-
-
 
 # vee
-
-
-🚀 Clean Architecture Flutter Project Generated Automatically
 
 
 ## Structure
@@ -36,23 +28,3 @@ lib/
 ```
 
 
-## Getting Started
-```bash
-flutter pub get
-flutter run
-```
-
-
----
-
-
-✅ Built with ❤️ using the Clean Architecture Generator
-
-
-Hello Created By Abdalluh Essam 🇪🇬🇪🇬🇪
-# vee
-# vee
-# vee
-# vee
-# vee
-# vee
