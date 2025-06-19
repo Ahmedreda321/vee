@@ -11,12 +11,10 @@ class AppPreferences {
 
   AppPreferences._internal();
 
-  /// ✅ **تهيئة SharedPreferences**
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  /// ✅ **حفظ البيانات بأي نوع (`String, int, double, bool, List<String>`)**
   Future<void> setData(String key, dynamic value) async {
     if (value is String) {
       await _prefs.setString(key, value);
@@ -33,24 +31,20 @@ class AppPreferences {
     }
   }
 
-  /// ✅ **استرجاع البيانات (`String, int, double, bool, List<String>`)**
   dynamic getData(String key) {
     return _prefs.get(key);
   }
 
-  /// ✅ **حذف بيانات مفتاح معين**
   Future<void> removeData(String key) async {
     await _prefs.remove(key);
   }
 
-  /// ✅ **حفظ كائن Model (`T`)**
   Future<void> saveModel<T>(
       String key, T model, Map<String, dynamic> Function(T) toJson) async {
     final String jsonString = jsonEncode(toJson(model));
     await _prefs.setString(key, jsonString);
   }
 
-  /// ✅ **استرجاع كائن Model (`T`)**
   T? getModel<T>(String key, T Function(Map<String, dynamic>) fromJson) {
     final String? jsonString = _prefs.getString(key);
     if (jsonString != null) {
@@ -60,7 +54,6 @@ class AppPreferences {
     return null;
   }
 
-  /// ✅ **حفظ قائمة من النماذج (`List<T>`)**
   Future<void> saveModels<T>(String key, List<T> models,
       Map<String, dynamic> Function(T) toJson) async {
     final List<String> jsonList =
@@ -68,7 +61,6 @@ class AppPreferences {
     await _prefs.setStringList(key, jsonList);
   }
 
-  /// ✅ **استرجاع قائمة من النماذج (`List<T>`)**
   List<T> getModels<T>(String key, T Function(Map<String, dynamic>) fromJson) {
     final List<String>? jsonList = _prefs.getStringList(key);
     if (jsonList != null) {
@@ -83,10 +75,8 @@ class AppPreferences {
     String? savedPassword = _prefs.getString('saved_password');
     bool? rememberMe = _prefs.getBool('remember_me');
 
-    // مسح كل البيانات
     await _prefs.clear();
 
-    // استرجاع بيانات تسجيل الدخول
     await _prefs.setString('saved_email', savedEmail!);
     await _prefs.setString('saved_password', savedPassword!);
     await _prefs.setBool('remember_me', rememberMe!);
