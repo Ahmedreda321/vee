@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:vee/core/errors/failures.dart';
-import 'package:vee/features/shared/auth/data/mapper/login_mapper.dart';
 import 'package:vee/features/shared/auth/data/models/login_request_body.dart';
 
 import '../../../../../core/usecases/base_use_case.dart';

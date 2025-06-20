@@ -1,14 +1,14 @@
 import 'package:dartz/dartz.dart';
-import 'package:vee/core/errors/failures.dart';
 import 'package:vee/features/shared/auth/data/mapper/login_mapper.dart';
-import 'package:vee/features/shared/auth/data/models/login_request_body.dart';
-import 'package:vee/features/shared/auth/data/models/login_response.dart';
-import 'package:vee/features/shared/auth/domain/entities/login_entity.dart';
 
+
+import '../../../../../core/errors/failures.dart';
 import '../../../../../core/network/error_handeler.dart';
 import '../../../../../core/network/network_info.dart';
+import '../../domain/entities/login_entity.dart';
 import '../../domain/repositories/auth_repo.dart';
 import '../datasources/auth_remot_data_source.dart';
+import '../models/login_request_body.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final NetworkInfo _networkInfo;

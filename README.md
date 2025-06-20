@@ -11,7 +11,6 @@
 
 
 ```
-lib/
 ├── core/
 │   ├── constants
 │   ├── network
@@ -23,11 +22,17 @@ lib/
 │   ├── cubit
 │   └── extensions
 ├── features/
-│   ├── splash
-│   ├── onboarding
-│   ├── auth
-│   └── home
-├── app.dart
+|   ├──driver/
+|   |   ├──home/
+|   |   └──notifications
+|   ├──mechanic/
+|   |  ├──home/
+|   |  └──notifications
+|   └──shared/
+│      ├── onboarding
+│      ├── auth
+│      └── home
+├── vee.dart
 ├── main.dart
 └── app_bloc_observer.dart
 ```
