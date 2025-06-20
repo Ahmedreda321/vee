@@ -20,7 +20,7 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return _createRoute(const OnboardingScreen());
       case Routes.loginScreen:
-        return _createRoute(LoginScreen());
+        return _createRoute(const LoginScreen());
       case Routes.forgotPasswordScreen:
         return _createRoute(const ForgotPasswordScreen());
       case Routes.verifyCodeScreen:
@@ -33,7 +33,7 @@ class AppRouter {
         return _createRoute(
           BlocProvider<ProfileCubit>(
             create: (_) => ProfileCubit(),
-            child: ProfileScreen(),
+            child: const ProfileScreen(),
           ),
         );
 
@@ -41,7 +41,7 @@ class AppRouter {
         return _createRoute(const NotificationScreen());
 
       default:
-        return _createRoute(NotFoundRouteScreen());
+        return _createRoute(const NotFoundRouteScreen());
     }
   }
 

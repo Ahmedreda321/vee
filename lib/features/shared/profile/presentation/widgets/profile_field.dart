@@ -26,10 +26,10 @@ class ProfileField extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         contentPadding: AppPadding.profileFormPadding,
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
           borderSide: border,
         ),
-        focusedBorder: UnderlineInputBorder(
+        focusedBorder: const UnderlineInputBorder(
           borderSide: border,
         ),
       ),

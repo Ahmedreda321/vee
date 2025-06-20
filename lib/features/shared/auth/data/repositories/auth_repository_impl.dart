@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:vee/core/errors/failures.dart';
+import 'package:vee/features/shared/auth/data/mapper/login_mapper.dart';
 import 'package:vee/features/shared/auth/data/models/login_request_body.dart';
 import 'package:vee/features/shared/auth/data/models/login_response.dart';
+import 'package:vee/features/shared/auth/domain/entities/login_entity.dart';
 
 import '../../../../../core/network/error_handeler.dart';
 import '../../../../../core/network/network_info.dart';
@@ -24,20 +26,25 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, LoginResponse>> login({LoginRequestBody loginRequestBody}) async{
-if (await _networkInfo.isConnected) {
-    try {
-      final response = await _authRemotDataSource.login(loginRequestBody);
-      return Right(response);
-    } catch (e) {
-      return Left(Failure(
-              response.message ?? ResponseMessage.DEFAULT,
-              response.code ?? ResponseCode.DEFAULT));
+  Future<Either<Failure, LoginEntity>> login(
+      LoginRequestBody loginRequestBody) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _authRemotDataSource.login(loginRequestBody);
+        if (response.statusCode == ResponseCode.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return Left(
+            Failure(response.message ?? ResponseMessage.DEFAULT,
+                response.statusCode ?? ResponseCode.DEFAULT),
+          );
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
-  } else {
-  return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
-  
-}
   }
 
   @override
@@ -45,5 +52,4 @@ if (await _networkInfo.isConnected) {
     // TODO: implement resetPassword
     throw UnimplementedError();
   }
-
 }

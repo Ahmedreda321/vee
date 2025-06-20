@@ -23,11 +23,11 @@ class HomeTripCard extends StatelessWidget {
         children: [
           tripInfo,
           vehicleInfo,
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             TripCardInfo(title: AppStrings.date, value: "12/12/2022"),
             TripCardInfo(title: AppStrings.time, value: "12:00"),
           ]),
-          StartButton(),
+          const StartButton(),
         ],
       ),
     );

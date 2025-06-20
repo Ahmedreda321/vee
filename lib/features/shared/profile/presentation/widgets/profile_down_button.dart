@@ -24,7 +24,7 @@ class ProfileDownButton extends StatelessWidget {
                 backgroundColor: AppColor.blue,
                 minimumSize: AppSize.editProfileSize),
             onPressed: () => context.read<ProfileCubit>().enableEdit(),
-            child: Text(
+            child: const Text(
               AppStrings.edit,
             ),
           ),

@@ -47,8 +47,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
         child: AuthFormatScreens(
           children: [
-            ScreenTitle(title: AppStrings.forgotPassword),
-            AuthDesc(desc: AppStrings.forgotPasswordDesc),
+            const ScreenTitle(title: AppStrings.forgotPassword),
+            const AuthDesc(desc: AppStrings.forgotPasswordDesc),
             AuthFormField(
               controller: _emailController,
               label: AppStrings.email,

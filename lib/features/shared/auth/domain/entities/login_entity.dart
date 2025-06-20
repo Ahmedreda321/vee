@@ -1,9 +1,27 @@
 class LoginEntity {
+  final bool mustChangePassword;
   final String email;
-  final String password;
+  final String token;
+  final BusinessUserEntity? businessUser;
 
-  const LoginEntity({
+  LoginEntity({
+    required this.mustChangePassword,
     required this.email,
-    required this.password,
+    required this.token,
+    required this.businessUser,
+  });
+}
+
+class BusinessUserEntity {
+  final String id;
+  final String role;
+  final String displayName;
+  final String phoneNumber;
+
+  BusinessUserEntity({
+    required this.id,
+    required this.role,
+    required this.displayName,
+    required this.phoneNumber,
   });
 }

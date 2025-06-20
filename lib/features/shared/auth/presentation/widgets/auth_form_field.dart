@@ -105,7 +105,7 @@ class _AuthFormFieldState extends State<AuthFormField> {
                 horizontal: 12.w,
                 vertical: 16.h,
               ),
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               suffixIcon: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

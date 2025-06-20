@@ -65,22 +65,22 @@ class _ProfileFormState extends State<ProfileForm> {
                           imageUrl:
                               'https://as2.ftcdn.net/v2/jpg/03/26/98/51/1000_F_326985142_1aaKcEjMQW6ULp6oI9MYuv8lN9f8sFmj.jpg'),
                       verticalSpace(30),
-                      Label(label: AppStrings.yourName),
+                      const Label(label: AppStrings.yourName),
                       ProfileField(
                           controller: nameController, isEditing: isEditing),
-                      Label(label: AppStrings.yourEmail),
+                      const Label(label: AppStrings.yourEmail),
                       ProfileField(
                           controller: emailController, isEditing: isEditing),
-                      Label(label: AppStrings.userName),
+                      const Label(label: AppStrings.userName),
                       ProfileField(
                           controller: usernameController, isEditing: isEditing),
-                      Label(label: AppStrings.mobile),
+                      const Label(label: AppStrings.mobile),
                       ProfileField(
                         controller: mobileController,
                         type: TextInputType.phone,
                         isEditing: isEditing,
                       ),
-                      Label(label: AppStrings.address),
+                      const Label(label: AppStrings.address),
                       ProfileField(
                           controller: addressController, isEditing: isEditing),
                       verticalSpace(30),

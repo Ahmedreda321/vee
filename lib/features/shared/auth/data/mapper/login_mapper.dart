@@ -6,7 +6,6 @@ extension LoginMapper on LoginResponse {
   LoginEntity toDomain() {
     return LoginEntity(
       email: email ?? '',
-      
       token: token ?? '',
       mustChangePassword: mustChangePassword ?? false,
       businessUser: bussinessUserDto?.toDomain(), 
@@ -17,10 +16,10 @@ extension LoginMapper on LoginResponse {
 extension BusinessUserMapper on BusinessUserDto {
   BusinessUserEntity toDomain() {
     return BusinessUserEntity(
-      id: id,
-      role: role,
-      displayName: displayName,
-      phoneNumber: phoneNumber,
+      id: id?? '',
+      role: role ?? '',
+      displayName: displayName ?? '',
+      phoneNumber: phoneNumber ?? '',
     );
   }
 }

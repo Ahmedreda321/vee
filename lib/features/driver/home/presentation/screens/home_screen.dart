@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) => Padding(
                     padding: EdgeInsets.only(bottom: 10.h),
-                    child: HomeTripCard(
+                    child: const HomeTripCard(
                       tripInfo: TripCardInfo(
                         title: AppStrings.trip,
                         value: "From Alex → Cairo",

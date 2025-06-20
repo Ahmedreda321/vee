@@ -8,15 +8,21 @@ part of 'login_response.dart';
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
     LoginResponse(
-      mustChangePassword: json['mustChangePassword'] as bool,
-      email: json['email'] as String,
-      token: json['token'] as String,
-      bussinessUserDto: BusinessUserDto.fromJson(
-          json['bussinessUserDto'] as Map<String, dynamic>),
+      statusCode: (json['statusCode'] as num?)?.toInt(),
+      message: json['message'] as String?,
+      mustChangePassword: json['mustChangePassword'] as bool?,
+      email: json['email'] as String?,
+      token: json['token'] as String?,
+      bussinessUserDto: json['bussinessUserDto'] == null
+          ? null
+          : BusinessUserDto.fromJson(
+              json['bussinessUserDto'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
     <String, dynamic>{
+      'statusCode': instance.statusCode,
+      'message': instance.message,
       'mustChangePassword': instance.mustChangePassword,
       'email': instance.email,
       'token': instance.token,
