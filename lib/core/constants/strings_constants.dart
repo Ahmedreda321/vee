@@ -152,4 +152,21 @@ class AppStrings {
   static const String onBoardingDescription =
       'Lorem ipsum dolor sit amet consectetur. Pell\n entesque faucibus lacus et blandit ut. Tellus at\n mauris hac vulputate magna sed';
   static const String onBoardingGetStarted = 'Get Started';
+
+  // Error Messages
+  static const String noInternetConnectionError = 'No Internet Connection';
+  static const String serverError = 'Server Error';
+  static const String unauthorizedError = 'Unauthorized';
+  static const String notFoundError = 'Not Found';
+  static const String badRequestError = 'Bad Request';
+  static const String internalServerError = 'Internal Server Error';
+  static const String unknownError = 'Unknown Error';
+  static const String defaultError = 'Something went wrong';  
+  static const String timeoutError = 'Request Timeout';
+  static const String success = 'Success';
+  static const String forbiddenError = 'Forbidden';
+  static const String noInternetError = 'No Internet Connection';
+  static const String cacheError = 'Cache Error';
+  static const String connectTimeoutError = 'Connection Timeout';
+
 }

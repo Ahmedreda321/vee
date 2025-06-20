@@ -48,7 +48,7 @@ class LoginScreenState extends State<LoginScreen> {
             _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
         child: AuthFormatScreens(
           children: [
-            ScreenTitle(title: AppStrings.login),
+            const ScreenTitle(title: AppStrings.login),
             AuthFormField(
               label: AppStrings.userName,
               hintText: AppStrings.email,

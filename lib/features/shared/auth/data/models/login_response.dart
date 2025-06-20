@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 import 'business_user_dto.dart';
 
 part 'login_response.g.dart';

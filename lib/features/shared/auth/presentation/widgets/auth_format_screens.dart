@@ -18,7 +18,7 @@ class AuthFormatScreens extends StatelessWidget {
             SliverPersistentHeader(
               pinned: true,
               delegate: SliverAppBarDelegate(
-                  minHeight: 140.h, maxHeight: 180.h, title: "LOGO"),
+                  minHeight: 140.h, maxHeight: 180.h,),
             )
           ];
         },
