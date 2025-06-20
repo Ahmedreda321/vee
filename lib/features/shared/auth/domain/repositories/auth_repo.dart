@@ -5,7 +5,7 @@ import 'package:vee/features/shared/auth/data/models/login_response.dart';
 import '../../../../../core/errors/failures.dart';
 
 abstract class AuthRepository {
-  Future<Either<Failure, LoginResponse>> login({
+  Future<Either<Failure, LoginResponse>> login(LoginRequestBody input, {
    LoginRequestBody loginRequestBody,
   }); 
  
