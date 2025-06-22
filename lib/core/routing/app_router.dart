@@ -6,7 +6,7 @@ import '../../features/shared/auth/presentation/screens/reset_password_screen.da
 import '../../features/shared/auth/presentation/screens/forgot_password_screen.dart';
 import '../../features/shared/auth/presentation/screens/login_screen.dart';
 import '../../features/shared/auth/presentation/screens/verify_code_screen.dart';
-import '../../features/driver/home/presentation/screens/home_screen.dart';
+import '../../features/driver/home/presentation/screens/driver_home_screen.dart';
 import '../../features/driver/notifications/presentation/screens/notification_screen.dart';
 import '../../features/shared/profile/presentation/cubit/profile_cubit.dart';
 import '../../features/shared/profile/presentation/screens/profile_screen.dart';
@@ -32,8 +32,8 @@ class AppRouter {
         return _createRoute(const VerifyCodeScreen());
       case Routes.resetPasswordScreen:
         return _createRoute(const ResetPasswordScreen());
-      case Routes.homeScreen:
-        return _createRoute(const HomeScreen());
+      case Routes.driverHomeScreen:
+        return _createRoute(const DriverHomeScreen());
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(

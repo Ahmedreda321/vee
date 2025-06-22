@@ -46,7 +46,7 @@ class LoginBlocListener extends StatelessWidget {
     final businessUser = loginEntity.businessUser;
     if (businessUser != null) {
       if (businessUser.role == 'driver') {
-        Navigator.pushReplacementNamed(context, Routes.homeScreen);
+        Navigator.pushReplacementNamed(context, Routes.driverHomeScreen);
       } else {
         Navigator.pushReplacementNamed(context, "");
       }

@@ -101,6 +101,8 @@ class AppStrings {
   // ====================
 
   // General
+  static const String driver = 'Driver'; // TODO:  check if Driver or driver
+  static const String mechanic = 'Mechanic'; // TODO:  check if Mechanic or mechanic
   static const String start = 'Start';
   static const String trips = 'Trips';
   static const String trip = 'Trip';

@@ -12,8 +12,8 @@ import '../widgets/custom_app_bar.dart';
 import '../widgets/home_trip_card.dart';
 
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class DriverHomeScreen extends StatelessWidget {
+  const DriverHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +78,8 @@ class HomeScreen extends StatelessWidget {
 // import '../widgets/home_trip_card.dart';
 // import '../../../../../core/widgets/trip_card_info.dart';
 
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key});
+// class DriverHomeScreen extends StatelessWidget {
+//   const DriverHomeScreen({super.key});
 
 //   @override
 //   Widget build(BuildContext context) {
