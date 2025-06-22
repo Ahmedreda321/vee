@@ -15,25 +15,11 @@ class EmailAndPassword extends StatefulWidget {
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
-  late TextEditingController _emailController;
-  late TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    super.initState();
-    _emailController = context.read<LoginCubit>().emailController;
-    _passwordController = context.read<LoginCubit>().passwordController;
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
+    final loginCubit = context.read<LoginCubit>();
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: Column(
@@ -41,13 +27,13 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           AuthFormField(
             label: AppStrings.userName,
             hintText: AppStrings.email,
-            controller: _emailController,
+            controller: loginCubit.emailController,
             isEmail: true,
           ),
           AuthFormField(
             label: AppStrings.password,
             hintText: AppStrings.password,
-            controller: _passwordController,
+            controller: loginCubit.passwordController,
             isPassword: true,
           )
         ],

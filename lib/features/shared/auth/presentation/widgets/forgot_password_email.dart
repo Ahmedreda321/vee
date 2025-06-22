@@ -14,24 +14,14 @@ class ForgotPasswordEmail extends StatefulWidget {
 }
 
 class _ForgotPasswordEmailState extends State<ForgotPasswordEmail> {
-  late TextEditingController _emailController;
 
   @override
-  void initState() {
-    super.initState();
-    _emailController = context.read<ForgotPasswordCubit>().emailController;
-  }
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
-  @override
   Widget build(BuildContext context) {
+    final forgotPasswordCubit = context.read<ForgotPasswordCubit>();
     return Form(
       key: context.read<ForgotPasswordCubit>().forgotPasswordFormKey,
       child: AuthFormField(
-              controller: _emailController,
+              controller: forgotPasswordCubit.emailController,
               label: AppStrings.email,
               hintText: AppStrings.emailAddress,
               isEmail: true,
