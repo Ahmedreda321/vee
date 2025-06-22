@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/models/login_request_body.dart';
@@ -8,8 +9,11 @@ import 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
 
  final LoginUseCase loginUseCase;
+ LoginCubit(this.loginUseCase) : super(const LoginInitial());
 
-  LoginCubit(this.loginUseCase) : super(const LoginInitial());
+final emailController = TextEditingController();
+final passwordController = TextEditingController();
+final formKey = GlobalKey<FormState>();
 
 
   void login( LoginRequestBody loginRequestBody) async{
