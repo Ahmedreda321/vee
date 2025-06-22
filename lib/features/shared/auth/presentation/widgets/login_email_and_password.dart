@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constants/strings_constants.dart';
-import '../cubits/login_cubit.dart';
+import '../cubits/login_cubit/login_cubit.dart';
 import 'auth_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
@@ -31,6 +31,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
     _passwordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(

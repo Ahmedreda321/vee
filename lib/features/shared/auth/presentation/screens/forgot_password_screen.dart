@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:vee/core/extensions/navigation_extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vee/features/shared/auth/presentation/widgets/forgot_password_email.dart';
 
 import '../../../../../core/constants/strings_constants.dart';
-import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theme/app_colors.dart';
+import '../../data/models/forogt_password_request_body.dart';
+import '../cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../widgets/auth_desc.dart';
 import '../widgets/auth_format_screens.dart';
 import '../widgets/auth_button.dart';
-import '../widgets/auth_form_field.dart';
+import '../widgets/forgot_password_bloc_listener.dart';
 import '../widgets/screen_title.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -18,49 +20,34 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  bool _autoValidate = false;
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
 
   void _submit() {
-    if (_formKey.currentState!.validate()) {
-      // All validations passed, navigate to code verification
-      context.pushReplacementNamed(Routes.verifyCodeScreen);
-    } else {
-      setState(() => _autoValidate = true);
+    if (context.read<ForgotPasswordCubit>().forgotPasswordFormKey.currentState!.validate()) {
+      context.read<ForgotPasswordCubit>().forgotPassword(
+        ForgotPasswordRequestBody(
+          email: context.read<ForgotPasswordCubit>().emailController.text,
+        ),
+      );
     }
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.white,
-      body: Form(
-        key: _formKey,
-        autovalidateMode:
-            _autoValidate ? AutovalidateMode.always : AutovalidateMode.disabled,
-        child: AuthFormatScreens(
-          children: [
-            const ScreenTitle(title: AppStrings.forgotPassword),
-            const AuthDesc(desc: AppStrings.forgotPasswordDesc),
-            AuthFormField(
-              controller: _emailController,
-              label: AppStrings.email,
-              hintText: AppStrings.emailAddress,
-              isEmail: true,
-            ),
-            AuthButton(
-              onPressed: _submit,
-              title: AppStrings.sendCode,
-            ),
-          ],
-        ),
+      body: AuthFormatScreens(
+        children: [
+          const ScreenTitle(title: AppStrings.forgotPassword),
+          const AuthDesc(desc: AppStrings.forgotPasswordDesc),
+          const ForgotPasswordEmail(),
+          AuthButton(
+            onPressed: _submit,
+            title: AppStrings.sendEmail,
+          ),
+          const ForgotPasswordBlocListener(),
+        ],
       ),
     );
   }

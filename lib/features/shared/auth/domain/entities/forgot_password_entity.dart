@@ -4,4 +4,6 @@ class ForgotPasswordEntity {
   const ForgotPasswordEntity({
     required this.message,
   });
+  @override
+  String toString() => 'ForgotPasswordEntity(message: $message)';
 }

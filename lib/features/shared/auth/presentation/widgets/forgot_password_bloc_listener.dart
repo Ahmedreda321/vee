@@ -4,21 +4,17 @@ import 'package:vee/core/extensions/navigation_extensions.dart';
 
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
-import '../cubits/login_cubit/login_cubit.dart';
-import '../cubits/login_cubit/login_state.dart';
+import '../cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
+import '../cubits/forgot_passwprd_cubit/forgot_password_state.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({
-    super.key,
-  });
+class ForgotPasswordBlocListener extends StatelessWidget {
+  const ForgotPasswordBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
       listenWhen: (previous, current) =>
-          current is LoginError ||
-          current is LoginSuccess ||
-          current is LoginLoading,
+          current is Success || current is Error || current is Loading,
       listener: (context, state) {
         state.whenOrNull(
           error: (error) {
@@ -39,26 +35,26 @@ class LoginBlocListener extends StatelessWidget {
               ),
             );
           },
-          success: (loginEntity) {
+          success: (data) {
             context.back();
-            if (loginEntity.mustChangePassword) {
-              Navigator.pushNamed(context, Routes.resetPasswordScreen);
-            } else {
-              final businessUser = loginEntity.businessUser;
-              if (businessUser != null) {
-                if (businessUser.role == 'driver') {
-                  Navigator.pushReplacementNamed(
-                      context, Routes.driverHomeScreen);
-                } else {
-                  Navigator.pushReplacementNamed(context, "");
-                }
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                      content: Text('Error: Business user data is missing')),
-                );
-              }
-            }
+            showDialog(
+              context: context,
+              builder: (_) => AlertDialog(
+                content: Text("${data.message}.\n please check your email"),
+                actions: [
+                  TextButton(
+                    child: const Text('OK',
+                        style: TextStyle(
+                          color: Colors.black,
+                        )),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      context.pushNamed(Routes.resetPasswordScreen);
+                    },
+                  ),
+                ],
+              ),
+            );
           },
           loading: () {
             showDialog(

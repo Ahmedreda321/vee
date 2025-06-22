@@ -114,7 +114,7 @@ class AppStrings {
   static const String login = 'Login';
   static const String email = 'Email';
   static const String password = 'Password';
-  static const String sendCode = 'Send Code';
+  static const String sendEmail = 'Send Email';
   static const String emailAddress = 'Email Address';
   static const String newPassword = 'New Password';
   static const String confirmPassword = 'Confirm Password';

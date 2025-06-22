@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/shared/auth/presentation/cubits/login_cubit.dart';
+import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
+import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import '../../features/shared/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/shared/auth/presentation/screens/forgot_password_screen.dart';
 import '../../features/shared/auth/presentation/screens/login_screen.dart';
@@ -27,7 +28,10 @@ class AppRouter {
           child: const LoginScreen(),
         ));
       case Routes.forgotPasswordScreen:
-        return _createRoute(const ForgotPasswordScreen());
+        return _createRoute(BlocProvider(
+          create: (context) => getIt<ForgotPasswordCubit>(),
+          child: const ForgotPasswordScreen(),
+        ));
       case Routes.verifyCodeScreen:
         return _createRoute(const VerifyCodeScreen());
       case Routes.resetPasswordScreen:

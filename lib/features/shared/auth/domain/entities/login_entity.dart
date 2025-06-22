@@ -10,6 +10,10 @@ class LoginEntity {
     required this.token,
     required this.businessUser,
   });
+  @override
+  String toString() {
+    return 'LoginEntity(mustChangePassword: $mustChangePassword, email: $email, token: $token, businessUser: $businessUser)';
+  }
 }
 
 class BusinessUserEntity {
@@ -24,4 +28,8 @@ class BusinessUserEntity {
     required this.displayName,
     required this.phoneNumber,
   });
+  @override
+  String toString() {
+    return 'BusinessUserEntity(id: $id, role: $role, displayName: $displayName, phoneNumber: $phoneNumber)';
+  }
 }
