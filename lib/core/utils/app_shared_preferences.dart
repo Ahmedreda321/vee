@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
@@ -15,7 +17,7 @@ class AppPreferences {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  Future<void> setData(String key, dynamic value) async {
+   Future<void> setData(String key, dynamic value) async {
     if (value is String) {
       await _prefs.setString(key, value);
     } else if (value is int) {
@@ -84,5 +86,25 @@ class AppPreferences {
 
   bool isLoggedInUser() {
     return _prefs.containsKey("userModel");
+  }
+
+  // set secure data
+
+/// Saves a value securely using FlutterSecureStorage.
+  /// [key] is the identifier for the value.
+  /// [value] is the value to be stored securely.
+ static Future<void> setSecureData(String key, String value) async {
+    const secureStorage = FlutterSecureStorage();
+    debugPrint("Saving secure data for key: $key with value: $value");
+    await secureStorage.write(key: key, value: value);
+  }
+
+  /// Retrieves a securely stored value using FlutterSecureStorage.
+  /// [key] is the identifier for the value.
+  /// Returns the value if found, or null if not found.
+static Future<String?> getSecureData(String key) async {
+    const secureStorage = FlutterSecureStorage();
+    debugPrint("Getting secure data for key: $key");
+    return await secureStorage.read(key: key) ?? "";
   }
 }
