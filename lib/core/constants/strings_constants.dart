@@ -156,7 +156,7 @@ class AppStrings {
   // Error Messages
   static const String noInternetConnectionError = 'No Internet Connection';
   static const String serverError = 'Server Error';
-  static const String unauthorizedError = 'Unauthorized';
+  static const String unauthorizedError = 'Email or Password is incorrect\nPlease check and try again';
   static const String notFoundError = 'Not Found';
   static const String badRequestError = 'Bad Request';
   static const String internalServerError = 'Internal Server Error';

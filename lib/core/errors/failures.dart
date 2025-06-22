@@ -4,6 +4,8 @@
 
 
  Failure(this.message, this.statusCode);
+  @override
+  String toString() => 'Failure(message: $message, statusCode: $statusCode)';
 }
 
 

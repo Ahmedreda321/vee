@@ -42,7 +42,7 @@ class LoginScreenState extends State<LoginScreen> {
             },
             title: AppStrings.login,
           ),
-          LoginBlocListener(),
+          const LoginBlocListener(),
         ],
       ),
     );

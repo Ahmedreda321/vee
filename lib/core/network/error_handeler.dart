@@ -12,10 +12,30 @@ class ErrorHandler implements Exception {
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
       failure = _handleError(error);
+    } else if (error is Failure) {
+      // already a failure object
+      failure = _serverError(error);
     } else {
       // default error
       failure = DataSource.DEFAULT.getFailure();
     }
+  }
+}
+
+Failure _serverError(Failure failure) {
+  switch (failure.statusCode) {
+    case ResponseCode.BAD_REQUEST:
+      return DataSource.BAD_REQUEST.getFailure();
+    case ResponseCode.UNAUTORISED:
+      return DataSource.UNAUTORISED.getFailure();
+    case ResponseCode.FORBIDDEN:
+      return DataSource.FORBIDDEN.getFailure();
+    case ResponseCode.NOT_FOUND:
+      return DataSource.NOT_FOUND.getFailure();
+    case ResponseCode.INTERNAL_SERVER_ERROR:
+      return DataSource.INTERNAL_SERVER_ERROR.getFailure();
+    default:
+      return DataSource.DEFAULT.getFailure();
   }
 }
 
@@ -27,12 +47,13 @@ Failure _handleError(DioException error) {
       return DataSource.SEND_TIMEOUT.getFailure();
     case DioExceptionType.receiveTimeout:
       return DataSource.RECIEVE_TIMEOUT.getFailure();
+
     case DioExceptionType.badResponse:
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return Failure(error.response?.statusMessage ?? "",
-            error.response?.statusCode ?? 0);
+        return _serverError(Failure(error.response?.statusMessage ?? "",
+            error.response?.statusCode ?? 0));
       } else {
         return DataSource.DEFAULT.getFailure();
       }

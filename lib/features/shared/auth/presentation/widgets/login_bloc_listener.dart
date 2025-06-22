@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
 
 import '../../../../../core/routing/routes.dart';
-import '../../../../../core/theme/app_text_styles.dart';
 import '../cubits/login_cubit.dart';
 import '../cubits/login_state.dart';
 

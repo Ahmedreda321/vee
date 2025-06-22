@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:vee/features/shared/auth/data/mapper/login_mapper.dart';
 
-
 import '../../../../../core/errors/failures.dart';
 import '../../../../../core/network/error_handeler.dart';
 import '../../../../../core/network/network_info.dart';
@@ -35,8 +34,10 @@ class AuthRepositoryImpl implements AuthRepository {
           return Right(response.toDomain());
         } else {
           return Left(
-            Failure(response.message ?? ResponseMessage.DEFAULT,
-                response.statusCode ?? ResponseCode.DEFAULT),
+            ErrorHandler.handle(
+              Failure(response.message ?? ResponseMessage.DEFAULT,
+                  response.statusCode ?? ResponseCode.DEFAULT),
+            ).failure,
           );
         }
       } catch (error) {
