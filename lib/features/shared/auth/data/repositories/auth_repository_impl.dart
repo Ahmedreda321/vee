@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:vee/features/shared/auth/data/mapper/login_mapper.dart';
+import 'package:vee/features/shared/auth/data/mapper/auth_mapper.dart';
+import 'package:vee/features/shared/auth/data/models/forogt_password_request_body.dart';
+import 'package:vee/features/shared/auth/domain/entities/forgot_password_entity.dart';
 
 import '../../../../../core/errors/failures.dart';
 import '../../../../../core/network/error_handeler.dart';
@@ -17,12 +19,6 @@ class AuthRepositoryImpl implements AuthRepository {
     required AuthRemotDataSource authRemotDataSource,
   })  : _networkInfo = networkInfo,
         _authRemotDataSource = authRemotDataSource;
-
-  @override
-  Future<Either<Failure, Unit>> forgotPassword(String email) {
-    // TODO: implement forgotPassword
-    throw UnimplementedError();
-  }
 
   @override
   Future<Either<Failure, LoginEntity>> login(
@@ -52,5 +48,29 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failure, Unit>> resetPassword() {
     // TODO: implement resetPassword
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, ForgotPasswordEntity>> forgotPassword(
+      ForgotPasswordRequestBody forgotPasswordRequestBody) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _authRemotDataSource
+            .forgotPassword(forgotPasswordRequestBody);
+        if (response != null) {
+          return Right(response.toDomain());
+        } else {
+          return Left(
+            ErrorHandler.handle(
+              Failure(ResponseMessage.DEFAULT, ResponseCode.DEFAULT),
+            ).failure,
+          );
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
   }
 }

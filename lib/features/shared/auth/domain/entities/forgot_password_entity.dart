@@ -1,7 +1,7 @@
 class ForgotPasswordEntity {
-  final String email;
+  final String message;
 
   const ForgotPasswordEntity({
-    required this.email,
+    required this.message,
   });
 }

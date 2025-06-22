@@ -1,3 +1,4 @@
+import '../../domain/entities/forgot_password_entity.dart';
 import '../../domain/entities/login_entity.dart';
 import '../models/business_user_dto.dart';
 import '../models/login_response.dart';
@@ -20,6 +21,14 @@ extension BusinessUserMapper on BusinessUserDto {
       role: role ?? '',
       displayName: displayName ?? '',
       phoneNumber: phoneNumber ?? '',
+    );
+  }
+}
+
+extension ForgotPasswordMapper on String? {
+  ForgotPasswordEntity toDomain() {
+    return ForgotPasswordEntity(
+      message: this ?? 'An error occurred while processing your request.',
     );
   }
 }
