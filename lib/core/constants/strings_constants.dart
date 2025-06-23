@@ -19,6 +19,8 @@ class AppStrings {
   static const String yes = 'Yes';
   static const String no = 'No';
   static const String loading = 'Loading...';
+  static const String pending = 'Pending';
+  static const String completed = 'Completed';
 
   //******************************************************************************************************************* *//
                              //? Authentication Screens

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/errors/failures.dart';
 import '../../../../../core/network/error_handeler.dart';
 import '../../../../../core/network/network_info.dart';
@@ -26,9 +27,9 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
           final trips =
               response.trips?.map((trip) => trip.toDomain()).toList() ?? [];
           trips.sort((a, b) {
-            if (a.status == 'Pending' && b.status != 'Pending') {
-              return -1; 
-            } else if (a.status != 'Pending' && b.status == 'Pending') {
+            if (a.status == AppStrings.pending && b.status != AppStrings.pending) {
+              return -1;
+            } else if (a.status != AppStrings.pending && b.status == AppStrings.pending) {
               return 1;
             } else {
               return 0; 
