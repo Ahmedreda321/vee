@@ -22,6 +22,7 @@ class AppSize {
   static Size authButtonSize =
       Size(double.infinity, 57.h); //! not ACCURATE Name
 
+  static const Size designSize =  Size(360, 800);
   static Size homeAppBarSize = Size.fromHeight(100.0.h);
   static Size editProfileSize = Size(150.w, 40.h);
   static Size homeCardButtonSize = Size(double.infinity, 40.h);

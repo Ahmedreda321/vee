@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vee/core/constants/strings_constants.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
 
-import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../cubits/forgot_passwprd_cubit/forgot_password_state.dart';
@@ -25,11 +25,11 @@ class ForgotPasswordBlocListener extends StatelessWidget {
                 content: Text(error),
                 actions: [
                   TextButton(
-                    child: const Text('OK',
+                    child: const Text(AppStrings.ok,
                         style: TextStyle(
                           color: Colors.black,
                         )),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => context.back(),
                   ),
                 ],
               ),
@@ -43,13 +43,13 @@ class ForgotPasswordBlocListener extends StatelessWidget {
                 content: Text("${data.message}.\n please check your email"),
                 actions: [
                   TextButton(
-                    child: const Text('OK',
+                    child: const Text(AppStrings.ok,
                         style: TextStyle(
                           color: Colors.black,
                         )),
                     onPressed: () {
-                      Navigator.pop(context);
-                      context.pushNamed(Routes.resetPasswordScreen);
+                      context.back();
+                      context.back();
                     },
                   ),
                 ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
 
+import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../cubits/login_cubit/login_cubit.dart';
@@ -29,7 +30,7 @@ class LoginBlocListener extends StatelessWidget {
                 content: Text(error),
                 actions: [
                   TextButton(
-                    child: const Text('OK',
+                    child: const Text(AppStrings.ok,
                         style: TextStyle(
                           color: Colors.black,
                         )),
@@ -46,7 +47,7 @@ class LoginBlocListener extends StatelessWidget {
             } else {
               final businessUser = loginEntity.businessUser;
               if (businessUser != null) {
-                if (businessUser.role == 'driver') {
+                if (businessUser.role == AppStrings.driver) {
                   Navigator.pushReplacementNamed(
                       context, Routes.driverHomeScreen);
                 } else {

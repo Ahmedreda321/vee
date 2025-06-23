@@ -1,114 +1,21 @@
 class AppStrings {
-  // ====================
-  // Language Maps
-  // ====================
-  static const Map<String, String> en = {
-    // General
-    'appName': 'Vee',
-
-    // Onboarding Screen
-    'onBoardingWelcomeTo': 'Welcome to ',
-    'onBoardingDescription':
-        'Lorem ipsum dolor sit amet consectetur. Pell\n entesque faucibus lacus et blandit ut. Tellus at\n mauris hac vulputate magna sed',
-    'onBoardingGetStarted': 'Get Started',
-
-    // Navigation Bar
-    'start': 'Start',
-    'trips': 'Trips',
-    'trip': 'Trip',
-    'vehicle': 'Vehicle',
-
-    // Authentication Screens
-    'login': 'Login',
-    'email': 'Email',
-    'password': 'Password',
-    'sendCode': 'Send Code',
-    'emailAddress': 'Email Address',
-    'newPassword': 'New Password',
-    'confirmPassword': 'Confirm Password',
-    'confirmEmail': 'Confirm Email',
-    'rememberedyourpassword': 'Remembered your password?',
-    'forgotPassword': 'Forgot Password?',
-    'checkYourEmail': 'Please check your email',
-    'forgotPasswordDesc':
-        'Enter your email address, and we’ll send you a code to reset your password',
-    'resetPassword': 'Reset Password',
-    'resetPasswordDesc': 'Add your own new password!',
-
-    // Task Notifications
-    'notifications': 'Notifications',
-    'newTask': 'New Task Assigned!',
-    'pastTasks': 'Past Tasks',
-
-    // Profile Screen
-    'profile': 'Profile',
-    'yourName': 'YOUR NAME',
-    'yourEmail': 'YOUR EMAIL',
-    'userName': 'USER NAME',
-    'address': 'ADDRESS',
-    'mobile': 'MOBILE NUMBER',
-  };
-
-  static const Map<String, String> ar = {
-    // General
-    'appName': 'تطبيقي',
-
-    // Onboarding Screen
-    'onBoardingWelcomeTo': 'مرحبًا بك في ',
-    'onBoardingDescription':
-        'لوريم إيبسوم دولار سيت أميت. بيلي نتسكي فوسيبوس لاكوس إت بلانديت يت. تيلوس أت\n ماوريس هاك فولبوتات ماجنا سيد',
-    'onBoardingGetStarted': 'ابدأ',
-
-    // Navigation Bar
-    'start': 'ابدأ',
-    'trips': 'رحلات',
-    'trip': 'رحلة',
-    'vehicle': 'مركبة',
-
-    // Authentication Screens
-    'login': 'تسجيل الدخول',
-    'email': 'البريد الإلكتروني',
-    'password': 'كلمة المرور',
-    'sendCode': 'إرسال الرمز',
-    'emailAddress': 'عنوان البريد الإلكتروني',
-    'newPassword': 'كلمة مرور جديدة',
-    'confirmPassword': 'تأكيد كلمة المرور',
-    'confirmEmail': 'تأكيد البريد الإلكتروني',
-    'rememberedyourpassword': 'تذكرت كلمة المرور؟',
-    'forgotPassword': 'هل نسيت كلمة المرور؟',
-    'checkYourEmail': 'يرجى التحقق من بريدك',
-    'forgotPasswordDesc':
-        'أدخل عنوان بريدك الإلكتروني، وسنرسل لك رمزًا لإعادة تعيين كلمة المرور',
-    'resetPassword': 'إعادة تعيين كلمة المرور',
-    'resetPasswordDesc': 'أضف كلمة المرور الجديدة!',
-
-    // Task Notifications
-    'notifications': 'الإشعارات',
-    'newTask': 'مهمة جديدة محددة!',
-    'pastTasks': 'المهام السابقة',
-
-    // Profile Screen
-    'profile': 'الملف الشخصي',
-    'yourName': 'اسمك',
-    'yourEmail': 'بريدك الإلكتروني',
-    'userName': 'اسم المستخدم',
-    'address': 'العنوان',
-    'mobile': 'رقم الجوال',
-  };
-
-  // ====================
-  // Individual Constants
-  // ====================
-
+  AppStrings._();
   // General
-  static const String driver = 'Driver'; // TODO:  check if Driver or driver
-  static const String mechanic = 'Mechanic'; // TODO:  check if Mechanic or mechanic
+  static const String driver = 'Driver'; 
+  static const String mechanic = 'Mechanic'; 
   static const String start = 'Start';
   static const String trips = 'Trips';
   static const String trip = 'Trip';
   static const String vehicle = 'Vehicle';
   static const String date = 'Date';
   static const String time = 'Time';
+  static const String status = 'Status';
+  static const String details = 'Details';
+  static const String ok = 'OK';
+  static const String cancel = 'Cancel';
+  static const String yes = 'Yes';
+  static const String no = 'No';
+  static const String loading = 'Loading...';
 
   // Authentication Screens
   static const String login = 'Login';
@@ -130,7 +37,7 @@ class AppStrings {
   static const String verify = 'Verify';
   static const String weSentACode = "We've sent a code to ";
 
-// Home Screen
+// driver Home Screen
   static const String upcomingTrips = 'Upcoming Trips';
 
   // Notifications Screen
@@ -147,7 +54,6 @@ class AppStrings {
   static const String mobile = 'MOBILE NUMBER';
   static const String edit = 'Edit';
   static const String save = 'Save';
-  static const String cancel = 'Cancel';
 
   // Onboarding Screen
   static const String onBoardingWelcomeTo = 'Welcome to ';
