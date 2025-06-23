@@ -53,7 +53,7 @@ class ProfilePic extends StatelessWidget {
           Container(
             width: AppSize.profileImageRadius * 2,
             height: AppSize.profileImageRadius * 2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColor.opacityBlue,
             ),

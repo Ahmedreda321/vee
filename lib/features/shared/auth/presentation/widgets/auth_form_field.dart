@@ -12,6 +12,7 @@ class AuthFormField extends StatefulWidget {
   final TextEditingController controller;
   final bool isPassword;
   final bool isEmail;
+  final Function(String)? onFieldSubmitted;
 
   const AuthFormField({
     super.key,
@@ -19,7 +20,7 @@ class AuthFormField extends StatefulWidget {
     required this.hintText,
     required this.controller,
     this.isPassword = false,
-    this.isEmail = false,
+    this.isEmail = false, this.onFieldSubmitted,
   });
 
   @override
@@ -105,7 +106,7 @@ class _AuthFormFieldState extends State<AuthFormField> {
                 horizontal: 12.w,
                 vertical: 16.h,
               ),
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               suffixIcon: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -25,12 +25,12 @@ class OnboardingScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               verticalSpace(80),
-              OnBoardingIcon(),
+              const OnBoardingIcon(),
               verticalSpace(AppSize.medium),
-              OnBoardingWelcome(),
+              const OnBoardingWelcome(),
               verticalSpace(AppSize.medium),
-              OnBoardingDesc(),
-              Spacer(),
+              const OnBoardingDesc(),
+              const Spacer(),
               GetStarted(
                 onPressed: () {
                   context.pushNamedAndRemoveUntil(Routes.loginScreen);

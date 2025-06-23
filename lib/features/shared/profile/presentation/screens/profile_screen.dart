@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: AppColor.white,
       appBar: AppBar(
         title: Text(AppStrings.profile, style: AppTextStyles.screenTitle),
-        leading: BackArrowButton(),
+        leading: const BackArrowButton(),
       ),
       body: const SafeArea(
         child: ProfileForm(),

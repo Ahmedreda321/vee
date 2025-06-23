@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constants/app_assets.dart';
-import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/widgets/svg_bottom_clipper.dart';
 
 class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double minHeight, maxHeight;
-  final String title;
 
   SliverAppBarDelegate({
     required this.minHeight,
     required this.maxHeight,
-    required this.title,
   });
 
   @override
@@ -42,8 +40,10 @@ class SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
           ),
           Center(
-            child: Text(title,
-                style: AppTextStyles.logo), //! should Have Some Bottom Padding
+            child: Image.asset(
+              Assets.assetsImagesLogoRemovebg,
+              width: 170.w
+            ), //! should Have Some Bottom Padding
           ),
         ],
       ),

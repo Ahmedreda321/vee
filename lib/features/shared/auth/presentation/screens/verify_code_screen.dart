@@ -16,11 +16,11 @@ class VerifyCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthFormatScreens(children: [
-      ScreenTitle(title: AppStrings.checkYourEmail),
-      WeSendCode(
+      const ScreenTitle(title: AppStrings.checkYourEmail),
+      const WeSendCode(
         email: "blake@email.com",
       ),
-      OtpField(),
+      const OtpField(),
       SendCodeAgain(onResend: () {}),
       AuthButton(
         title: AppStrings.verify,

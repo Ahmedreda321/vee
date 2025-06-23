@@ -15,10 +15,10 @@ class ResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthFormatScreens(
       children: [
-        ScreenTitle(
+        const ScreenTitle(
           title: AppStrings.resetPassword,
         ),
-        AuthDesc(desc: AppStrings.resetPasswordDesc),
+        const AuthDesc(desc: AppStrings.resetPasswordDesc),
         AuthFormField(
           controller: TextEditingController(),
           isPassword: true,

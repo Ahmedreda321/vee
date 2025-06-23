@@ -1,21 +1,24 @@
 import 'package:json_annotation/json_annotation.dart';
-
 import 'business_user_dto.dart';
 
 part 'login_response.g.dart';
 
 @JsonSerializable()
 class LoginResponse {
-  final bool mustChangePassword;
-  final String email;
-  final String token;
-  final BusinessUserDto bussinessUserDto;
+  final int? statusCode;
+  final String? message;
+  final bool? mustChangePassword;
+  final String? email;
+  final String? token;
+  final BusinessUserDto? bussinessUserDto;
 
   LoginResponse({
-    required this.mustChangePassword,
-    required this.email,
-    required this.token,
-    required this.bussinessUserDto,
+    this.statusCode,
+    this.message,
+    this.mustChangePassword,
+    this.email,
+    this.token,
+    this.bussinessUserDto,
   });
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>

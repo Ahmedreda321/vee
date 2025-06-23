@@ -4,10 +4,10 @@ part 'business_user_dto.g.dart';
 
 @JsonSerializable()
 class BusinessUserDto {
-  final String id;
-  final String role;
-  final String displayName;
-  final String phoneNumber;
+  final String? id;
+  final String? role;
+  final String? displayName;
+  final String? phoneNumber;
 
   BusinessUserDto({
     required this.id,

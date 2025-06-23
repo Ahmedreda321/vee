@@ -19,7 +19,7 @@ class AppNotification extends StatelessWidget {
       padding: AppPadding.small,
       child: Row(children: [
         NotificationIcon(isPast: isPast),
-        Expanded(
+        const Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

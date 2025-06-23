@@ -1,5 +1,4 @@
-Hello Created By Abdalluh Essam 🇪🇬🇪🇬🇪
-abdallhesam100@gmail.com
+
 
 
 
@@ -7,14 +6,11 @@ abdallhesam100@gmail.com
 # vee
 
 
-🚀 Clean Architecture Flutter Project Generated Automatically
-
 
 ## Structure
 
 
 ```
-lib/
 ├── core/
 │   ├── constants
 │   ├── network
@@ -26,33 +22,18 @@ lib/
 │   ├── cubit
 │   └── extensions
 ├── features/
-│   ├── splash
-│   ├── onboarding
-│   ├── auth
-│   └── home
-├── app.dart
+|   ├──driver/
+|   |   ├──home/
+|   |   └──notifications
+|   ├──mechanic/
+|   |  ├──home/
+|   |  └──notifications
+|   └──shared/
+│      ├── onboarding
+│      ├── auth
+│      └── home
+├── vee.dart
 ├── main.dart
 └── app_bloc_observer.dart
 ```
 
-
-## Getting Started
-```bash
-flutter pub get
-flutter run
-```
-
-
----
-
-
-✅ Built with ❤️ using the Clean Architecture Generator
-
-
-Hello Created By Abdalluh Essam 🇪🇬🇪🇬🇪
-# vee
-# vee
-# vee
-# vee
-# vee
-# vee

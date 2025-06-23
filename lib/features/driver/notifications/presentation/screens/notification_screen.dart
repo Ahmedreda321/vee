@@ -18,7 +18,7 @@ class NotificationScreen extends StatelessWidget {
           title:
               Text(AppStrings.notifications, style: AppTextStyles.screenTitle),
         ),
-        body: Column(
+        body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

@@ -47,7 +47,7 @@ class AppTheme {
     );
   }
 
-  static ColorScheme get _lightColorScheme => ColorScheme(
+  static ColorScheme get _lightColorScheme => const ColorScheme(
         brightness: Brightness.light,
         primary: AppColor.white,
         onPrimary: AppColor.white,
@@ -59,7 +59,7 @@ class AppTheme {
         onSurface: AppColor.black,
       );
 
-  static AppBarTheme get _appBarTheme => AppBarTheme(
+  static AppBarTheme get _appBarTheme => const AppBarTheme(
         backgroundColor: AppColor.white,
         scrolledUnderElevation: 0,
         elevation: 0,
