@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/driver/home/presentation/cubit/driver_home_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import '../../features/shared/auth/presentation/screens/reset_password_screen.dart';
@@ -24,12 +25,12 @@ class AppRouter {
         return _createRoute(const OnboardingScreen());
       case Routes.loginScreen:
         return _createRoute(BlocProvider(
-          create: (context) => getIt<LoginCubit>(),
+          create: (context) =>LoginCubit(getIt()),
           child: const LoginScreen(),
         ));
       case Routes.forgotPasswordScreen:
         return _createRoute(BlocProvider(
-          create: (context) => getIt<ForgotPasswordCubit>(),
+          create: (context) =>ForgotPasswordCubit(getIt()),
           child: const ForgotPasswordScreen(),
         ));
       case Routes.verifyCodeScreen:
@@ -37,7 +38,10 @@ class AppRouter {
       case Routes.resetPasswordScreen:
         return _createRoute(const ResetPasswordScreen());
       case Routes.driverHomeScreen:
-        return _createRoute(const DriverHomeScreen());
+        return _createRoute(BlocProvider(
+          create: (context) => DriverHomeCubit(getIt())..getDriverHomeData(),
+          child: const DriverHomeScreen(),
+        ));
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(

@@ -10,9 +10,12 @@ class HomeTripCard extends StatelessWidget {
   const HomeTripCard({
     super.key,
     required this.tripInfo,
-    required this.vehicleInfo,
+    required this.vehicleInfo, required this.date, required this.time, required this.onPressed,
   });
+
   final TripCardInfo tripInfo, vehicleInfo;
+  final String date, time;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return AppContainer(
@@ -23,13 +26,14 @@ class HomeTripCard extends StatelessWidget {
         children: [
           tripInfo,
           vehicleInfo,
-          const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            TripCardInfo(title: AppStrings.date, value: "12/12/2022"),
-            TripCardInfo(title: AppStrings.time, value: "12:00"),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            TripCardInfo(title: AppStrings.date, value: date),
+            TripCardInfo(title: AppStrings.time, value: time),
           ]),
-          const StartButton(),
+          StartButton(onPressed: onPressed),
         ],
       ),
     );
   }
 }
+

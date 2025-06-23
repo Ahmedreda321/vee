@@ -1,8 +1,11 @@
 class AppStrings {
   AppStrings._();
-  // General
-  static const String driver = 'Driver'; 
-  static const String mechanic = 'Mechanic'; 
+
+  //******************************************************************************************************************* *//
+                                 //? General
+  //******************************************************************************************************************* *//
+  static const String driver = 'Driver';
+  static const String mechanic = 'Mechanic';
   static const String start = 'Start';
   static const String trips = 'Trips';
   static const String trip = 'Trip';
@@ -17,7 +20,10 @@ class AppStrings {
   static const String no = 'No';
   static const String loading = 'Loading...';
 
-  // Authentication Screens
+  //******************************************************************************************************************* *//
+                             //? Authentication Screens
+  //******************************************************************************************************************* *//
+
   static const String login = 'Login';
   static const String email = 'Email';
   static const String password = 'Password';
@@ -37,15 +43,30 @@ class AppStrings {
   static const String verify = 'Verify';
   static const String weSentACode = "We've sent a code to ";
 
-// driver Home Screen
+  //******************************************************************************************************************* *//
+                                //? driver Home Screen
+  //******************************************************************************************************************* *//
+
+  static const String home = 'Home';
+  static const String welcomeBack = 'Welcome Back';
+  static const String tripsCount = 'Trips Count';
+  static const String upcomingTripsCount = 'Upcoming Trips Count';
+  static const String completedTripsCount = 'Completed Trips Count';
+  static const String noTripsYet = 'No Trips Yet';
   static const String upcomingTrips = 'Upcoming Trips';
 
-  // Notifications Screen
+  //******************************************************************************************************************* *//
+                              //? Notifications Screen
+  //******************************************************************************************************************* *//
+
   static const String notifications = 'Notifications';
   static const String newTask = 'New Task Assigned!';
   static const String pastTasks = 'Past Tasks';
 
-  // Profile Screen
+  //******************************************************************************************************************* *//
+                               //? Profile Screen
+  //******************************************************************************************************************* *//
+
   static const String profile = 'Profile';
   static const String yourName = 'YOUR NAME';
   static const String yourEmail = 'YOUR EMAIL';
@@ -55,26 +76,33 @@ class AppStrings {
   static const String edit = 'Edit';
   static const String save = 'Save';
 
-  // Onboarding Screen
+  //******************************************************************************************************************* *//
+                               //? Onboarding Screen
+  //******************************************************************************************************************* *//
+
   static const String onBoardingWelcomeTo = 'Welcome to ';
   static const String onBoardingDescription =
       'Lorem ipsum dolor sit amet consectetur. Pell\n entesque faucibus lacus et blandit ut. Tellus at\n mauris hac vulputate magna sed';
   static const String onBoardingGetStarted = 'Get Started';
 
-  // Error Messages
+  //******************************************************************************************************************* *//
+                               //? Error Messages
+  //******************************************************************************************************************* *//
+
   static const String noInternetConnectionError = 'No Internet Connection';
   static const String serverError = 'Server Error';
-  static const String unauthorizedError = 'Email or Password is incorrect\nPlease check and try again';
+  static const String unauthorizedError =
+      'Email or Password is incorrect\nPlease check and try again';
   static const String notFoundError = 'Not Found';
   static const String badRequestError = 'Bad Request';
   static const String internalServerError = 'Internal Server Error';
   static const String unknownError = 'Unknown Error';
-  static const String defaultError = 'Something went wrong';  
+  static const String defaultError = 'Something went wrong';
   static const String timeoutError = 'Request Timeout';
   static const String success = 'Success';
   static const String forbiddenError = 'Forbidden';
-  static const String noInternetError = 'No Internet Connection';
+  static const String noInternetError =
+      'No Internet Connection,\n please check your connection';
   static const String cacheError = 'Cache Error';
   static const String connectTimeoutError = 'Connection Timeout';
-
 }

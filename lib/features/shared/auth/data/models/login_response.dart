@@ -10,6 +10,7 @@ class LoginResponse {
   final bool? mustChangePassword;
   final String? email;
   final String? token;
+  @JsonKey(name: 'bussinessUser')
   final BusinessUserDto? bussinessUserDto;
 
   LoginResponse({
@@ -25,4 +26,9 @@ class LoginResponse {
       _$LoginResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
+
+  @override
+  String toString() {
+    return 'LoginResponse{statusCode: $statusCode, message: $message, mustChangePassword: $mustChangePassword, email: $email, token: $token, bussinessUserDto: $bussinessUserDto}';
+  }
 }

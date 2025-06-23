@@ -5,3 +5,6 @@ import '../errors/failures.dart';
 abstract class BaseUseCase<Input, Output> {
   Future<Either<Failure, Output>> call(Input input);
 }
+
+// noParams
+class NoParams {}

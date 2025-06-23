@@ -1,0 +1,84 @@
+
+
+
+import '../../domain/entities/driver_home_entities.dart';
+import '../models/trip_model.dart';
+
+extension TripResponseMapper on TripResponse {
+  TripEntity toDomain() {
+    String datePart = '';
+    String time = '';
+    
+    if (date != null && date!.isNotEmpty) {
+      try {
+        final dateTime = DateTime.parse(date!);
+        datePart = '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}';
+        time = '${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}';
+      } catch (e) {
+        datePart = date!;
+        time = '';
+      }
+    }
+    return TripEntity(
+      id: id ?? '',
+      managerId: managerId ?? '',
+      details: details ?? '',
+      destination: destination ?? '',
+      tripType: tripType ?? '',
+      date: datePart,
+      time: time,
+      driver: driver?.toDomain() ?? TripDriverEntity(id: '', name: ''),
+      vehicle: vehicle?.toDomain() ?? VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
+      status: status ?? '',
+    );
+  }
+}
+
+extension TripDriverResponseMapper on TripDriverResponse {
+  TripDriverEntity toDomain() {
+    return TripDriverEntity(
+      id: id ?? '',
+      name: name ?? '',
+    );
+  }
+}
+extension VehicleResponseMapper on VehicleResponse {
+  VehicleEntity toDomain() {
+    return VehicleEntity(
+      id: id ?? '',
+      palletNumber: palletNumber ?? '',
+      vehicleModel: vehicleModelDto?.toDomain() ?? VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: '')),
+    );
+  }
+}
+extension VehicleModelDtoResponseMapper on VehicleModelDtoResponse {
+  VehicleModelEntity toDomain() {
+    return VehicleModelEntity(
+      id: id ?? '',
+      name: name ?? '',
+      fuelEfficiency: fuelEfficiency ?? '',
+      brand: brand?.toDomain() ?? BrandEntity(id: '', name: '', country: ''),
+      category: category?.toDomain() ?? CategoryEntity(id: '', name: '', description: ''),
+    );
+  }
+}
+extension CategoryResponseMapper on CategoryResponse {
+  CategoryEntity toDomain() {
+    return CategoryEntity(
+      id: id ?? '',
+      name: name ?? '',
+      description: description ?? '',
+    );
+  }
+}
+extension BrandResponseMapper on BrandResponse {
+  BrandEntity toDomain() {
+    return BrandEntity(
+      id: id ?? '',
+      name: name ?? '',
+      country: country ?? '',
+    );
+  }
+}
+
+
