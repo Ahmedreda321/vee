@@ -15,3 +15,9 @@ DriverHomeResponse _$DriverHomeResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
+Map<String, dynamic> _$DriverHomeResponseToJson(DriverHomeResponse instance) =>
+    <String, dynamic>{
+      'statusCode': instance.statusCode,
+      'message': instance.message,
+      'tripRequests': instance.trips,
+    };

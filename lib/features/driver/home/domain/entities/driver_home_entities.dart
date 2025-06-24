@@ -16,7 +16,7 @@ class TripEntity {
   final VehicleEntity vehicle;
   final String status;
 
-  TripEntity({
+  const TripEntity({
     required this.time,
     required this.id,
     required this.managerId,
@@ -34,7 +34,7 @@ class TripDriverEntity {
   final String id;
   final String name;
 
-  TripDriverEntity({
+  const TripDriverEntity({
     required this.id,
     required this.name,
   });
@@ -45,7 +45,7 @@ class VehicleEntity {
   final String palletNumber;
   final VehicleModelEntity vehicleModel;
 
-  VehicleEntity({
+  const VehicleEntity({
     required this.id,
     required this.palletNumber,
     required this.vehicleModel,
@@ -59,7 +59,7 @@ class VehicleModelEntity {
   final BrandEntity  brand;
   final CategoryEntity category;
 
-  VehicleModelEntity({
+  const VehicleModelEntity({
     required this.id,
     required this.name,
     required this.fuelEfficiency,
@@ -73,7 +73,7 @@ class CategoryEntity {
   final String name;
   final String description;
 
-  CategoryEntity({
+  const CategoryEntity({
     required this.id,
     required this.name,
     required this.description,
@@ -85,7 +85,7 @@ class BrandEntity {
   final String name;
   final String country;
 
-  BrandEntity({
+  const BrandEntity({
     required this.id,
     required this.name,
     required this.country,

@@ -22,6 +22,18 @@ TripResponse _$TripResponseFromJson(Map<String, dynamic> json) => TripResponse(
       status: json['status'] as String?,
     );
 
+Map<String, dynamic> _$TripResponseToJson(TripResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'managerId': instance.managerId,
+      'details': instance.details,
+      'destination': instance.destination,
+      'tripType': instance.tripType,
+      'date': instance.date,
+      'driver': instance.driver,
+      'vehicle': instance.vehicle,
+      'status': instance.status,
+    };
 
 TripDriverResponse _$TripDriverResponseFromJson(Map<String, dynamic> json) =>
     TripDriverResponse(
@@ -29,6 +41,11 @@ TripDriverResponse _$TripDriverResponseFromJson(Map<String, dynamic> json) =>
       name: json['displayName'] as String?,
     );
 
+Map<String, dynamic> _$TripDriverResponseToJson(TripDriverResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'displayName': instance.name,
+    };
 
 VehicleResponse _$VehicleResponseFromJson(Map<String, dynamic> json) =>
     VehicleResponse(
@@ -40,6 +57,12 @@ VehicleResponse _$VehicleResponseFromJson(Map<String, dynamic> json) =>
               json['vehicleModelDto'] as Map<String, dynamic>),
     );
 
+Map<String, dynamic> _$VehicleResponseToJson(VehicleResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'palletNumber': instance.palletNumber,
+      'vehicleModelDto': instance.vehicleModelDto,
+    };
 
 VehicleModelDtoResponse _$VehicleModelDtoResponseFromJson(
         Map<String, dynamic> json) =>
@@ -55,6 +78,15 @@ VehicleModelDtoResponse _$VehicleModelDtoResponseFromJson(
           : CategoryResponse.fromJson(json['category'] as Map<String, dynamic>),
     );
 
+Map<String, dynamic> _$VehicleModelDtoResponseToJson(
+        VehicleModelDtoResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'fuelEfficiency': instance.fuelEfficiency,
+      'brand': instance.brand,
+      'category': instance.category,
+    };
 
 CategoryResponse _$CategoryResponseFromJson(Map<String, dynamic> json) =>
     CategoryResponse(
@@ -63,6 +95,12 @@ CategoryResponse _$CategoryResponseFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
     );
 
+Map<String, dynamic> _$CategoryResponseToJson(CategoryResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+    };
 
 BrandResponse _$BrandResponseFromJson(Map<String, dynamic> json) =>
     BrandResponse(
@@ -71,3 +109,9 @@ BrandResponse _$BrandResponseFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String?,
     );
 
+Map<String, dynamic> _$BrandResponseToJson(BrandResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'country': instance.country,
+    };

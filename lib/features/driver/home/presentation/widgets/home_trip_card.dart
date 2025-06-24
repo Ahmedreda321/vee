@@ -10,9 +10,13 @@ class HomeTripCard extends StatelessWidget {
   const HomeTripCard({
     super.key,
     required this.tripInfo,
-    required this.vehicleInfo, required this.date, required this.time, required this.onPressed,
+    required this.vehicleInfo,
+    required this.date,
+    required this.time,
+    required this.onPressed, 
+    required this.status,
   });
-
+  final String status;
   final TripCardInfo tripInfo, vehicleInfo;
   final String date, time;
   final VoidCallback? onPressed;
@@ -30,10 +34,9 @@ class HomeTripCard extends StatelessWidget {
             TripCardInfo(title: AppStrings.date, value: date),
             TripCardInfo(title: AppStrings.time, value: time),
           ]),
-          StartButton(onPressed: onPressed),
+          StartButton(onPressed: onPressed, status: status),
         ],
       ),
     );
   }
 }
-

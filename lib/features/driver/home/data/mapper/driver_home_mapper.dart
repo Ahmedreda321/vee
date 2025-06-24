@@ -1,6 +1,3 @@
-
-
-
 import '../../../../../core/constants/strings_constants.dart';
 import '../../domain/entities/driver_home_entities.dart';
 import '../models/trip_model.dart';
@@ -23,7 +20,7 @@ extension TripResponseMapper on TripResponse {
   TripEntity toDomain() {
     String datePart = '';
     String time = '';
-    
+    //TODO :  maybe Refactor this
     if (date != null && date!.isNotEmpty) {
       try {
         final dateTime = DateTime.parse(date!);
@@ -42,8 +39,8 @@ extension TripResponseMapper on TripResponse {
       tripType: tripType ?? '',
       date: datePart,
       time: time,
-      driver: driver?.toDomain() ?? TripDriverEntity(id: '', name: ''),
-      vehicle: vehicle?.toDomain() ?? VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
+      driver: driver?.toDomain() ?? const TripDriverEntity(id: '', name: ''),
+      vehicle: vehicle?.toDomain() ?? const VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
       status: status ?? '',
     );
   }
@@ -62,7 +59,7 @@ extension VehicleResponseMapper on VehicleResponse {
     return VehicleEntity(
       id: id ?? '',
       palletNumber: palletNumber ?? '',
-      vehicleModel: vehicleModelDto?.toDomain() ?? VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: '')),
+      vehicleModel: vehicleModelDto?.toDomain() ?? const VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: '')),
     );
   }
 }
@@ -72,8 +69,8 @@ extension VehicleModelDtoResponseMapper on VehicleModelDtoResponse {
       id: id ?? '',
       name: name ?? '',
       fuelEfficiency: fuelEfficiency ?? '',
-      brand: brand?.toDomain() ?? BrandEntity(id: '', name: '', country: ''),
-      category: category?.toDomain() ?? CategoryEntity(id: '', name: '', description: ''),
+      brand: brand?.toDomain() ?? const BrandEntity(id: '', name: '', country: ''),
+      category: category?.toDomain() ?? const CategoryEntity(id: '', name: '', description: ''),
     );
   }
 }

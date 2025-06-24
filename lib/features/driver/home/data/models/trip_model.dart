@@ -14,7 +14,7 @@ class TripResponse {
   final VehicleResponse? vehicle;
   final String? status;
 
-  TripResponse({
+  const TripResponse({
     this.id,
     this.managerId,
     this.details,
@@ -35,7 +35,7 @@ class TripDriverResponse {
   @JsonKey(name: 'displayName')
   final String? name;
 
-  TripDriverResponse({
+  const TripDriverResponse({
     this.id,
     this.name,
   });
@@ -49,7 +49,7 @@ class VehicleResponse {
   final String? id;
   final String? palletNumber;
   final VehicleModelDtoResponse? vehicleModelDto;
-  VehicleResponse({
+  const VehicleResponse({
     this.id,
     this.palletNumber,
     this.vehicleModelDto,
@@ -67,7 +67,7 @@ class VehicleModelDtoResponse {
   final BrandResponse? brand;
   final CategoryResponse? category;
 
-  VehicleModelDtoResponse({
+  const VehicleModelDtoResponse({
     this.id,
     this.name,
     this.fuelEfficiency,
@@ -84,7 +84,7 @@ class CategoryResponse {
   final String? name;
   final String? description;
 
-  CategoryResponse({
+  const CategoryResponse({
     this.id,
     this.name,
     this.description,
@@ -99,7 +99,7 @@ class BrandResponse {
   final String? name;
   final String? country;
 
-  BrandResponse({
+  const BrandResponse({
     this.id,
     this.name,
     this.country,

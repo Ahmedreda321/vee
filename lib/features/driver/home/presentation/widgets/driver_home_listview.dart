@@ -39,7 +39,8 @@ class DriverHomeListView extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: HomeTripCard(
-                    onPressed: trip.status == AppStrings.pending ? () {} : null,
+                    status: trip.status,
+                    onPressed: (){},
                     tripInfo: TripCardInfo(
                       title: AppStrings.trip,
                       value: "From Alex → ${trip.destination}",

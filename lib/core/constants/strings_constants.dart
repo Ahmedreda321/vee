@@ -20,10 +20,10 @@ class AppStrings {
   static const String no = 'No';
   static const String loading = 'Loading...';
   static const String pending = 'Pending';
-  static const String completed = 'Completed';
+  static const String completed = 'Completed !';
 
   //******************************************************************************************************************* *//
-                             //? Authentication Screens
+                                //? Authentication 
   //******************************************************************************************************************* *//
 
   static const String login = 'Login';
@@ -46,7 +46,7 @@ class AppStrings {
   static const String weSentACode = "We've sent a code to ";
 
   //******************************************************************************************************************* *//
-                                //? driver Home Screen
+                                    //? driver
   //******************************************************************************************************************* *//
 
   static const String home = 'Home';

@@ -10,7 +10,7 @@ class DriverHomeResponse {
   @JsonKey(name: 'tripRequests')
   final List<TripResponse>? trips;
 
-  DriverHomeResponse(this.message, {this.statusCode, this.trips});
+  const DriverHomeResponse(this.message, {this.statusCode, this.trips});
 
   factory DriverHomeResponse.fromJson(Map<String, dynamic> json) =>
       _$DriverHomeResponseFromJson(json);
