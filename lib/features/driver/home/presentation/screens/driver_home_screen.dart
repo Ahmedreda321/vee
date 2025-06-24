@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
-import 'package:vee/core/widgets/app_circular_indicator.dart';
 
 import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
+import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../cubit/driver_home_cubit.dart';
 import '../cubit/driver_home_state.dart';
 import '../widgets/custom_app_bar.dart';

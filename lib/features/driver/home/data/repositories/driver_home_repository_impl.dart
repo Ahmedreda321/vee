@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/errors/failures.dart';
 import '../../../../../core/network/error_handeler.dart';
 import '../../../../../core/network/network_info.dart';
@@ -25,16 +24,8 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
         final response = await _driverHomeRemoteDataSource.getDriverTrips();
         if (response.statusCode == ResponseCode.SUCCESS) {
           final trips =
-              response.trips?.map((trip) => trip.toDomain()).toList() ?? [];
-          trips.sort((a, b) {
-            if (a.status == AppStrings.pending && b.status != AppStrings.pending) {
-              return -1;
-            } else if (a.status != AppStrings.pending && b.status == AppStrings.pending) {
-              return 1;
-            } else {
-              return 0; 
-            }
-          });
+              response.trips?.map((trip) => trip.toDomain()).toList().sortTrips() ?? [];
+         
           return Right(DriverHomeEntities(trips: trips));
         } else {
           return Left(

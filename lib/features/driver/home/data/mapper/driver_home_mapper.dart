@@ -1,8 +1,23 @@
 
 
 
+import '../../../../../core/constants/strings_constants.dart';
 import '../../domain/entities/driver_home_entities.dart';
 import '../models/trip_model.dart';
+
+extension TripEntitySorting on List<TripEntity> {
+  List<TripEntity> sortTrips() {
+    return this..sort((a, b) {
+      if (a.status == AppStrings.pending && b.status != AppStrings.pending) {
+        return -1;
+      } else if (a.status != AppStrings.pending && b.status == AppStrings.pending) {
+        return 1;
+      } else {
+        return 0; 
+      }
+    });
+  }
+}
 
 extension TripResponseMapper on TripResponse {
   TripEntity toDomain() {
