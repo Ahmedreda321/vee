@@ -9,4 +9,7 @@ class DriverHomeState<T> with _$DriverHomeState<T> {
   const factory DriverHomeState.loading() = Loading;
   const factory DriverHomeState.loaded(DriverHomeEntities data) = Loaded;
   const factory DriverHomeState.error(String message) = Error;
+  const factory DriverHomeState.tripLoding() = TripLoading;
+  const factory DriverHomeState.tripLoaded(TripEntity trip) = TripLoaded;
+  const factory DriverHomeState.tripError(String message) = TripError;
 }

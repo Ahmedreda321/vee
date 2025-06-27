@@ -13,8 +13,18 @@ class TripResponse {
   final TripDriverResponse? driver;
   final VehicleResponse? vehicle;
   final String? status;
+  final String? pickupLocation;
+  final double? pickupLocationLatitude;
+  final double? pickupLocationLongitude;
+  final double? destinationLatitude;
+  final double? destinationLongitude;
 
   const TripResponse({
+    this.pickupLocation,
+    this.pickupLocationLatitude,
+    this.pickupLocationLongitude,
+    this.destinationLatitude,
+    this.destinationLongitude,
     this.id,
     this.managerId,
     this.details,

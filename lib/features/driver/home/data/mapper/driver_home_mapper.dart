@@ -2,6 +2,7 @@ import '../../../../../core/constants/strings_constants.dart';
 import '../../domain/entities/driver_home_entities.dart';
 import '../models/trip_model.dart';
 
+
 extension TripEntitySorting on List<TripEntity> {
   List<TripEntity> sortTrips() {
     return this..sort((a, b) {
@@ -42,6 +43,11 @@ extension TripResponseMapper on TripResponse {
       driver: driver?.toDomain() ?? const TripDriverEntity(id: '', name: ''),
       vehicle: vehicle?.toDomain() ?? const VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
       status: status ?? '',
+      pickupLocation: pickupLocation ?? '',
+      pickupLocationLatitude: pickupLocationLatitude ?? 0.0,
+      pickupLocationLongitude: pickupLocationLongitude ?? 0.0,
+      destinationLatitude: destinationLatitude ?? 0.0,
+      destinationLongitude: destinationLongitude ?? 0.0,
     );
   }
 }

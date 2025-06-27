@@ -4,6 +4,7 @@ import 'package:vee/core/extensions/navigation_extensions.dart';
 
 import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
+import '../../../../../core/services/maps_services.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../cubit/driver_home_cubit.dart';
 import '../cubit/driver_home_state.dart';
@@ -18,10 +19,14 @@ class DriverHomeScreen extends StatelessWidget {
     return SafeArea(
       child: BlocBuilder<DriverHomeCubit, DriverHomeState>(
         buildWhen: (previous, current) =>
-            current is Loaded || current is Error || current is Loading,
+            current is Loaded ||
+            current is Error ||
+            current is Loading ||
+            current is TripLoading ||
+            current is TripLoaded ||
+            current is TripError,
         builder: (context, state) {
           return state.maybeWhen(
-
             // Handle the case when the state is not recognized
             orElse: () => const SizedBox.shrink(),
             // Show loading indicator while fetching data
@@ -54,6 +59,24 @@ class DriverHomeScreen extends StatelessWidget {
                 ),
               );
             },
+            tripLoding: () => const Scaffold(
+              body: Center(
+                child: AppCircularIndicator(),
+              ),
+            ),
+            tripLoaded: (trip) {
+              return MapScreen(
+                fromLat: trip.pickupLocationLatitude,
+                fromLng: trip.pickupLocationLongitude,
+                toLat: trip.destinationLatitude,
+                toLng: trip.destinationLongitude,
+              );
+            },
+            tripError: (message) => Scaffold(
+              body: Center(
+                child: Text(message),
+              ),
+            ),
           );
         },
       ),

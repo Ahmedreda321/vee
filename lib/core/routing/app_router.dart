@@ -39,7 +39,7 @@ class AppRouter {
         return _createRoute(const ResetPasswordScreen());
       case Routes.driverHomeScreen:
         return _createRoute(BlocProvider(
-          create: (context) => DriverHomeCubit(getIt())..getDriverHomeData(),
+          create: (context) => DriverHomeCubit(getIt(), getIt())..getDriverHomeData(),
           child: const DriverHomeScreen(),
         ));
       case Routes.profileScreen:

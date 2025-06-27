@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
-import 'package:vee/core/network/endpoint_constants.dart';
-import 'package:vee/features/shared/auth/data/models/login_response.dart';
 
 import '../../features/driver/home/data/models/driver_home_response.dart';
 import '../../features/shared/auth/data/models/forogt_password_request_body.dart';
 import '../../features/shared/auth/data/models/login_request_body.dart';
+import '../../features/shared/auth/data/models/login_response.dart';
+import '../models/base_data_source.dart';
+import 'endpoint_constants.dart';
 
 part 'api_service.g.dart';
 
@@ -32,4 +33,9 @@ abstract class ApiService {
 // **************************************************************************
   @GET(ApiConstants.driverTrips)
   Future<DriverHomeResponse> getDriverTrips();
+
+  @PATCH(ApiConstants.updateTripRequest)
+  Future<BaseResponse> updateTripRequestStatus(
+    @Path('id') String id,
+  );
 }

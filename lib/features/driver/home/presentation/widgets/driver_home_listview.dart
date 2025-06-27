@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constants/strings_constants.dart';
@@ -9,6 +10,7 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/utils/app_padding.dart';
 import '../../../../../core/widgets/trip_card_info.dart';
 import '../../domain/entities/driver_home_entities.dart';
+import '../cubit/driver_home_cubit.dart';
 import 'home_trip_card.dart';
 
 class DriverHomeListView extends StatelessWidget {
@@ -40,7 +42,9 @@ class DriverHomeListView extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: HomeTripCard(
                     status: trip.status,
-                    onPressed: (){},
+                    onPressed: () {
+                    context.read<DriverHomeCubit>().startTrip(trip);
+                    },
                     tripInfo: TripCardInfo(
                       title: AppStrings.trip,
                       value: "From Alex → ${trip.destination}",

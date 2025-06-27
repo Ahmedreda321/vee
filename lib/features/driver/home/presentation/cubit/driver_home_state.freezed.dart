@@ -22,6 +22,9 @@ mixin _$DriverHomeState<T> {
     required TResult Function() loading,
     required TResult Function(DriverHomeEntities data) loaded,
     required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$DriverHomeState<T> {
     TResult? Function()? loading,
     TResult? Function(DriverHomeEntities data)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$DriverHomeState<T> {
     TResult Function()? loading,
     TResult Function(DriverHomeEntities data)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,9 @@ mixin _$DriverHomeState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$DriverHomeState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +78,9 @@ mixin _$DriverHomeState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +152,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(DriverHomeEntities data) loaded,
     required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
   }) {
     return initial();
   }
@@ -145,6 +166,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(DriverHomeEntities data)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
   }) {
     return initial?.call();
   }
@@ -156,6 +180,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(DriverHomeEntities data)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +198,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
   }) {
     return initial(this);
   }
@@ -182,6 +212,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +226,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +287,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(DriverHomeEntities data) loaded,
     required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
   }) {
     return loading();
   }
@@ -262,6 +301,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(DriverHomeEntities data)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
   }) {
     return loading?.call();
   }
@@ -273,6 +315,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(DriverHomeEntities data)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +333,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
   }) {
     return loading(this);
   }
@@ -299,6 +347,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +361,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -395,6 +449,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function() loading,
     required TResult Function(DriverHomeEntities data) loaded,
     required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
   }) {
     return loaded(data);
   }
@@ -406,6 +463,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function()? loading,
     TResult? Function(DriverHomeEntities data)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
   }) {
     return loaded?.call(data);
   }
@@ -417,6 +477,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function()? loading,
     TResult Function(DriverHomeEntities data)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -432,6 +495,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
   }) {
     return loaded(this);
   }
@@ -443,6 +509,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
   }) {
     return loaded?.call(this);
   }
@@ -454,6 +523,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -547,6 +619,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(DriverHomeEntities data) loaded,
     required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
   }) {
     return error(message);
   }
@@ -558,6 +633,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(DriverHomeEntities data)? loaded,
     TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
   }) {
     return error?.call(message);
   }
@@ -569,6 +647,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(DriverHomeEntities data)? loaded,
     TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -584,6 +665,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Loaded<T> value) loaded,
     required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
   }) {
     return error(this);
   }
@@ -595,6 +679,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Loaded<T> value)? loaded,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
   }) {
     return error?.call(this);
   }
@@ -606,6 +693,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Loaded<T> value)? loaded,
     TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -624,5 +714,480 @@ abstract class Error<T> implements DriverHomeState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TripLoadingImplCopyWith<T, $Res> {
+  factory _$$TripLoadingImplCopyWith(_$TripLoadingImpl<T> value,
+          $Res Function(_$TripLoadingImpl<T>) then) =
+      __$$TripLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$TripLoadingImplCopyWithImpl<T, $Res>
+    extends _$DriverHomeStateCopyWithImpl<T, $Res, _$TripLoadingImpl<T>>
+    implements _$$TripLoadingImplCopyWith<T, $Res> {
+  __$$TripLoadingImplCopyWithImpl(
+      _$TripLoadingImpl<T> _value, $Res Function(_$TripLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$TripLoadingImpl<T> implements TripLoading<T> {
+  const _$TripLoadingImpl();
+
+  @override
+  String toString() {
+    return 'DriverHomeState<$T>.tripLoding()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TripLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(DriverHomeEntities data) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
+  }) {
+    return tripLoding();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(DriverHomeEntities data)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
+  }) {
+    return tripLoding?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(DriverHomeEntities data)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripLoding != null) {
+      return tripLoding();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
+  }) {
+    return tripLoding(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
+  }) {
+    return tripLoding?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripLoding != null) {
+      return tripLoding(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TripLoading<T> implements DriverHomeState<T> {
+  const factory TripLoading() = _$TripLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$TripLoadedImplCopyWith<T, $Res> {
+  factory _$$TripLoadedImplCopyWith(
+          _$TripLoadedImpl<T> value, $Res Function(_$TripLoadedImpl<T>) then) =
+      __$$TripLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({TripEntity trip});
+}
+
+/// @nodoc
+class __$$TripLoadedImplCopyWithImpl<T, $Res>
+    extends _$DriverHomeStateCopyWithImpl<T, $Res, _$TripLoadedImpl<T>>
+    implements _$$TripLoadedImplCopyWith<T, $Res> {
+  __$$TripLoadedImplCopyWithImpl(
+      _$TripLoadedImpl<T> _value, $Res Function(_$TripLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? trip = null,
+  }) {
+    return _then(_$TripLoadedImpl<T>(
+      null == trip
+          ? _value.trip
+          : trip // ignore: cast_nullable_to_non_nullable
+              as TripEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TripLoadedImpl<T> implements TripLoaded<T> {
+  const _$TripLoadedImpl(this.trip);
+
+  @override
+  final TripEntity trip;
+
+  @override
+  String toString() {
+    return 'DriverHomeState<$T>.tripLoaded(trip: $trip)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TripLoadedImpl<T> &&
+            (identical(other.trip, trip) || other.trip == trip));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, trip);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TripLoadedImplCopyWith<T, _$TripLoadedImpl<T>> get copyWith =>
+      __$$TripLoadedImplCopyWithImpl<T, _$TripLoadedImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(DriverHomeEntities data) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
+  }) {
+    return tripLoaded(trip);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(DriverHomeEntities data)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
+  }) {
+    return tripLoaded?.call(trip);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(DriverHomeEntities data)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripLoaded != null) {
+      return tripLoaded(trip);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
+  }) {
+    return tripLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
+  }) {
+    return tripLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripLoaded != null) {
+      return tripLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TripLoaded<T> implements DriverHomeState<T> {
+  const factory TripLoaded(final TripEntity trip) = _$TripLoadedImpl<T>;
+
+  TripEntity get trip;
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TripLoadedImplCopyWith<T, _$TripLoadedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TripErrorImplCopyWith<T, $Res> {
+  factory _$$TripErrorImplCopyWith(
+          _$TripErrorImpl<T> value, $Res Function(_$TripErrorImpl<T>) then) =
+      __$$TripErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$TripErrorImplCopyWithImpl<T, $Res>
+    extends _$DriverHomeStateCopyWithImpl<T, $Res, _$TripErrorImpl<T>>
+    implements _$$TripErrorImplCopyWith<T, $Res> {
+  __$$TripErrorImplCopyWithImpl(
+      _$TripErrorImpl<T> _value, $Res Function(_$TripErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$TripErrorImpl<T>(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TripErrorImpl<T> implements TripError<T> {
+  const _$TripErrorImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'DriverHomeState<$T>.tripError(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TripErrorImpl<T> &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TripErrorImplCopyWith<T, _$TripErrorImpl<T>> get copyWith =>
+      __$$TripErrorImplCopyWithImpl<T, _$TripErrorImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(DriverHomeEntities data) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
+  }) {
+    return tripError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(DriverHomeEntities data)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
+  }) {
+    return tripError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(DriverHomeEntities data)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripError != null) {
+      return tripError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
+  }) {
+    return tripError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
+  }) {
+    return tripError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
+    required TResult orElse(),
+  }) {
+    if (tripError != null) {
+      return tripError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TripError<T> implements DriverHomeState<T> {
+  const factory TripError(final String message) = _$TripErrorImpl<T>;
+
+  String get message;
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TripErrorImplCopyWith<T, _$TripErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

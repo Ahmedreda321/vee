@@ -15,8 +15,18 @@ class TripEntity {
   final TripDriverEntity driver;
   final VehicleEntity vehicle;
   final String status;
+  final String pickupLocation;
+  final double pickupLocationLatitude;
+  final double pickupLocationLongitude;
+  final double destinationLatitude;
+  final double destinationLongitude;
 
   const TripEntity({
+    required this.pickupLocation,
+    required this.pickupLocationLatitude,
+    required this.pickupLocationLongitude,
+    required this.destinationLatitude,
+    required this.destinationLongitude,
     required this.time,
     required this.id,
     required this.managerId,
@@ -28,6 +38,10 @@ class TripEntity {
     required this.vehicle,
     required this.status,
   });
+  @override
+  String toString() {
+    return 'TripEntity(id: $id, managerId: $managerId, details: $details, destination: $destination, tripType: $tripType, date: $date, time: $time, driver: $driver, vehicle: $vehicle, status: $status, pickupLocation: $pickupLocation, pickupLocationLatitude: $pickupLocationLatitude, pickupLocationLongitude: $pickupLocationLongitude, destinationLatitude: $destinationLatitude, destinationLongitude: $destinationLongitude)';
+  }
 }
 
 class TripDriverEntity {
@@ -56,7 +70,7 @@ class VehicleModelEntity {
   final String id;
   final String name;
   final String fuelEfficiency;
-  final BrandEntity  brand;
+  final BrandEntity brand;
   final CategoryEntity category;
 
   const VehicleModelEntity({

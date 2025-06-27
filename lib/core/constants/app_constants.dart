@@ -8,4 +8,5 @@ class AppConstants {
   static const String localeKey = 'vee_locale';
   static const String themeKey = 'vee_theme';
   static const String fontFamily = 'InstrumentSans';
+  static const String mapToken = '5b3ce3597851110001cf624843ebcd3c39cc4be9b0a495daa632ea5d';
 }
