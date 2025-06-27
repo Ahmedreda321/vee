@@ -66,15 +66,24 @@ class DriverHomeScreen extends StatelessWidget {
             ),
             tripLoaded: (trip) {
               return MapScreen(
-                fromLat: trip.pickupLocationLatitude,
-                fromLng: trip.pickupLocationLongitude,
-                toLat: trip.destinationLatitude,
-                toLng: trip.destinationLongitude,
+                destinationLocationNominatimLink:
+                    trip.destinationLocationNominatimLink,
+                pickupLocationNominatimLink: trip.pickupLocationNominatimLink,
               );
             },
-            tripError: (message) => Scaffold(
-              body: Center(
-                child: Text(message),
+            tripError: (message) => WillPopScope(
+              onWillPop: () async {
+                context.read<DriverHomeCubit>().getDriverHomeData();
+                return true;
+              },
+              child: Scaffold(
+                appBar: AppBar(leading:  BackButton(
+                  color: Colors.black,
+                  onPressed: (){ context.read<DriverHomeCubit>().getDriverHomeData();}
+                )  ,),
+                body: Center(
+                  child: Text(message),
+                ),
               ),
             ),
           );

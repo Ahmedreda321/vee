@@ -25,7 +25,7 @@ class DriverHomeCubit extends Cubit<DriverHomeState> {
    void startTrip(TripEntity trip) async {
     emit(const DriverHomeState.tripLoding());
     
-    final result = await _startTripUseCase(trip.id); // Use the use case
+    final result = await _startTripUseCase(trip.id);
     
     result.fold(
       (failure) => emit(DriverHomeState.tripError(failure.message)),

@@ -44,10 +44,8 @@ extension TripResponseMapper on TripResponse {
       vehicle: vehicle?.toDomain() ?? const VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
       status: status ?? '',
       pickupLocation: pickupLocation ?? '',
-      pickupLocationLatitude: pickupLocationLatitude ?? 0.0,
-      pickupLocationLongitude: pickupLocationLongitude ?? 0.0,
-      destinationLatitude: destinationLatitude ?? 0.0,
-      destinationLongitude: destinationLongitude ?? 0.0,
+      pickupLocationNominatimLink: pickupLocationNominatimLink ?? '',
+      destinationLocationNominatimLink: destinationLocationNominatimLink ?? '',
     );
   }
 }

@@ -23,49 +23,83 @@ class MapsServices {
       throw Exception('Failed to load route');
     }
   }
+
+  static Future<LatLng> getLatLngFromNominatimLink(String link) async {
+    final response = await http.get(Uri.parse(link));
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+      if (data.isNotEmpty) {
+        final firstResult = data[0];
+        return LatLng(
+          double.parse(firstResult['lat']),
+          double.parse(firstResult['lon']),
+        );
+      } else {
+        throw Exception('No results found');
+      }
+    } else {
+      throw Exception('Failed to get Nominatim data');
+    }
+  }
 }
 
 class MapScreen extends StatefulWidget {
   const MapScreen({
     super.key,
-    required this.fromLat,
-    required this.fromLng,
-    required this.toLat,
-    required this.toLng,
+    required this.pickupLocationNominatimLink,
+    required this.destinationLocationNominatimLink,
   });
-  final double fromLat;
-  final double fromLng;
-  final double toLat;
-  final double toLng;
+  final String pickupLocationNominatimLink;
+  final String destinationLocationNominatimLink;
 
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
-  late final LatLng _fromLocation;
-  late final LatLng _toLocation;
+  LatLng? _fromLocation;
+  LatLng? _toLocation;
   final MapController _mapController = MapController();
   LocationData? _currentLocation;
   List<LatLng> _routePoints = [];
-  final String mapToken = AppConstants.mapToken; 
+  final String mapToken = AppConstants.mapToken;
+  bool _locationsLoaded = false;
 
   @override
   void initState() {
     super.initState();
-    _fromLocation = LatLng(widget.fromLat, widget.fromLng);
-    _toLocation = LatLng(widget.toLat, widget.toLng);
-    _getRoute();
+    _fetchLocations();
     _getCurrentLocation();
   }
 
+  Future<void> _fetchLocations() async {
+    try {
+      final fromLocation = await MapsServices.getLatLngFromNominatimLink(
+          widget.pickupLocationNominatimLink);
+      final toLocation = await MapsServices.getLatLngFromNominatimLink(
+          widget.destinationLocationNominatimLink);
+      setState(() {
+        _fromLocation = fromLocation;
+        _toLocation = toLocation;
+        _locationsLoaded = true;
+      });
+      _getRoute();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error fetching locations: $e')),
+      );
+    }
+  }
+
   Future<void> _getRoute() async {
+    if (_fromLocation == null || _toLocation == null) return;
+    
     try {
       _routePoints = await MapsServices.getRoute(
-        widget.fromLat,
-        widget.fromLng,
-        widget.toLat,
-        widget.toLng,
+        _fromLocation!.latitude,
+        _fromLocation!.longitude,
+        _toLocation!.latitude,
+        _toLocation!.longitude,
         mapToken,
       );
       setState(() {});
@@ -100,18 +134,31 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_locationsLoaded || _fromLocation == null || _toLocation == null) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _mapController.move(LatLng(_currentLocation!.latitude!, _currentLocation!.longitude!), 18.0);
-        },
-        child: const Icon(Icons.my_location, color: AppColor.primaryColor),
-      ),
+      floatingActionButton: _currentLocation != null
+          ? FloatingActionButton(
+              onPressed: () {
+                _mapController.move(
+                    LatLng(_currentLocation!.latitude!,
+                        _currentLocation!.longitude!),
+                    18.0);
+              },
+              child: const Icon(Icons.my_location, color: AppColor.primaryColor),
+            )
+          : null,
       body: FlutterMap(
         mapController: _mapController,
         options: MapOptions(
-          initialCenter: _fromLocation,
-          initialZoom: 18.0,
+          initialCenter: _fromLocation!,
+          initialZoom: 13.0,
         ),
         children: [
           TileLayer(
@@ -133,14 +180,14 @@ class _MapScreenState extends State<MapScreen> {
               Marker(
                 width: 80.0,
                 height: 80.0,
-                point: _fromLocation,
-                child: const Icon(Icons.location_on, color: Colors.red),
+                point: _fromLocation!,
+                child: const Icon(Icons.location_on, color: Colors.red, size: 40),
               ),
               Marker(
                 width: 80.0,
                 height: 80.0,
-                point: _toLocation,
-                child: const Icon(Icons.location_on, color: Colors.blue),
+                point: _toLocation!,
+                child: const Icon(Icons.location_on, color: Colors.blue, size: 40),
               ),
               if (_currentLocation != null)
                 Marker(
@@ -148,7 +195,7 @@ class _MapScreenState extends State<MapScreen> {
                   height: 80.0,
                   point: LatLng(_currentLocation!.latitude!,
                       _currentLocation!.longitude!),
-                  child: const Icon(Icons.my_location, color: Colors.green),
+                  child: const Icon(Icons.my_location, color: Colors.green, size: 40),
                 ),
             ],
           ),

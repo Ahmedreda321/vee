@@ -16,17 +16,11 @@ class TripEntity {
   final VehicleEntity vehicle;
   final String status;
   final String pickupLocation;
-  final double pickupLocationLatitude;
-  final double pickupLocationLongitude;
-  final double destinationLatitude;
-  final double destinationLongitude;
+  final String pickupLocationNominatimLink;
+  final String destinationLocationNominatimLink;
 
   const TripEntity({
     required this.pickupLocation,
-    required this.pickupLocationLatitude,
-    required this.pickupLocationLongitude,
-    required this.destinationLatitude,
-    required this.destinationLongitude,
     required this.time,
     required this.id,
     required this.managerId,
@@ -37,10 +31,12 @@ class TripEntity {
     required this.driver,
     required this.vehicle,
     required this.status,
+    required this.pickupLocationNominatimLink,
+     required this.destinationLocationNominatimLink,
   });
   @override
   String toString() {
-    return 'TripEntity(id: $id, managerId: $managerId, details: $details, destination: $destination, tripType: $tripType, date: $date, time: $time, driver: $driver, vehicle: $vehicle, status: $status, pickupLocation: $pickupLocation, pickupLocationLatitude: $pickupLocationLatitude, pickupLocationLongitude: $pickupLocationLongitude, destinationLatitude: $destinationLatitude, destinationLongitude: $destinationLongitude)';
+    return 'TripEntity(id: $id, managerId: $managerId, details: $details, destination: $destination, tripType: $tripType, date: $date, time: $time, driver: $driver, vehicle: $vehicle, status: $status, pickupLocation: $pickupLocation, pickupLocationNominatimLink: $pickupLocationNominatimLink, destinationLocationNominatimLink: $destinationLocationNominatimLink)';
   }
 }
 

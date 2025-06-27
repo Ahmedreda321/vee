@@ -138,7 +138,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/me/trips/${id}',
+          '/api/TripRequest/${id}',
           queryParameters: queryParameters,
           data: _data,
         )

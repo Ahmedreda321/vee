@@ -42,12 +42,13 @@ class DriverHomeListView extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: HomeTripCard(
                     status: trip.status,
-                    onPressed: () {
+                    onPressed: () 
+                    {
                     context.read<DriverHomeCubit>().startTrip(trip);
                     },
                     tripInfo: TripCardInfo(
                       title: AppStrings.trip,
-                      value: "From Alex → ${trip.destination}",
+                      value: "From ${trip.pickupLocation} → ${trip.destination}",
                     ),
                     vehicleInfo: TripCardInfo(
                       title: AppStrings.vehicle,

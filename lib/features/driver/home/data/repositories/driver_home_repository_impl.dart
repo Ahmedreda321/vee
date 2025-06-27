@@ -53,7 +53,7 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
       try {
         final response =
             await _driverHomeRemoteDataSource.updateTripRequest(id);
-        if (response.statusCode == ResponseCode.NO_CONTENT) {
+        if (response.statusCode == ResponseCode.SUCCESS) {
           return Right(response);
         } else {
           return Left(

@@ -8,12 +8,10 @@ part of 'trip_model.dart';
 
 TripResponse _$TripResponseFromJson(Map<String, dynamic> json) => TripResponse(
       pickupLocation: json['pickupLocation'] as String?,
-      pickupLocationLatitude:
-          (json['pickupLocationLatitude'] as num?)?.toDouble(),
-      pickupLocationLongitude:
-          (json['pickupLocationLongitude'] as num?)?.toDouble(),
-      destinationLatitude: (json['destinationLatitude'] as num?)?.toDouble(),
-      destinationLongitude: (json['destinationLongitude'] as num?)?.toDouble(),
+      pickupLocationNominatimLink:
+          json['pickupLocationNominatimLink'] as String?,
+      destinationLocationNominatimLink:
+          json['destinationLocationNominatimLink'] as String?,
       id: json['id'] as String?,
       managerId: json['managerId'] as String?,
       details: json['details'] as String?,
@@ -41,10 +39,9 @@ Map<String, dynamic> _$TripResponseToJson(TripResponse instance) =>
       'vehicle': instance.vehicle,
       'status': instance.status,
       'pickupLocation': instance.pickupLocation,
-      'pickupLocationLatitude': instance.pickupLocationLatitude,
-      'pickupLocationLongitude': instance.pickupLocationLongitude,
-      'destinationLatitude': instance.destinationLatitude,
-      'destinationLongitude': instance.destinationLongitude,
+      'pickupLocationNominatimLink': instance.pickupLocationNominatimLink,
+      'destinationLocationNominatimLink':
+          instance.destinationLocationNominatimLink,
     };
 
 TripDriverResponse _$TripDriverResponseFromJson(Map<String, dynamic> json) =>
