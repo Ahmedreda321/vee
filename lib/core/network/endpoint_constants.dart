@@ -4,4 +4,6 @@ class ApiConstants {
   static const String forgotPassword = '/api/Account/forgotpassword';
   static const String driverTrips = "/me/trips";
   static const String updateTripRequest = '/api/TripRequest/{id}';
+  static const String tripLocation =
+      'http://veemanage.runasp.net/api/TripLocation';
 }

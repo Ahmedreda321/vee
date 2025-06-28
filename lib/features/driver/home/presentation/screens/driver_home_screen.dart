@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
 
-import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
-import '../../../../../core/services/maps_services.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../cubit/driver_home_cubit.dart';
 import '../cubit/driver_home_state.dart';
-import '../widgets/custom_app_bar.dart';
-import '../widgets/driver_home_listview.dart';
+import '../widgets/app_error_dialog.dart';
+import '../widgets/driver_home_loaded.dart';
+import '../widgets/trip_loding.dart';
 
 class DriverHomeScreen extends StatelessWidget {
   const DriverHomeScreen({super.key});
@@ -17,14 +16,26 @@ class DriverHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<DriverHomeCubit, DriverHomeState>(
+      child: BlocConsumer<DriverHomeCubit, DriverHomeState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            tripError: (message) {
+              showErrorDialog(context, message);
+            },
+            tripLoaded: (trip) {
+              context.pushReplacementNamed(
+                Routes.mapScreen,
+                arguments: trip,
+              );
+            },
+            orElse: () {},
+          );
+        },
         buildWhen: (previous, current) =>
             current is Loaded ||
             current is Error ||
             current is Loading ||
-            current is TripLoading ||
-            current is TripLoaded ||
-            current is TripError,
+            current is TripLoading,
         builder: (context, state) {
           return state.maybeWhen(
             // Handle the case when the state is not recognized
@@ -43,49 +54,12 @@ class DriverHomeScreen extends StatelessWidget {
             ),
             // Show the list of trips when data is successfully loaded
             loaded: (data) {
-              return Scaffold(
-                appBar: CustomAppBar(
-                  imageUrl:
-                      "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-                  onProfileButtonTap: () =>
-                      context.pushNamed(Routes.profileScreen),
-                  title: "${data.trips.length} ${AppStrings.trips}",
-                  subtitle: AppStrings.upcomingTrips,
-                  onNotificationTap: () =>
-                      context.pushNamed(Routes.notificationScreen),
-                ),
-                body: DriverHomeListView(
-                  trips: data.trips,
-                ),
+              return DriverHomeLoaded(
+                data: data,
+                state: state,
               );
             },
-            tripLoding: () => const Scaffold(
-              body: Center(
-                child: AppCircularIndicator(),
-              ),
-            ),
-            tripLoaded: (trip) {
-              return MapScreen(
-                destinationLocationNominatimLink:
-                    trip.destinationLocationNominatimLink,
-                pickupLocationNominatimLink: trip.pickupLocationNominatimLink,
-              );
-            },
-            tripError: (message) => WillPopScope(
-              onWillPop: () async {
-                context.read<DriverHomeCubit>().getDriverHomeData();
-                return true;
-              },
-              child: Scaffold(
-                appBar: AppBar(leading:  BackButton(
-                  color: Colors.black,
-                  onPressed: (){ context.read<DriverHomeCubit>().getDriverHomeData();}
-                )  ,),
-                body: Center(
-                  child: Text(message),
-                ),
-              ),
-            ),
+            tripLoding: () => const TripLoding(),
           );
         },
       ),

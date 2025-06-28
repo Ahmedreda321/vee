@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/driver/home/domain/entities/driver_home_entities.dart';
 import '../../features/driver/home/presentation/cubit/driver_home_cubit.dart';
+import '../../features/driver/home/presentation/screens/map_view.dart';
 import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import '../../features/shared/auth/presentation/screens/reset_password_screen.dart';
@@ -42,6 +44,12 @@ class AppRouter {
           create: (context) => DriverHomeCubit(getIt(), getIt())..getDriverHomeData(),
           child: const DriverHomeScreen(),
         ));
+      case Routes.mapScreen:
+        if (settings.arguments is TripEntity) {
+          final trip = settings.arguments as TripEntity;
+          return _createRoute(MapView(trip: trip));
+        }
+        return _createRoute(const NotFoundRouteScreen());  
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(

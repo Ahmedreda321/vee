@@ -6,12 +6,18 @@ import '../models/trip_model.dart';
 extension TripEntitySorting on List<TripEntity> {
   List<TripEntity> sortTrips() {
     return this..sort((a, b) {
-      if (a.status == AppStrings.pending && b.status != AppStrings.pending) {
-        return -1;
-      } else if (a.status != AppStrings.pending && b.status == AppStrings.pending) {
-        return 1;
+      if (a.status == AppStrings.pending) {
+        if (b.status == AppStrings.pending) {
+          return a.date.compareTo(b.date); 
+        } else {
+          return -1; 
+        }
       } else {
-        return 0; 
+        if (b.status == AppStrings.pending) {
+          return 1;
+        } else {
+          return b.date.compareTo(a.date); 
+        }
       }
     });
   }
