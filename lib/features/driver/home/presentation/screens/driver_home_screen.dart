@@ -28,6 +28,9 @@ class DriverHomeScreen extends StatelessWidget {
                 arguments: trip,
               );
             },
+            unauthorized: () {
+              context.pushReplacementNamed(Routes.loginScreen);
+            },
             orElse: () {},
           );
         },

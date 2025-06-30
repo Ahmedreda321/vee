@@ -107,4 +107,9 @@ static Future<String?> getSecureData(String key) async {
     debugPrint("Getting secure data for key: $key");
     return await secureStorage.read(key: key) ?? "";
   }
+static Future<void> removeSecureData(String key) async {
+    const secureStorage = FlutterSecureStorage();
+    debugPrint("Removing secure data for key: $key");
+    await secureStorage.delete(key: key);
+  }
 }

@@ -1,9 +1,9 @@
 class ApiConstants {
-  static const String baseUrl = 'http://veemanage.runasp.net';
+  static const String baseUrl = 'https://veemanage.runasp.net';
   static const String login = '/api/Account/login';
   static const String forgotPassword = '/api/Account/forgotpassword';
   static const String driverTrips = "/me/trips";
   static const String updateTripRequest = '/api/TripRequest/{id}';
   static const String tripLocation =
-      'http://veemanage.runasp.net/api/TripLocation';
+      'https://veemanage.runasp.net/api/TripLocation';
 }

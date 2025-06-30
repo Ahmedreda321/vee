@@ -12,4 +12,5 @@ class DriverHomeState<T> with _$DriverHomeState<T> {
   const factory DriverHomeState.tripLoding() = TripLoading;
   const factory DriverHomeState.tripLoaded(TripEntity trip) = TripLoaded;
   const factory DriverHomeState.tripError(String message) = TripError;
+  const factory DriverHomeState.unauthorized() = Unauthorized;
 }

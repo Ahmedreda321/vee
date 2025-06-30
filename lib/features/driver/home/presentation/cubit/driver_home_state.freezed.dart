@@ -25,6 +25,7 @@ mixin _$DriverHomeState<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$DriverHomeState<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$DriverHomeState<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$DriverHomeState<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$DriverHomeState<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$DriverHomeState<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +161,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return initial();
   }
@@ -169,6 +176,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return initial?.call();
   }
@@ -183,6 +191,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,6 +210,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return initial(this);
   }
@@ -215,6 +225,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return initial?.call(this);
   }
@@ -229,6 +240,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -290,6 +302,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return loading();
   }
@@ -304,6 +317,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return loading?.call();
   }
@@ -318,6 +332,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -336,6 +351,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return loading(this);
   }
@@ -350,6 +366,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return loading?.call(this);
   }
@@ -364,6 +381,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -452,6 +470,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return loaded(data);
   }
@@ -466,6 +485,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return loaded?.call(data);
   }
@@ -480,6 +500,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -498,6 +519,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return loaded(this);
   }
@@ -512,6 +534,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return loaded?.call(this);
   }
@@ -526,6 +549,7 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -622,6 +646,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return error(message);
   }
@@ -636,6 +661,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return error?.call(message);
   }
@@ -650,6 +676,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -668,6 +695,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return error(this);
   }
@@ -682,6 +710,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return error?.call(this);
   }
@@ -696,6 +725,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -765,6 +795,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return tripLoding();
   }
@@ -779,6 +810,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return tripLoding?.call();
   }
@@ -793,6 +825,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (tripLoding != null) {
@@ -811,6 +844,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return tripLoding(this);
   }
@@ -825,6 +859,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return tripLoding?.call(this);
   }
@@ -839,6 +874,7 @@ class _$TripLoadingImpl<T> implements TripLoading<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (tripLoding != null) {
@@ -927,6 +963,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return tripLoaded(trip);
   }
@@ -941,6 +978,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return tripLoaded?.call(trip);
   }
@@ -955,6 +993,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (tripLoaded != null) {
@@ -973,6 +1012,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return tripLoaded(this);
   }
@@ -987,6 +1027,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return tripLoaded?.call(this);
   }
@@ -1001,6 +1042,7 @@ class _$TripLoadedImpl<T> implements TripLoaded<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (tripLoaded != null) {
@@ -1097,6 +1139,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     required TResult Function() tripLoding,
     required TResult Function(TripEntity trip) tripLoaded,
     required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
   }) {
     return tripError(message);
   }
@@ -1111,6 +1154,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     TResult? Function()? tripLoding,
     TResult? Function(TripEntity trip)? tripLoaded,
     TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
   }) {
     return tripError?.call(message);
   }
@@ -1125,6 +1169,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     TResult Function()? tripLoding,
     TResult Function(TripEntity trip)? tripLoaded,
     TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
     required TResult orElse(),
   }) {
     if (tripError != null) {
@@ -1143,6 +1188,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     required TResult Function(TripLoading<T> value) tripLoding,
     required TResult Function(TripLoaded<T> value) tripLoaded,
     required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
   }) {
     return tripError(this);
   }
@@ -1157,6 +1203,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     TResult? Function(TripLoading<T> value)? tripLoding,
     TResult? Function(TripLoaded<T> value)? tripLoaded,
     TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
   }) {
     return tripError?.call(this);
   }
@@ -1171,6 +1218,7 @@ class _$TripErrorImpl<T> implements TripError<T> {
     TResult Function(TripLoading<T> value)? tripLoding,
     TResult Function(TripLoaded<T> value)? tripLoaded,
     TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
     required TResult orElse(),
   }) {
     if (tripError != null) {
@@ -1190,4 +1238,145 @@ abstract class TripError<T> implements DriverHomeState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TripErrorImplCopyWith<T, _$TripErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnauthorizedImplCopyWith<T, $Res> {
+  factory _$$UnauthorizedImplCopyWith(_$UnauthorizedImpl<T> value,
+          $Res Function(_$UnauthorizedImpl<T>) then) =
+      __$$UnauthorizedImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UnauthorizedImplCopyWithImpl<T, $Res>
+    extends _$DriverHomeStateCopyWithImpl<T, $Res, _$UnauthorizedImpl<T>>
+    implements _$$UnauthorizedImplCopyWith<T, $Res> {
+  __$$UnauthorizedImplCopyWithImpl(
+      _$UnauthorizedImpl<T> _value, $Res Function(_$UnauthorizedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverHomeState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UnauthorizedImpl<T> implements Unauthorized<T> {
+  const _$UnauthorizedImpl();
+
+  @override
+  String toString() {
+    return 'DriverHomeState<$T>.unauthorized()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnauthorizedImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(DriverHomeEntities data) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() tripLoding,
+    required TResult Function(TripEntity trip) tripLoaded,
+    required TResult Function(String message) tripError,
+    required TResult Function() unauthorized,
+  }) {
+    return unauthorized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(DriverHomeEntities data)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? tripLoding,
+    TResult? Function(TripEntity trip)? tripLoaded,
+    TResult? Function(String message)? tripError,
+    TResult? Function()? unauthorized,
+  }) {
+    return unauthorized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(DriverHomeEntities data)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? tripLoding,
+    TResult Function(TripEntity trip)? tripLoaded,
+    TResult Function(String message)? tripError,
+    TResult Function()? unauthorized,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Loaded<T> value) loaded,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(TripLoading<T> value) tripLoding,
+    required TResult Function(TripLoaded<T> value) tripLoaded,
+    required TResult Function(TripError<T> value) tripError,
+    required TResult Function(Unauthorized<T> value) unauthorized,
+  }) {
+    return unauthorized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Loaded<T> value)? loaded,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(TripLoading<T> value)? tripLoding,
+    TResult? Function(TripLoaded<T> value)? tripLoaded,
+    TResult? Function(TripError<T> value)? tripError,
+    TResult? Function(Unauthorized<T> value)? unauthorized,
+  }) {
+    return unauthorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Loaded<T> value)? loaded,
+    TResult Function(Error<T> value)? error,
+    TResult Function(TripLoading<T> value)? tripLoding,
+    TResult Function(TripLoaded<T> value)? tripLoaded,
+    TResult Function(TripError<T> value)? tripError,
+    TResult Function(Unauthorized<T> value)? unauthorized,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Unauthorized<T> implements DriverHomeState<T> {
+  const factory Unauthorized() = _$UnauthorizedImpl<T>;
 }
