@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vee/core/constants/strings_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
-import 'package:vee/core/extensions/sizedbox_extensions.dart';
 
 import '../../../../../core/routing/routes.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/utils/app_padding.dart';
-import '../../../../../core/widgets/trip_card_info.dart';
-import '../widgets/custom_app_bar.dart';
-import '../widgets/home_trip_card.dart';
-
+import '../../../../../core/widgets/app_circular_indicator.dart';
+import '../cubits/driver_home_cubit/driver_home_cubit.dart';
+import '../cubits/driver_home_cubit/driver_home_state.dart';
+import '../widgets/app_error_dialog.dart';
+import '../widgets/driver_home_loaded.dart';
+import '../widgets/trip_loding.dart';
 
 class DriverHomeScreen extends StatelessWidget {
   const DriverHomeScreen({super.key});
@@ -18,125 +16,56 @@ class DriverHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: CustomAppBar(
-          imageUrl: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-          onProfileButtonTap: () => context.pushNamed(Routes.profileScreen),
-          title: "20 Trips",
-          subtitle: "Upcoming Trips",
-          onNotificationTap: () => context.pushNamed(Routes.notificationScreen),
-        ),
-        body: Padding(
-          padding: AppPadding.small,
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: Text(
-                  AppStrings.trips,
-                  style: AppTextStyles.homeScreenListTile,
-                ),
+      child: BlocConsumer<DriverHomeCubit, DriverHomeState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            tripError: (message) {
+              showErrorDialog(context, message);
+            },
+            tripLoaded: (trip) {
+              context.pushReplacementNamed(
+                Routes.mapScreen,
+                arguments: trip,
+              );
+            },
+            unauthorized: () {
+              context.pushReplacementNamed(Routes.loginScreen);
+            },
+            orElse: () {},
+          );
+        },
+        buildWhen: (previous, current) =>
+            current is Loaded ||
+            current is Error ||
+            current is Loading ||
+            current is TripLoading,
+        builder: (context, state) {
+          return state.maybeWhen(
+            // Handle the case when the state is not recognized
+            orElse: () => const SizedBox.shrink(),
+            // Show loading indicator while fetching data
+            loading: () => const Scaffold(
+              body: Center(
+                child: AppCircularIndicator(),
               ),
-              SliverToBoxAdapter(child: verticalSpace(10)),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => Padding(
-                    padding: EdgeInsets.only(bottom: 10.h),
-                    child: const HomeTripCard(
-                      tripInfo: TripCardInfo(
-                        title: AppStrings.trip,
-                        value: "From Alex → Cairo",
-                      ),
-                      vehicleInfo: TripCardInfo(
-                        title: AppStrings.vehicle,
-                        value: "Toyota Corolla - White (ABC-1234)",
-                      ),
-                    ),
-                  ),
-                  childCount: 10,
-                ),
+            ),
+            // Show error message if fetching data fails
+            error: (message) => Scaffold(
+              body: Center(
+                child: Text(message),
               ),
-            ],
-          ),
-        ),
+            ),
+            // Show the list of trips when data is successfully loaded
+            loaded: (data) {
+              return DriverHomeLoaded(
+                data: data,
+                state: state,
+              );
+            },
+            tripLoding: () => const TripLoding(),
+          );
+        },
       ),
     );
   }
 }
-
-//? this? or this!!!
-
-// import 'package:flutter/material.dart';
-// import 'package:vee/core/extensions/navigation_extensions.dart';
-
-// import '../../../../../core/constants/strings_constants.dart';
-// import '../../../../../core/routing/routes.dart';
-// import '../../../../../core/theme/app_colors.dart';
-// import '../../../../../core/theme/app_text_styles.dart';
-// import '../../../../../core/utils/app_padding.dart';
-// import '../../../../../core/utils/app_size.dart';
-// import '../widgets/custom_app_bar.dart';
-// import '../widgets/home_trip_card.dart';
-// import '../../../../../core/widgets/trip_card_info.dart';
-
-// class DriverHomeScreen extends StatelessWidget {
-//   const DriverHomeScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//         backgroundColor: AppColor.white,
-//         body: NestedScrollView(
-//           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-//             SliverAppBar(
-//               leading: const SizedBox(),
-//               pinned: true,
-//               floating: true,
-//               expandedHeight: AppSize.homeAppBarHeight,
-//               flexibleSpace: FlexibleSpaceBar(
-//                 background: CustomAppBar(
-//                   imageUrl:
-//                       "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-//                   onProfileButtonTap: () =>
-//                       context.pushNamed(Routes.profileScreen),
-//                   title: "20 Trips",
-//                   subtitle: AppStrings.upcomingTrips,
-//                   onNotificationTap: () =>
-//                       context.pushNamed(Routes.notificationScreen),
-//                 ),
-//               ),
-//             ),
-//           ],
-//           body: Padding(
-//             padding: AppPadding.small,
-//             child: CustomScrollView(
-//               slivers: [
-//                 SliverToBoxAdapter(
-//                   child: Text(
-//                     AppStrings.trips,
-//                     style: AppTextStyles.homeScreenListTile,
-//                   ),
-//                 ),
-//                 SliverList(
-//                   delegate: SliverChildBuilderDelegate(
-//                     (context, index) => HomeTripCard(
-//                       tripInfo: TripCardInfo(
-//                         title: AppStrings.trip,
-//                         value: "From Alex → Cairo",
-//                       ),
-//                       vehicleInfo: TripCardInfo(
-//                         title: AppStrings.vehicle,
-//                         value: "Toyota Corolla - White (ABC-1234515164611651)",
-//                       ),
-//                     ),
-//                     childCount: 20,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

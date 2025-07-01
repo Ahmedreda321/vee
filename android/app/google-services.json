@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "596139652941",
+    "project_id": "vee-manage",
+    "storage_bucket": "vee-manage.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596139652941:android:7357e623d57237ba936904",
+        "android_client_info": {
+          "package_name": "com.example.vee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5a2E5yUwPG8cYSlMnBWnB9Y517BNTn3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596139652941:android:85aa9bdd78988ebb936904",
+        "android_client_info": {
+          "package_name": "com.example.vee.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5a2E5yUwPG8cYSlMnBWnB9Y517BNTn3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596139652941:android:b4aebf65231ee1f2936904",
+        "android_client_info": {
+          "package_name": "com.example.vee.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5a2E5yUwPG8cYSlMnBWnB9Y517BNTn3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

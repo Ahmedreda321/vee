@@ -13,10 +13,10 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
       mustChangePassword: json['mustChangePassword'] as bool?,
       email: json['email'] as String?,
       token: json['token'] as String?,
-      bussinessUserDto: json['bussinessUserDto'] == null
+      bussinessUserDto: json['bussinessUser'] == null
           ? null
           : BusinessUserDto.fromJson(
-              json['bussinessUserDto'] as Map<String, dynamic>),
+              json['bussinessUser'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
@@ -26,5 +26,5 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
       'mustChangePassword': instance.mustChangePassword,
       'email': instance.email,
       'token': instance.token,
-      'bussinessUserDto': instance.bussinessUserDto,
+      'bussinessUser': instance.bussinessUserDto,
     };

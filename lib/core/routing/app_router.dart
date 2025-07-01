@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vee/features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart';
 
+import '../../features/driver/home/domain/entities/driver_home_entities.dart';
+import '../../features/driver/home/presentation/cubits/driver_home_cubit/driver_home_cubit.dart';
+import '../../features/driver/home/presentation/screens/map_view.dart';
 import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import '../../features/shared/auth/presentation/screens/reset_password_screen.dart';
@@ -24,12 +28,12 @@ class AppRouter {
         return _createRoute(const OnboardingScreen());
       case Routes.loginScreen:
         return _createRoute(BlocProvider(
-          create: (context) => getIt<LoginCubit>(),
+          create: (context) => LoginCubit(getIt()),
           child: const LoginScreen(),
         ));
       case Routes.forgotPasswordScreen:
         return _createRoute(BlocProvider(
-          create: (context) => getIt<ForgotPasswordCubit>(),
+          create: (context) => ForgotPasswordCubit(getIt()),
           child: const ForgotPasswordScreen(),
         ));
       case Routes.verifyCodeScreen:
@@ -37,7 +41,20 @@ class AppRouter {
       case Routes.resetPasswordScreen:
         return _createRoute(const ResetPasswordScreen());
       case Routes.driverHomeScreen:
-        return _createRoute(const DriverHomeScreen());
+        return _createRoute(BlocProvider(
+          create: (context) =>
+              DriverHomeCubit(getIt(), getIt())..getDriverHomeData(),
+          child: const DriverHomeScreen(),
+        ));
+      case Routes.mapScreen:
+        if (settings.arguments is TripEntity) {
+          final trip = settings.arguments as TripEntity;
+          return _createRoute(BlocProvider(
+            create: (context) => MapScreenCubit(getIt(), getIt()),
+            child: MapView(trip: trip),
+          ));
+        }
+        return _createRoute(const NotFoundRouteScreen());
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(

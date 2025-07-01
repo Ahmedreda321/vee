@@ -22,12 +22,11 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (failure) => emit(LoginError(failure.message)),
       (loginEntity) async {
-        if (loginEntity.businessUser != null) {
           await saveUserData(
             token: loginEntity.token,
             role: loginEntity.businessUser?.role,
           );
-        }
+     
         emit(LoginSuccess(loginEntity));
       },
     );
@@ -43,7 +42,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> saveUserData({ required String token, required String? role}) async {
     await AppPreferences.setSecureData(
         AppSharedPrefConsts.userToken, token );
-    await AppPreferences().setData(AppSharedPrefConsts.userRole, role);
+    await AppPreferences().setData(AppSharedPrefConsts.userRole, role??"");
     DioFactory.refreshHeadersAfterLogin(token);
   }
 }

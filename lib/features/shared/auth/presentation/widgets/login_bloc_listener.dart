@@ -34,7 +34,7 @@ class LoginBlocListener extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                         )),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => context.back(),
                   ),
                 ],
               ),
@@ -43,21 +43,22 @@ class LoginBlocListener extends StatelessWidget {
           success: (loginEntity) {
             context.back();
             if (loginEntity.mustChangePassword) {
-              Navigator.pushNamed(context, Routes.resetPasswordScreen);
+              context.pushNamed( Routes.resetPasswordScreen);
             } else {
               final businessUser = loginEntity.businessUser;
               if (businessUser != null) {
                 if (businessUser.role == AppStrings.driver) {
-                  Navigator.pushReplacementNamed(
-                      context, Routes.driverHomeScreen);
+                  context.pushReplacementNamed(
+                       Routes.driverHomeScreen);
                 } else {
-                  Navigator.pushReplacementNamed(context, "");
+                  context.pushReplacementNamed("");
                 }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                      content: Text('Error: Business user data is missing')),
+                      content: Text('Error: User data is missing, please try again later')),
                 );
+
               }
             }
           },

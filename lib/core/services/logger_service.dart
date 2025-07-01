@@ -25,6 +25,6 @@ class AppLogger {
 class _LogFilter extends LogFilter {
   @override
   bool shouldLog(LogEvent event) {
-    return !kReleaseMode; // disable logs in release mode
+    return !kReleaseMode;
   }
 }
