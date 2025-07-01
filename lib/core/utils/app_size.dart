@@ -7,6 +7,7 @@ class AppSize {
   static const double small = 8.0;
   static const double medium = 12.0;
   static const double large = 16.0;
+  static const double average = 20.0;
   static const double extraLarge = 24.0;
   static double extraExtraLarge = 32.0.w;
   static double profileImageheight = 150.h;

@@ -2,7 +2,7 @@ class AppStrings {
   AppStrings._();
 
   //******************************************************************************************************************* *//
-                                 //? General
+  //? General
   //******************************************************************************************************************* *//
   static const String driver = 'Driver';
   static const String mechanic = 'Mechanic';
@@ -23,7 +23,7 @@ class AppStrings {
   static const String completed = 'Completed !';
 
   //******************************************************************************************************************* *//
-                                //? Authentication 
+  //? Authentication
   //******************************************************************************************************************* *//
 
   static const String login = 'Login';
@@ -46,7 +46,7 @@ class AppStrings {
   static const String weSentACode = "We've sent a code to ";
 
   //******************************************************************************************************************* *//
-                                    //? driver
+  //? driver
   //******************************************************************************************************************* *//
 
   static const String home = 'Home';
@@ -56,9 +56,19 @@ class AppStrings {
   static const String completedTripsCount = 'Completed Trips Count';
   static const String noTripsYet = 'No Trips Yet';
   static const String upcomingTrips = 'Upcoming Trips';
+  static const String finishTrip = 'Finish Trip';
+  static const String doYouHave = "Do you have any issues?";
+  static const String faultReport = 'Fault Report';
+  static const String submit = 'Submit';
+  static const String faultType = 'Fault Type';
+  static const String cost = 'Cost';
+  static const String faultFuelRefill = 'Fuel Refill';
+  static const String tripReport = 'Trip Report';
+  static const String tripReportDesc = 'Please fill in all the required fields';
+  static const String fuelRefile = "Fuel Refill (Liters)";
 
   //******************************************************************************************************************* *//
-                              //? Notifications Screen
+  //? Notifications Screen
   //******************************************************************************************************************* *//
 
   static const String notifications = 'Notifications';
@@ -66,7 +76,7 @@ class AppStrings {
   static const String pastTasks = 'Past Tasks';
 
   //******************************************************************************************************************* *//
-                               //? Profile Screen
+  //? Profile Screen
   //******************************************************************************************************************* *//
 
   static const String profile = 'Profile';
@@ -79,7 +89,7 @@ class AppStrings {
   static const String save = 'Save';
 
   //******************************************************************************************************************* *//
-                               //? Onboarding Screen
+  //? Onboarding Screen
   //******************************************************************************************************************* *//
 
   static const String onBoardingWelcomeTo = 'Welcome to ';
@@ -88,7 +98,7 @@ class AppStrings {
   static const String onBoardingGetStarted = 'Get Started';
 
   //******************************************************************************************************************* *//
-                               //? Error Messages
+  //? Error Messages
   //******************************************************************************************************************* *//
 
   static const String noInternetConnectionError = 'No Internet Connection';

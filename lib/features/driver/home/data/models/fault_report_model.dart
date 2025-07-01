@@ -21,4 +21,9 @@ class FaultReportModel {
   factory FaultReportModel.fromJson(Map<String, dynamic> json) =>
       _$FaultReportModelFromJson(json);
   Map<String, dynamic> toJson() => _$FaultReportModelToJson(this);
+
+  @override
+  String toString() {
+    return 'FaultReportModel{faultType: $faultType, address: $address, details: $details, cost: $cost, fuelRefile: $fuelRefile}';
+  }
 }

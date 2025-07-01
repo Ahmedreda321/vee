@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vee/core/extensions/navigation_extensions.dart';
+import 'package:vee/core/extensions/sizedbox_extensions.dart';
 import 'package:vee/core/services/logger_service.dart';
+import 'package:vee/core/utils/app_size.dart';
 import 'package:vee/features/driver/home/domain/entities/driver_home_entities.dart';
 
+import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/services/map_services/map_screen.dart';
 import '../../../../../core/theme/app_colors.dart';
@@ -68,41 +72,39 @@ class MapView extends StatelessWidget {
               trip.destinationLocationNominatimLink,
           pickupLocationNominatimLink: trip.pickupLocationNominatimLink,
         ),
-        Positioned(
-          bottom: 20,
-          right: 20,
-          left: 20,
-          child: ElevatedButton(
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext dialogContext) {
-                    return AlertDialog(
-                      title: const Text("Finish Trip"),
-                      content: const Text("Do you have any issues?"),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            dialogContext.back();
-                            _showFaultReportBottomSheet(context);
-                          },
-                          child: const Text("yes",
-                              style: TextStyle(color: AppColor.black)),
+        FinshTripBottm(
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext dialogContext) {
+                  return AlertDialog(
+                    title: const Text(AppStrings.finishTrip),
+                    content: const Text(AppStrings.doYouHave),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          dialogContext.back();
+                          _showFaultReportBottomSheet(context);
+                        },
+                        child: const Text(
+                          AppStrings.yes,
+                          style: TextStyle(color: AppColor.black),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            dialogContext.back();
-                            _showReportBottomSheet(context);
-                          },
-                          child: const Text("no",
-                              style: TextStyle(color: AppColor.red)),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          dialogContext.back();
+                          _showReportBottomSheet(context);
+                        },
+                        child: const Text(
+                          AppStrings.no,
+                          style: TextStyle(color: AppColor.red),
                         ),
-                      ],
-                    );
-                  });
-            },
-            child: const Text("Finish Trip"),
-          ),
+                      ),
+                    ],
+                  );
+                });
+          },
         ),
       ]),
     ));
@@ -116,95 +118,113 @@ class MapView extends StatelessWidget {
         return Padding(
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(bottomSheetContext).viewInsets.bottom,
-            left: 16,
-            right: 16,
-            top: 16,
+            left: AppSize.large.w,
+            right: AppSize.large.w,
+            top: AppSize.large.h,
           ),
           child: SingleChildScrollView(
             child: Column(
+              spacing: AppSize.large.h ,
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  'Fault Report',
+                  AppStrings.faultReport,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 16),
                 TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'details',
+                    labelText: AppStrings.details,
                   ),
-                  controller: context.read<MapScreenCubit>().faultDetailsController,
+                  controller:
+                      context.read<MapScreenCubit>().faultDetailsController,
                   maxLines: 3,
                 ),
-                const SizedBox(height: 16),
                 TextField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Cost',
+                    labelText: AppStrings.cost,
                     prefixText: '\$ ',
                   ),
-                  controller: context.read<MapScreenCubit>().faultCostController,
+                  controller:
+                      context.read<MapScreenCubit>().faultCostController,
                 ),
-                const SizedBox(height: 16),
                 TextField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Fuel Refill',
+                    labelText: AppStrings.faultFuelRefill,
                     prefixText: '\$ ',
                   ),
-                  controller: context.read<MapScreenCubit>().faultFuelRefillController,
+                  controller:
+                      context.read<MapScreenCubit>().faultFuelRefillController,
                 ),
-                const SizedBox(height: 16),
                 TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Fault Type',
+                    labelText: AppStrings.faultType,
                   ),
                   keyboardType: TextInputType.number,
-                  controller: context.read<MapScreenCubit>().faultTypeController,
+                  controller:
+                      context.read<MapScreenCubit>().faultTypeController,
                 ),
-                const SizedBox(height: 16),
                 TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Address',
+                    labelText: AppStrings.address,
                   ),
                   controller: context.read<MapScreenCubit>().addressController,
                 ),
-                const SizedBox(height: 16),
                 Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () {
-                        bottomSheetContext.back();
-                      },
-                      child: const Text('Cancel'),
+                  spacing: AppSize.large.w ,
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          bottomSheetContext.back();
+                        },
+                        child: const Text(AppStrings.cancel),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _submitFaultReport(context, bottomSheetContext);
-                      },
-                      child: const Text('Submit'),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _submitFaultReport(context, bottomSheetContext);
+                        },
+                        child: const Text(AppStrings.submit),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-            
+                  ],
+                ),
               ],
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class FinshTripBottm extends StatelessWidget {
+  final VoidCallback onTap;
+  const FinshTripBottm({
+    super.key,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: AppSize.average.h,
+      right: AppSize.average.w,
+      left: AppSize.average.w,
+      child: ElevatedButton(
+        onPressed: onTap,
+        child: const Text(AppStrings.finishTrip),
+      ),
     );
   }
 }
@@ -217,69 +237,66 @@ void _showReportBottomSheet(BuildContext context) {
       return Padding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(bottomSheetContext).viewInsets.bottom,
-          left: 16,
-          right: 16,
-          top: 16,
+          left: AppSize.large.w,
+          right: AppSize.large.w,
+          top: AppSize.large.h,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          spacing: AppSize.large.h,
           children: [
             const Text(
-              'Trip Report',
+              AppStrings.tripReport,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16),
             TextField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Comments',
+                labelText: AppStrings.details,
               ),
               controller: context.read<MapScreenCubit>().detailsController,
               maxLines: 3,
             ),
-            const SizedBox(height: 16),
             TextField(
               keyboardType:
                   const TextInputType.numberWithOptions(decimal: true),
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Cost',
+                labelText: AppStrings.cost,
                 prefixText: '\$ ',
               ),
               controller: context.read<MapScreenCubit>().costController,
             ),
-            const SizedBox(height: 16),
             TextField(
               keyboardType: TextInputType.number,
               controller: context.read<MapScreenCubit>().fuelRefileController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: "Fuel Refill (Liters)",
+                labelText: AppStrings.fuelRefile ,
               ),
             ),
-            const SizedBox(height: 20),
+           verticalSpace(5),
             Row(
+              spacing: AppSize.large.w,
               children: [
                 Expanded(
                   child: TextButton(
                     onPressed: () {
                       bottomSheetContext.back();
                     },
-                    child: const Text('Cancel'),
+                    child: const Text(AppStrings.cancel,style: TextStyle(color: AppColor.red),),
                   ),
                 ),
-                const SizedBox(width: 16),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
                       _submitReport(context, bottomSheetContext);
                     },
-                    child: const Text('Submit'),
+                    child: const Text(AppStrings.submit),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
           ],
         ),
       );
@@ -297,7 +314,7 @@ void _submitReport(BuildContext context, BuildContext bottomSheetContext) {
   if (costText.isEmpty || fuelText.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Please fill in all required fields'),
+        content: Text(AppStrings.tripReportDesc),
         backgroundColor: Colors.red,
       ),
     );
@@ -347,7 +364,6 @@ void _submitReport(BuildContext context, BuildContext bottomSheetContext) {
   cubit.reportTrip(tripReport);
 }
 
-
 void _submitFaultReport(BuildContext context, BuildContext bottomSheetContext) {
   final cubit = context.read<MapScreenCubit>();
 
@@ -358,10 +374,13 @@ void _submitFaultReport(BuildContext context, BuildContext bottomSheetContext) {
   final addressText = cubit.addressController.text.trim();
 
   // Validate required fields
-  if (costText.isEmpty || fuelText.isEmpty || faultTypeText.isEmpty || addressText.isEmpty) {
+  if (costText.isEmpty ||
+      fuelText.isEmpty ||
+      faultTypeText.isEmpty ||
+      addressText.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Please fill in all required fields'),
+        content: Text(AppStrings.tripReportDesc),
         backgroundColor: Colors.red,
       ),
     );
@@ -428,7 +447,10 @@ void _submitFaultReport(BuildContext context, BuildContext bottomSheetContext) {
     faultType: faultType,
     address: addressText,
   );
-AppLogger.i(faultReport);
+  AppLogger.i(faultReport);
   bottomSheetContext.back();
   cubit.faultReport(faultReport);
 }
+
+
+////  TODO: Refactor 
