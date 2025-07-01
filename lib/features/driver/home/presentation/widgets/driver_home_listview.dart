@@ -10,7 +10,7 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/utils/app_padding.dart';
 import '../../../../../core/widgets/trip_card_info.dart';
 import '../../domain/entities/driver_home_entities.dart';
-import '../cubit/driver_home_cubit.dart';
+import '../cubits/driver_home_cubit/driver_home_cubit.dart';
 import 'home_trip_card.dart';
 
 class DriverHomeListView extends StatelessWidget {

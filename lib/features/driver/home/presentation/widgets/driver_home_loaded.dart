@@ -6,7 +6,7 @@ import '../../../../../core/constants/strings_constants.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../../domain/entities/driver_home_entities.dart';
-import '../cubit/driver_home_state.dart';
+import '../cubits/driver_home_cubit/driver_home_state.dart';
 import 'custom_app_bar.dart';
 import 'driver_home_listview.dart';
 

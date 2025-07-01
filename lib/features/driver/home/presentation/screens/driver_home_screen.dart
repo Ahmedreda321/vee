@@ -4,8 +4,8 @@ import 'package:vee/core/extensions/navigation_extensions.dart';
 
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
-import '../cubit/driver_home_cubit.dart';
-import '../cubit/driver_home_state.dart';
+import '../cubits/driver_home_cubit/driver_home_cubit.dart';
+import '../cubits/driver_home_cubit/driver_home_state.dart';
 import '../widgets/app_error_dialog.dart';
 import '../widgets/driver_home_loaded.dart';
 import '../widgets/trip_loding.dart';

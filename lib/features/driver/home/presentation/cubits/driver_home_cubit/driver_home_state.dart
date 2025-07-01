@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:vee/features/driver/home/domain/entities/driver_home_entities.dart';
+
+import '../../../domain/entities/driver_home_entities.dart';
 
 part 'driver_home_state.freezed.dart';
 

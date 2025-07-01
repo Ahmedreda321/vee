@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:vee/features/driver/home/data/models/fault_report_model.dart';
+import 'package:vee/features/driver/home/data/models/trip_report_model.dart';
 
 import '../../../../../core/errors/failures.dart';
 import '../../../../../core/models/base_data_source.dart';
@@ -70,4 +72,51 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
       return Left(NetworkFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, BaseResponse>> reportTrip(TripReportModel tripReportModel) async{
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _driverHomeRemoteDataSource.reportTrip(tripReportModel);
+        if (response.statusCode == ResponseCode.SUCCESS) {
+          return Right(response);
+        } else {
+          return Left(
+            ErrorHandler.handle(
+              Failure(response.message ?? ResponseMessage.DEFAULT,
+                  response.statusCode ?? ResponseCode.DEFAULT),
+            ).failure,
+          );
+        }
+      } catch (e) {
+        return Left(ErrorHandler.handle(e).failure);
+      }
+    } else {
+      return Left(NetworkFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, BaseResponse>> reportFault(FaultReportModel faultReportModel) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _driverHomeRemoteDataSource.reportFault(faultReportModel);
+        if (response.statusCode == ResponseCode.SUCCESS) {
+          return Right(response);
+        } else {
+          return Left(
+            ErrorHandler.handle(
+              Failure(response.message ?? ResponseMessage.DEFAULT,
+                  response.statusCode ?? ResponseCode.DEFAULT),
+            ).failure,
+          );
+        }
+      } catch (e) {
+        return Left(ErrorHandler.handle(e).failure);
+      }
+  } else {
+      return Left(NetworkFailure());
+    }
+  }
 }
+

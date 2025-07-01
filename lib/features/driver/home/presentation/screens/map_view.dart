@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vee/core/extensions/navigation_extensions.dart';
+import 'package:vee/core/services/logger_service.dart';
 import 'package:vee/features/driver/home/domain/entities/driver_home_entities.dart';
 
-// import '../../../../../core/services/map_serv.dart';
+import '../../../../../core/routing/routes.dart';
 import '../../../../../core/services/map_services/map_screen.dart';
 import '../../../../../core/theme/app_colors.dart';
+import '../../../../../core/widgets/app_circular_indicator.dart';
+import '../../data/models/fault_report_model.dart';
+import '../../data/models/trip_report_model.dart';
+import '../cubits/cubit/map_screen_cubit.dart';
+import '../cubits/cubit/map_screen_state.dart';
+import '../widgets/app_error_dialog.dart';
 
 class MapView extends StatelessWidget {
   final TripEntity trip;
@@ -11,51 +20,415 @@ class MapView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MapScreen(
-      tripId: trip.id,
-      destinationLocationNominatimLink:
-          trip.destinationLocationNominatimLink,
-      pickupLocationNominatimLink: trip.pickupLocationNominatimLink,
+    return Scaffold(
+        body: BlocListener<MapScreenCubit, MapScreenState>(
+      listenWhen: (previous, current) =>
+          current is Loaded ||
+          current is Error ||
+          current is Loading ||
+          current is FaultLoading ||
+          current is FaultLoaded ||
+          current is FaultError,
+      listener: (context, state) {
+        state.whenOrNull(
+          reportError: (message) {
+            Navigator.of(context).pop();
+            showErrorDialog(context, message);
+          },
+          reportLoading: () {
+            showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) => const Center(child: AppCircularIndicator()));
+          },
+          reportLoaded: () {
+            context.back();
+            context.pushReplacementNamed(Routes.driverHomeScreen);
+          },
+          faultError: (message) {
+            Navigator.of(context).pop();
+            showErrorDialog(context, message);
+          },
+          faultLoading: () {
+            showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) => const Center(child: AppCircularIndicator()));
+          },
+          faultLoaded: () {
+            context.back();
+            context.pushReplacementNamed(Routes.driverHomeScreen);
+          },
+        );
+      },
+      child: Stack(children: [
+        MapScreen(
+          tripId: trip.id,
+          destinationLocationNominatimLink:
+              trip.destinationLocationNominatimLink,
+          pickupLocationNominatimLink: trip.pickupLocationNominatimLink,
+        ),
+        Positioned(
+          bottom: 20,
+          right: 20,
+          left: 20,
+          child: ElevatedButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext dialogContext) {
+                    return AlertDialog(
+                      title: const Text("Finish Trip"),
+                      content: const Text("Do you have any issues?"),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            dialogContext.back();
+                            _showFaultReportBottomSheet(context);
+                          },
+                          child: const Text("yes",
+                              style: TextStyle(color: AppColor.black)),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            dialogContext.back();
+                            _showReportBottomSheet(context);
+                          },
+                          child: const Text("no",
+                              style: TextStyle(color: AppColor.red)),
+                        ),
+                      ],
+                    );
+                  });
+            },
+            child: const Text("Finish Trip"),
+          ),
+        ),
+      ]),
+    ));
+  }
+
+  void _showFaultReportBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (bottomSheetContext) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(bottomSheetContext).viewInsets.bottom,
+            left: 16,
+            right: 16,
+            top: 16,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Fault Report',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'details',
+                  ),
+                  controller: context.read<MapScreenCubit>().faultDetailsController,
+                  maxLines: 3,
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Cost',
+                    prefixText: '\$ ',
+                  ),
+                  controller: context.read<MapScreenCubit>().faultCostController,
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Fuel Refill',
+                    prefixText: '\$ ',
+                  ),
+                  controller: context.read<MapScreenCubit>().faultFuelRefillController,
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Fault Type',
+                  ),
+                  keyboardType: TextInputType.number,
+                  controller: context.read<MapScreenCubit>().faultTypeController,
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Address',
+                  ),
+                  controller: context.read<MapScreenCubit>().addressController,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () {
+                        bottomSheetContext.back();
+                      },
+                      child: const Text('Cancel'),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _submitFaultReport(context, bottomSheetContext);
+                      },
+                      child: const Text('Submit'),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+            
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({
-    super.key,
-  });
+void _showReportBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (bottomSheetContext) {
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(bottomSheetContext).viewInsets.bottom,
+          left: 16,
+          right: 16,
+          top: 16,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Trip Report',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Comments',
+              ),
+              controller: context.read<MapScreenCubit>().detailsController,
+              maxLines: 3,
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Cost',
+                prefixText: '\$ ',
+              ),
+              controller: context.read<MapScreenCubit>().costController,
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              keyboardType: TextInputType.number,
+              controller: context.read<MapScreenCubit>().fuelRefileController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "Fuel Refill (Liters)",
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {
+                      bottomSheetContext.back();
+                    },
+                    child: const Text('Cancel'),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _submitReport(context, bottomSheetContext);
+                    },
+                    child: const Text('Submit'),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      );
+    },
+  );
+}
 
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 20,
-      child: ElevatedButton(
-        onPressed: () {
-          showDialog(
-              context: context,
-              builder: (BuildContext dialogContext) {
-                return AlertDialog(
-                  title: const Text("Finish Trip"),
-                  content: const Text("Do you have any issues?"),
-                  actions: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text("yes",
-                          style: TextStyle(color: AppColor.black)),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text("no",
-                          style: TextStyle(color: AppColor.red)),
-                    ),
-                  ],
-                );
-              });
-        },
-        child: const Text("Finish Trip"),
+void _submitReport(BuildContext context, BuildContext bottomSheetContext) {
+  final cubit = context.read<MapScreenCubit>();
+
+  final costText = cubit.costController.text.trim();
+  final fuelText = cubit.fuelRefileController.text.trim();
+  final detailsText = cubit.detailsController.text.trim();
+
+  if (costText.isEmpty || fuelText.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please fill in all required fields'),
+        backgroundColor: Colors.red,
       ),
     );
+    return;
   }
+
+  double? cost;
+  int? fuelRefile;
+
+  try {
+    cost = double.parse(costText);
+    if (cost < 0) {
+      throw const FormatException('Cost cannot be negative');
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a valid cost amount'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  try {
+    fuelRefile = int.parse(fuelText);
+    if (fuelRefile < 0) {
+      throw const FormatException('Fuel amount cannot be negative');
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a valid fuel amount'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  final tripReport = TripReportModel(
+    details: detailsText.isEmpty ? 'No additional comments' : detailsText,
+    cost: cost,
+    fuelRefile: fuelRefile,
+  );
+
+  bottomSheetContext.back();
+  cubit.reportTrip(tripReport);
 }
 
-//TODO: refactor
+
+void _submitFaultReport(BuildContext context, BuildContext bottomSheetContext) {
+  final cubit = context.read<MapScreenCubit>();
+
+  final costText = cubit.faultCostController.text.trim();
+  final fuelText = cubit.faultFuelRefillController.text.trim();
+  final detailsText = cubit.faultDetailsController.text.trim();
+  final faultTypeText = cubit.faultTypeController.text.trim();
+  final addressText = cubit.addressController.text.trim();
+
+  // Validate required fields
+  if (costText.isEmpty || fuelText.isEmpty || faultTypeText.isEmpty || addressText.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please fill in all required fields'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  int? cost;
+  int? fuelRefile;
+  int? faultType;
+
+  // Validate cost (as int according to model)
+  try {
+    cost = int.parse(costText);
+    if (cost < 0) {
+      throw const FormatException('Cost cannot be negative');
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a valid cost amount'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  // Validate fuel refill (as int according to model)
+  try {
+    fuelRefile = int.parse(fuelText);
+    if (fuelRefile < 0) {
+      throw const FormatException('Fuel amount cannot be negative');
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a valid fuel amount'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  // Validate fault type
+  try {
+    faultType = int.parse(faultTypeText);
+    if (faultType < 0) {
+      throw const FormatException('Fault type cannot be negative');
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a valid fault type number'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+
+  // Create fault report model
+  final faultReport = FaultReportModel(
+    details: detailsText.isEmpty ? 'No additional details' : detailsText,
+    cost: cost,
+    fuelRefile: fuelRefile,
+    faultType: faultType,
+    address: addressText,
+  );
+AppLogger.i(faultReport);
+  bottomSheetContext.back();
+  cubit.faultReport(faultReport);
+}

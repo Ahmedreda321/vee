@@ -41,12 +41,12 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/usecases/base_use_case.dart';
-import '../../../../../core/utils/app_shared_pref_consts.dart';
-import '../../../../../core/utils/app_shared_preferences.dart';
-import '../../domain/entities/driver_home_entities.dart';
-import '../../domain/usecases/get_trips_ues_case.dart';
-import '../../domain/usecases/start_trip_use_case.dart';
+import '../../../../../../core/usecases/base_use_case.dart';
+import '../../../../../../core/utils/app_shared_pref_consts.dart';
+import '../../../../../../core/utils/app_shared_preferences.dart';
+import '../../../domain/entities/driver_home_entities.dart';
+import '../../../domain/usecases/get_trips_ues_case.dart';
+import '../../../domain/usecases/start_trip_use_case.dart';
 import 'driver_home_state.dart';
 
 class DriverHomeCubit extends Cubit<DriverHomeState> {

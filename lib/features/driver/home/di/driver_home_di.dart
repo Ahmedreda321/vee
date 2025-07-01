@@ -1,7 +1,9 @@
 import '../../../../core/di/dependency_injection.dart';
 import '../data/datasources/driver_home_remot_data_source.dart';
 import '../data/repositories/driver_home_repository_impl.dart';
+import '../domain/usecases/fault_report_use_case.dart';
 import '../domain/usecases/get_trips_ues_case.dart';
+import '../domain/usecases/report_trip_use_case.dart';
 import '../domain/usecases/start_trip_use_case.dart';
 
 Future <void> driverHomeSetup() async {
@@ -28,5 +30,16 @@ Future <void> driverHomeSetup() async {
     () => StartTripUseCase(getIt()),
   );
 
+  // Register the tripReportUseCase
+  getIt.registerLazySingleton<ReportTripUseCase>(
+    () => ReportTripUseCase(getIt()),
+  );
+
+  // Register the FaultReportUseCase
+  getIt.registerLazySingleton<FaultReportUseCase>(
+    () => FaultReportUseCase(getIt()),
+  );
+
 
 }
+
