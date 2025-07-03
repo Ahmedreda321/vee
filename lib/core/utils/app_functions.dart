@@ -1,4 +1,5 @@
 import 'package:vee/core/constants/strings_constants.dart';
+import 'package:vee/core/services/logger_service.dart';
 
 import '../routing/routes.dart';
 import 'app_shared_pref_consts.dart';
@@ -12,7 +13,7 @@ class AppFunctions {
         await AppPreferences.getSecureData(AppSharedPrefConsts.userToken);
     final role =
         await AppPreferences().getData(AppSharedPrefConsts.userRole) ?? '';
-
+AppLogger.i('Role: $role');
     if (token == null || token.isEmpty) {
       return Routes.onBoardingScreen;
     } else {

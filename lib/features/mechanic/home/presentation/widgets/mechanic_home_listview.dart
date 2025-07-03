@@ -1,26 +1,20 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vee/features/mechanic/home/presentation/widgets/mechanic_home_card.dart';
 
 import '../../../../../../core/constants/strings_constants.dart';
 import '../../../../../../core/extensions/sizedbox_extensions.dart';
 import '../../../../../../core/theme/app_text_styles.dart';
 import '../../../../../../core/utils/app_padding.dart';
 import '../../../../../../core/widgets/trip_card_info.dart';
-import '../../domain/entities/driver_home_entities.dart';
-import '../cubits/driver_home_cubit/driver_home_cubit.dart';
-import 'driver_trip_card.dart';
+import '../../domain/entities/maintenance_entitied.dart';
 
-
-class DriverHomeListview extends StatelessWidget {
-  final List <TripEntity> trips;
-  const DriverHomeListview({
+class MechanicHomeListView extends StatelessWidget {
+  final List<MaintenanceEntity> maintenances;
+  const MechanicHomeListView({
     super.key,
-    required this.trips,
+    required this.maintenances,
   });
-  
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +24,7 @@ class DriverHomeListview extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: Text(
-              AppStrings.trips,
+              AppStrings.mechanicTasks,
               style: AppTextStyles.homeScreenListTile,
             ),
           ),
@@ -38,29 +32,26 @@ class DriverHomeListview extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                final trip = trips[index];
+                final maintenance = maintenances[index];
                 return Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
-                  child: DriverTripCard(
-                    status: trip.status,
-                    onPressed: () 
-                    {
-                    context.read<DriverHomeCubit>().startTrip(trip);
-                    },
-                    tripInfo: TripCardInfo(
-                      title: AppStrings.trip,
-                      value: "From ${trip.pickupLocation} → ${trip.destination}",
-                    ),
+                  child: MechanicHomeCard(
+                    category: maintenance.category,
+                    status: maintenance.status,
+                    onPressed: () {},
+                    
                     vehicleInfo: TripCardInfo(
                       title: AppStrings.vehicle,
-                      value: "${trip.vehicle.vehicleModel.brand.name} - (${trip.vehicle.palletNumber})",
+                      value:
+                          "${maintenance.vehicle.name} - (${maintenance.vehicle.palletNumber})",
+                    ), decriptionInfo: TripCardInfo(
+                      title: AppStrings.description,
+                      value: maintenance.description,
                     ),
-                    date: trip.date,
-                    time: trip.time,
                   ),
                 );
               },
-              childCount: trips.length,
+              childCount: maintenances.length,
             ),
           ),
         ],

@@ -8,4 +8,5 @@ class ApiConstants {
       'https://veemanage.runasp.net/api/TripLocation';
   static const String tripReport = '/api/TripReport';
   static const String faultReport = "/api/Trip/Report/Fault";
+  static const String maintenance = "/api/Maintenance/Request/Me";
 }

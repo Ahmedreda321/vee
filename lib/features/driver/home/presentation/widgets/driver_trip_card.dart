@@ -6,8 +6,8 @@ import '../../../../../core/widgets/app_container.dart';
 import '../../../../../core/widgets/trip_card_info.dart';
 import 'start_button.dart';
 
-class HomeTripCard extends StatelessWidget {
-  const HomeTripCard({
+class DriverTripCard extends StatelessWidget {
+  const DriverTripCard({
     super.key,
     required this.tripInfo,
     required this.vehicleInfo,

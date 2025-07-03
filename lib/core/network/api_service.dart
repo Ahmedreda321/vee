@@ -5,6 +5,7 @@ import 'package:vee/features/driver/home/data/models/fault_report_model.dart';
 
 import '../../features/driver/home/data/models/driver_home_response.dart';
 import '../../features/driver/home/data/models/trip_report_model.dart';
+import '../../features/mechanic/home/data/models/mechanic_home_response.dart';
 import '../../features/shared/auth/data/models/forogt_password_request_body.dart';
 import '../../features/shared/auth/data/models/login_request_body.dart';
 import '../../features/shared/auth/data/models/login_response.dart';
@@ -54,4 +55,11 @@ abstract class ApiService {
   Future<BaseResponse> reportFault(
     @Body() FaultReportModel faultReportModel,
   );
+
+  // **************************************************************************
+  // Mechanic Endpoints
+  // **************************************************************************
+
+  @GET(ApiConstants.maintenance)
+  Future<MechanicHomeResponse> getMaintenance();
 }

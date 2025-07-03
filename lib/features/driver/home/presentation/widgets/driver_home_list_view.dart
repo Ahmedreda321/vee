@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home_trip_card.dart';
+import 'driver_trip_card.dart';
 
 class HomeListView extends StatelessWidget {
   const HomeListView({
@@ -8,7 +8,7 @@ class HomeListView extends StatelessWidget {
     required this.homeTripCard,
     required this.listLength,
   });
-  final HomeTripCard homeTripCard;
+  final DriverTripCard homeTripCard;
   final int listLength;
   @override
   Widget build(BuildContext context) {

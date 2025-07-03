@@ -51,7 +51,8 @@ class LoginBlocListener extends StatelessWidget {
                   context.pushReplacementNamed(
                        Routes.driverHomeScreen);
                 } else {
-                  context.pushReplacementNamed("");
+                  context.pushReplacementNamed(
+                      Routes.mechanicHomeScreen);
                 }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
