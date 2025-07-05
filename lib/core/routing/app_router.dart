@@ -71,7 +71,7 @@ class AppRouter {
         return _createRoute(const NotificationScreen());
       case Routes.mechanicHomeScreen:
         return _createRoute(BlocProvider(
-          create: (context) => MechanicHomeCubit(getIt())..getMechanicHomeData(),
+          create: (context) => MechanicHomeCubit(getIt(), getIt(), getIt(), getIt())..getMechanicHomeData(),
           child: const MechanicHomeScreen(),
         ));
 

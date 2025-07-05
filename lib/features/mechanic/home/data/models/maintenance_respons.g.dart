@@ -8,6 +8,9 @@ part of 'maintenance_respons.dart';
 
 MaintenanceResponse _$MaintenanceResponseFromJson(Map<String, dynamic> json) =>
     MaintenanceResponse(
+      parts: (json['parts'] as List<dynamic>?)
+          ?.map((e) => PartModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
       description: json['description'] as String?,
       status: json['status'] as String?,
@@ -20,6 +23,10 @@ MaintenanceResponse _$MaintenanceResponseFromJson(Map<String, dynamic> json) =>
       vehicle: json['vehicle'] == null
           ? null
           : VehicleResponse.fromJson(json['vehicle'] as Map<String, dynamic>),
+      initialReport: json['initialReport'] == null
+          ? null
+          : InitialReport.fromJson(
+              json['initialReport'] as Map<String, dynamic>),
       maintenaceCategory: json['maintenaceCategory'] as String?,
     );
 
@@ -32,7 +39,19 @@ Map<String, dynamic> _$MaintenanceResponseToJson(
       'manager': instance.manager,
       'mechanic': instance.mechanic,
       'vehicle': instance.vehicle,
+      'parts': instance.parts,
       'maintenaceCategory': instance.maintenaceCategory,
+      'initialReport': instance.initialReport,
+    };
+
+InitialReport _$InitialReportFromJson(Map<String, dynamic> json) =>
+    InitialReport(
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$InitialReportToJson(InitialReport instance) =>
+    <String, dynamic>{
+      'id': instance.id,
     };
 
 ManagerResponse _$ManagerResponseFromJson(Map<String, dynamic> json) =>

@@ -12,14 +12,18 @@ class MaintenanceEntity {
   final VehicleEntity vehicle;
   final String description;
   final  String status;
+  final List<PartEntity> parts;
+  final InitialReportIdEntity? initialReportIdEntity;
 
-  MaintenanceEntity({
+
+  MaintenanceEntity(this.initialReportIdEntity, {
     required this.id,
     required this.category,
     required this.maintenaceCategory,
     required this.vehicle,
     required this.description,
     required this.status,
+    required this.parts
   });
 
 }
@@ -37,4 +41,17 @@ class VehicleEntity {
   
 }
 
+class PartEntity {
+  final String id;
+  final int quantity;
+  
+  PartEntity({
+    required this.id,
+    required this.quantity,
+  });
+}
 
+class InitialReportIdEntity {
+  final String initialReportId;
+  InitialReportIdEntity({required this.initialReportId});
+}

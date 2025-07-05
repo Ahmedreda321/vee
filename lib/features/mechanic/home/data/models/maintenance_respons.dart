@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'part_model.dart';
+
 part 'maintenance_respons.g.dart';
 
 @JsonSerializable()
@@ -10,23 +12,37 @@ class MaintenanceResponse {
   final ManagerResponse? manager;
   final MechanicResponse? mechanic;
   final VehicleResponse? vehicle;
+  final List<PartModel>? parts; // PartModel
   final String? maintenaceCategory;
+  final InitialReport? initialReport;
   MaintenanceResponse({
+    this.parts,
     this.id,
     this.description,
     this.status,
     this.manager,
     this.mechanic,
     this.vehicle,
+    this.initialReport,
     required this.maintenaceCategory,
   });
   factory MaintenanceResponse.fromJson(Map<String, dynamic> json) =>
       _$MaintenanceResponseFromJson(json);
 }
+@JsonSerializable()
+class InitialReport {
+  final String? id;
+  InitialReport({
+    required this.id
+  })
+  ;
+  factory InitialReport.fromJson(Map<String, dynamic> json) =>
+      _$InitialReportFromJson(json);
+         
+}
 
 
 @JsonSerializable()
-
 class ManagerResponse {
   final String? id;
   final String? role;
@@ -44,7 +60,6 @@ class ManagerResponse {
 }
 
 @JsonSerializable()
-
 class MechanicResponse {
   final String? id;
   final String? role;

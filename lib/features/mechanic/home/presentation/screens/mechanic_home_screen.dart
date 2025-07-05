@@ -24,6 +24,7 @@ class MechanicHomeScreen extends StatelessWidget {
           error: (message) => Scaffold(body: Center(child: Text(message))),
           // Show the data if it's loaded
           loaded: (data) => MechanicHomeLoaded(data: data),
+          
         );
       },
     );
