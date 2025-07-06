@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constants/app_constants.dart';
 import '../../../../../core/constants/strings_constants.dart';
