@@ -1,0 +1,206 @@
+Date : 2025-07-05 06:32:08
+Directory : /media/username/harddrive/Projects/vee
+Total : 103 files,  3213 codes, 28 comments, 417 blanks, all 3658 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         95 |      3,098 |         28 |        380 |      3,506 |
+| JSON     |          2 |         68 |          0 |          0 |         68 |
+| Markdown |          1 |         19 |          0 |         14 |         33 |
+| XML      |          2 |         17 |          0 |         19 |         36 |
+| Ruby     |          2 |          7 |          0 |          4 |         11 |
+| YAML     |          1 |          4 |          0 |          0 |          4 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                            |        103 |      3,213 |         28 |        417 |      3,658 |
+| . (Files)                                                                                                                                    |          2 |          5 |          0 |          0 |          5 |
+| android                                                                                                                                      |          6 |        110 |          0 |         37 |        147 |
+| android (Files)                                                                                                                              |          1 |          5 |          0 |          3 |          8 |
+| android/app                                                                                                                                  |          2 |         69 |          0 |          0 |         69 |
+| android/app (Files)                                                                                                                          |          1 |         67 |          0 |          0 |         67 |
+| android/app/src                                                                                                                              |          1 |          2 |          0 |          0 |          2 |
+| android/app/src/main                                                                                                                         |          1 |          2 |          0 |          0 |          2 |
+| android/fastlane                                                                                                                             |          3 |         36 |          0 |         34 |         70 |
+| lib                                                                                                                                          |         95 |      3,098 |         28 |        380 |      3,506 |
+| lib (Files)                                                                                                                                  |          4 |         83 |         12 |         14 |        109 |
+| lib/core                                                                                                                                     |         19 |        654 |         77 |         91 |        822 |
+| lib/core/constants                                                                                                                           |          2 |        -35 |         -1 |         -6 |        -42 |
+| lib/core/errors                                                                                                                              |          1 |          7 |          0 |          1 |          8 |
+| lib/core/models                                                                                                                              |          1 |         13 |          0 |          3 |         16 |
+| lib/core/network                                                                                                                             |          3 |        -57 |          6 |         -4 |        -55 |
+| lib/core/routing                                                                                                                             |          2 |         27 |          0 |          0 |         27 |
+| lib/core/services                                                                                                                            |          5 |        689 |         71 |         97 |        857 |
+| lib/core/services (Files)                                                                                                                    |          2 |        -20 |         -2 |        -17 |        -39 |
+| lib/core/services/map_services                                                                                                               |          3 |        709 |         73 |        114 |        896 |
+| lib/core/usecases                                                                                                                            |          1 |          1 |          1 |          1 |          3 |
+| lib/core/utils                                                                                                                               |          4 |          9 |          0 |         -1 |          8 |
+| lib/features                                                                                                                                 |         72 |      2,361 |        -61 |        275 |      2,575 |
+| lib/features/driver                                                                                                                          |         33 |      1,376 |          7 |        184 |      1,567 |
+| lib/features/driver/home                                                                                                                     |         33 |      1,376 |          7 |        184 |      1,567 |
+| lib/features/driver/home/data                                                                                                                |          9 |        421 |         18 |         65 |        504 |
+| lib/features/driver/home/data/datasources                                                                                                    |          2 |         21 |         17 |         12 |         50 |
+| lib/features/driver/home/data/mapper                                                                                                         |          1 |         99 |          1 |          7 |        107 |
+| lib/features/driver/home/data/models                                                                                                         |          5 |        187 |          0 |         37 |        224 |
+| lib/features/driver/home/data/repositories                                                                                                   |          1 |        114 |          0 |          9 |        123 |
+| lib/features/driver/home/di                                                                                                                  |          1 |         30 |          6 |         10 |         46 |
+| lib/features/driver/home/domain                                                                                                              |          6 |        153 |          0 |         35 |        188 |
+| lib/features/driver/home/domain/entities                                                                                                     |          1 |         90 |          0 |         14 |        104 |
+| lib/features/driver/home/domain/repositories                                                                                                 |          1 |         12 |          0 |          2 |         14 |
+| lib/features/driver/home/domain/usecases                                                                                                     |          4 |         51 |          0 |         19 |         70 |
+| lib/features/driver/home/presentation                                                                                                        |         17 |        772 |        -17 |         74 |        829 |
+| lib/features/driver/home/presentation/cubit                                                                                                  |          2 |        -13 |          0 |         -7 |        -20 |
+| lib/features/driver/home/presentation/cubits                                                                                                 |          4 |        159 |         42 |         41 |        242 |
+| lib/features/driver/home/presentation/cubits/cubit                                                                                           |          2 |         74 |          1 |         12 |         87 |
+| lib/features/driver/home/presentation/cubits/driver_home_cubit                                                                               |          2 |         85 |         41 |         29 |        155 |
+| lib/features/driver/home/presentation/screens                                                                                                |          2 |        429 |        -63 |         19 |        385 |
+| lib/features/driver/home/presentation/widgets                                                                                                |          9 |        197 |          4 |         21 |        222 |
+| lib/features/mechanic                                                                                                                        |         26 |      2,058 |         26 |        261 |      2,345 |
+| lib/features/mechanic/home                                                                                                                   |         24 |      2,045 |         26 |        254 |      2,325 |
+| lib/features/mechanic/home/data                                                                                                              |          8 |        362 |          2 |         59 |        423 |
+| lib/features/mechanic/home/data/datasources                                                                                                  |          1 |         22 |          0 |          2 |         24 |
+| lib/features/mechanic/home/data/mapper                                                                                                       |          1 |         61 |          1 |         10 |         72 |
+| lib/features/mechanic/home/data/models                                                                                                       |          5 |        170 |          1 |         37 |        208 |
+| lib/features/mechanic/home/data/repositories                                                                                                 |          1 |        109 |          0 |         10 |        119 |
+| lib/features/mechanic/home/di                                                                                                                |          1 |         35 |          6 |          7 |         48 |
+| lib/features/mechanic/home/domain                                                                                                            |          6 |        115 |          2 |         30 |        147 |
+| lib/features/mechanic/home/domain/entities                                                                                                   |          1 |         45 |          1 |         11 |         57 |
+| lib/features/mechanic/home/domain/repositories                                                                                               |          1 |         13 |          0 |          1 |         14 |
+| lib/features/mechanic/home/domain/usecases                                                                                                   |          4 |         57 |          1 |         18 |         76 |
+| lib/features/mechanic/home/presentation                                                                                                      |          9 |      1,533 |         16 |        158 |      1,707 |
+| lib/features/mechanic/home/presentation/cubit                                                                                                |          2 |         90 |          4 |         15 |        109 |
+| lib/features/mechanic/home/presentation/screens                                                                                              |          1 |         24 |          4 |          5 |         33 |
+| lib/features/mechanic/home/presentation/widgets                                                                                              |          6 |      1,419 |          8 |        138 |      1,565 |
+| lib/features/mechanic/notificatinos                                                                                                          |          2 |         13 |          0 |          7 |         20 |
+| lib/features/mechanic/notificatinos/presentation                                                                                             |          2 |         13 |          0 |          7 |         20 |
+| lib/features/mechanic/notificatinos/presentation/cubit                                                                                       |          2 |         13 |          0 |          7 |         20 |
+| lib/features/shared                                                                                                                          |         13 |     -1,073 |        -94 |       -170 |     -1,337 |
+| lib/features/shared/auth                                                                                                                     |         12 |     -1,074 |        -94 |       -170 |     -1,338 |
+| lib/features/shared/auth/data                                                                                                                |          6 |        -44 |        -16 |        -19 |        -79 |
+| lib/features/shared/auth/data/models                                                                                                         |          6 |        -44 |        -16 |        -19 |        -79 |
+| lib/features/shared/auth/di                                                                                                                  |          1 |         -8 |          6 |          4 |          2 |
+| lib/features/shared/auth/presentation                                                                                                        |          5 |     -1,022 |        -84 |       -155 |     -1,261 |
+| lib/features/shared/auth/presentation/cubits                                                                                                 |          3 |     -1,024 |        -84 |       -155 |     -1,263 |
+| lib/features/shared/auth/presentation/cubits/forgot_passwprd_cubit                                                                           |          1 |       -511 |        -42 |        -78 |       -631 |
+| lib/features/shared/auth/presentation/cubits/login_cubit                                                                                     |          2 |       -513 |        -42 |        -77 |       -632 |
+| lib/features/shared/auth/presentation/screens                                                                                                |          1 |          0 |          0 |         -1 |         -1 |
+| lib/features/shared/auth/presentation/widgets                                                                                                |          1 |          2 |          0 |          1 |          3 |
+| lib/features/shared/onboarding                                                                                                               |          1 |          1 |          0 |          0 |          1 |
+| lib/features/shared/onboarding/presentation                                                                                                  |          1 |          1 |          0 |          0 |          1 |
+| lib/features/shared/onboarding/presentation/widgets                                                                                          |          1 |          1 |          0 |          0 |          1 |
++----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                     | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /media/username/harddrive/Projects/vee/android/Gemfile                                                                                       | Ruby     |          5 |          0 |          3 |          8 |
+| /media/username/harddrive/Projects/vee/android/app/google-services.json                                                                      | JSON     |         67 |          0 |          0 |         67 |
+| /media/username/harddrive/Projects/vee/android/app/src/main/AndroidManifest.xml                                                              | XML      |          2 |          0 |          0 |          2 |
+| /media/username/harddrive/Projects/vee/android/fastlane/Appfile                                                                              | Ruby     |          2 |          0 |          1 |          3 |
+| /media/username/harddrive/Projects/vee/android/fastlane/README.md                                                                            | Markdown |         19 |          0 |         14 |         33 |
+| /media/username/harddrive/Projects/vee/android/fastlane/report.xml                                                                           | XML      |         15 |          0 |         19 |         34 |
+| /media/username/harddrive/Projects/vee/firebase.json                                                                                         | JSON     |          1 |          0 |          0 |          1 |
+| /media/username/harddrive/Projects/vee/lib/core/constants/app_constants.dart                                                                 | Dart     |          1 |          0 |          1 |          2 |
+| /media/username/harddrive/Projects/vee/lib/core/constants/strings_constants.dart                                                             | Dart     |        -36 |         -1 |         -7 |        -44 |
+| /media/username/harddrive/Projects/vee/lib/core/errors/failures.dart                                                                         | Dart     |          7 |          0 |          1 |          8 |
+| /media/username/harddrive/Projects/vee/lib/core/models/base_data_source.dart                                                                 | Dart     |         13 |          0 |          3 |         16 |
+| /media/username/harddrive/Projects/vee/lib/core/network/api_service.dart                                                                     | Dart     |         39 |         12 |         12 |         63 |
+| /media/username/harddrive/Projects/vee/lib/core/network/api_service.g.dart                                                                   | Dart     |       -105 |         -6 |        -16 |       -127 |
+| /media/username/harddrive/Projects/vee/lib/core/network/endpoint_constants.dart                                                              | Dart     |          9 |          0 |          0 |          9 |
+| /media/username/harddrive/Projects/vee/lib/core/routing/app_router.dart                                                                      | Dart     |         26 |          0 |          0 |         26 |
+| /media/username/harddrive/Projects/vee/lib/core/routing/routes.dart                                                                          | Dart     |          1 |          0 |          0 |          1 |
+| /media/username/harddrive/Projects/vee/lib/core/services/locale_service.dart                                                                 | Dart     |        -19 |         -2 |        -17 |        -38 |
+| /media/username/harddrive/Projects/vee/lib/core/services/map_services/location_tracker.dart                                                  | Dart     |        196 |         28 |         38 |        262 |
+| /media/username/harddrive/Projects/vee/lib/core/services/map_services/map_screen.dart                                                        | Dart     |        336 |         31 |         47 |        414 |
+| /media/username/harddrive/Projects/vee/lib/core/services/map_services/maps_services.dart                                                     | Dart     |        177 |         14 |         29 |        220 |
+| /media/username/harddrive/Projects/vee/lib/core/services/maps_services.dart                                                                  | Dart     |         -1 |          0 |          0 |         -1 |
+| /media/username/harddrive/Projects/vee/lib/core/usecases/base_use_case.dart                                                                  | Dart     |          1 |          1 |          1 |          3 |
+| /media/username/harddrive/Projects/vee/lib/core/utils/app_functions.dart                                                                     | Dart     |          2 |          0 |         -1 |          1 |
+| /media/username/harddrive/Projects/vee/lib/core/utils/app_shared_pref_consts.dart                                                            | Dart     |          1 |          0 |          0 |          1 |
+| /media/username/harddrive/Projects/vee/lib/core/utils/app_shared_preferences.dart                                                            | Dart     |          5 |          0 |          0 |          5 |
+| /media/username/harddrive/Projects/vee/lib/core/utils/app_size.dart                                                                          | Dart     |          1 |          0 |          0 |          1 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/datasources/driver_home_local_data_source.dart                          | Dart     |          0 |         17 |          6 |         23 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/datasources/driver_home_remot_data_source.dart                          | Dart     |         21 |          0 |          6 |         27 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/mapper/driver_home_mapper.dart                                          | Dart     |         99 |          1 |          7 |        107 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/models/driver_home_response.dart                                        | Dart     |         16 |          0 |          5 |         21 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/models/fault_report_model.dart                                          | Dart     |         24 |          0 |          6 |         30 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/models/lcation_update_model.dart                                        | Dart     |         30 |          0 |          6 |         36 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/models/trip_model.dart                                                  | Dart     |        101 |          0 |         15 |        116 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/models/trip_report_model.dart                                           | Dart     |         16 |          0 |          5 |         21 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/data/repositories/driver_home_repository_impl.dart                           | Dart     |        114 |          0 |          9 |        123 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/di/driver_home_di.dart                                                       | Dart     |         30 |          6 |         10 |         46 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/entities/driver_home_entities.dart                                    | Dart     |         90 |          0 |         14 |        104 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/repositories/driver_home_repository.dart                              | Dart     |         12 |          0 |          2 |         14 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/usecases/fault_report_use_case.dart                                   | Dart     |         13 |          0 |          5 |         18 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/usecases/get_trips_ues_case.dart                                      | Dart     |         13 |          0 |          3 |         16 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/usecases/report_trip_use_case.dart                                    | Dart     |         13 |          0 |          6 |         19 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/domain/usecases/start_trip_use_case.dart                                     | Dart     |         12 |          0 |          5 |         17 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubit/home_cubit.dart                                           | Dart     |         -6 |          0 |         -3 |         -9 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubit/home_state.dart                                           | Dart     |         -7 |          0 |         -4 |        -11 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart                              | Dart     |         62 |          1 |          9 |         72 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubits/cubit/map_screen_state.dart                              | Dart     |         12 |          0 |          3 |         15 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubits/driver_home_cubit/driver_home_cubit.dart                 | Dart     |         71 |         41 |         25 |        137 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/cubits/driver_home_cubit/driver_home_state.dart                 | Dart     |         14 |          0 |          4 |         18 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/screens/driver_home_screen.dart                                 | Dart     |          4 |        -69 |         -6 |        -71 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/screens/map_view.dart                                           | Dart     |        425 |          6 |         25 |        456 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/app_error_dialog.dart                                   | Dart     |         23 |          0 |          3 |         26 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/driver_home_list_view.dart                              | Dart     |         18 |          0 |          3 |         21 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/driver_home_listview.dart                               | Dart     |         63 |          0 |          8 |         71 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/driver_home_loaded.dart                                 | Dart     |         45 |          1 |          5 |         51 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/driver_trip_card.dart                                   | Dart     |         40 |          0 |          3 |         43 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/home_list_view.dart                                     | Dart     |        -18 |          0 |         -3 |        -21 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/home_trip_card.dart                                     | Dart     |        -33 |          0 |         -3 |        -36 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/start_button.dart                                       | Dart     |          5 |          0 |          0 |          5 |
+| /media/username/harddrive/Projects/vee/lib/features/driver/home/presentation/widgets/trip_loding.dart                                        | Dart     |         54 |          3 |          5 |         62 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/datasources/mechanic_home_remot_data_source.dart                      | Dart     |         22 |          0 |          2 |         24 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/mapper/mechanic_home_mapper.dart                                      | Dart     |         61 |          1 |         10 |         72 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/models/finish_repair_model.dart                                       | Dart     |         20 |          0 |          5 |         25 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/models/maintenance_respons.dart                                       | Dart     |         91 |          0 |         13 |        104 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/models/mechanic_home_response.dart                                    | Dart     |         12 |          1 |          5 |         18 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/models/part_model.dart                                                | Dart     |         20 |          0 |          4 |         24 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/models/start_repair_model.dart                                        | Dart     |         27 |          0 |         10 |         37 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/data/repositories/mechanic_home_repository_impl.dart                       | Dart     |        109 |          0 |         10 |        119 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/di/mechanic_di.dart                                                        | Dart     |         35 |          6 |          7 |         48 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/entities/maintenance_entitied.dart                                  | Dart     |         45 |          1 |         11 |         57 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/repositories/mechanic_home_repository.dart                          | Dart     |         13 |          0 |          1 |         14 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/usecases/finish_repair_use_case.dart                                | Dart     |         14 |          0 |          3 |         17 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/usecases/get_maintenance_use_case.dart                              | Dart     |         16 |          1 |          5 |         22 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/usecases/get_parts_use_case.dart                                    | Dart     |         13 |          0 |          4 |         17 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/domain/usecases/start_repair_use_case.dart                                 | Dart     |         14 |          0 |          6 |         20 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/cubit/mechanic_home_cubit.dart                                | Dart     |         65 |          1 |          9 |         75 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/cubit/mechanic_home_state.dart                                | Dart     |         25 |          3 |          6 |         34 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/screens/mechanic_home_screen.dart                             | Dart     |         24 |          4 |          5 |         33 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/finish_repair_bottom_sheet.dart                       | Dart     |        570 |          2 |         55 |        627 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/mechanic_home_card.dart                               | Dart     |         69 |          1 |          5 |         75 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/mechanic_home_listview.dart                           | Dart     |        103 |          3 |          9 |        115 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/mechanic_home_loded.dart                              | Dart     |         25 |          0 |          3 |         28 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/mechanic_start_button.dart                            | Dart     |         34 |          0 |          6 |         40 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/home/presentation/widgets/start_repair_bottom_sheet.dart                        | Dart     |        618 |          2 |         60 |        680 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/notificatinos/presentation/cubit/notificatinos_cubit.dart                       | Dart     |          6 |          0 |          3 |          9 |
+| /media/username/harddrive/Projects/vee/lib/features/mechanic/notificatinos/presentation/cubit/notificatinos_state.dart                       | Dart     |          7 |          0 |          4 |         11 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/business_user_dto.g.dart                                         | Dart     |        -15 |         -4 |         -5 |        -24 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/forogt_password_request_body.g.dart                              | Dart     |         -6 |         -4 |         -6 |        -16 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/login_request_body.dart                                          | Dart     |          0 |          0 |          2 |          2 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/login_request_body.g.dart                                        | Dart     |         -6 |         -4 |         -6 |        -16 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/login_response.dart                                              | Dart     |          5 |          0 |          1 |          6 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/data/models/login_response.g.dart                                            | Dart     |        -22 |         -4 |         -5 |        -31 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/di/auth_di.dart                                                              | Dart     |         -8 |          6 |          4 |          2 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_state.freezed.dart | Dart     |       -511 |        -42 |        -78 |       -631 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart                             | Dart     |         -2 |          0 |          1 |         -1 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/presentation/cubits/login_cubit/login_state.freezed.dart                     | Dart     |       -511 |        -42 |        -78 |       -631 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/presentation/screens/reset_password_screen.dart                              | Dart     |          0 |          0 |         -1 |         -1 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/auth/presentation/widgets/login_bloc_listener.dart                                | Dart     |          2 |          0 |          1 |          3 |
+| /media/username/harddrive/Projects/vee/lib/features/shared/onboarding/presentation/widgets/on_boarding_welcome.dart                          | Dart     |          1 |          0 |          0 |          1 |
+| /media/username/harddrive/Projects/vee/lib/firebase_options.dart                                                                             | Dart     |         53 |         12 |          4 |         69 |
+| /media/username/harddrive/Projects/vee/lib/main.dart                                                                                         | Dart     |        -20 |          0 |         -8 |        -28 |
+| /media/username/harddrive/Projects/vee/lib/main_dev.dart                                                                                     | Dart     |         26 |          0 |          9 |         35 |
+| /media/username/harddrive/Projects/vee/lib/main_proud.dart                                                                                   | Dart     |         24 |          0 |          9 |         33 |
+| /media/username/harddrive/Projects/vee/pubspec.yaml                                                                                          | YAML     |          4 |          0 |          0 |          4 |
+| Total                                                                                                                                        |          |      3,213 |         28 |        417 |      3,658 |
++----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -9,15 +9,11 @@ import 'package:vee/core/network/api_service.dart';
 
 import '../../../features/driver/home/data/models/lcation_update_model.dart';
 import '../../network/dio_factory.dart';
-import '../../network/endpoint_constants.dart';
-import '../../utils/app_shared_pref_consts.dart';
-import '../../utils/app_shared_preferences.dart';
 import '../logger_service.dart';
 
 /// Service class for handling map-related operations
 class MapsServices {
   static const int _defaultTimeoutSeconds = 30;
-  static const int _locationUpdateTimeoutSeconds = 15;
   static const double _earthRadiusMeters = 6371000;
 
   /// Fetches route coordinates between two points using OpenRouteService
@@ -111,57 +107,50 @@ class MapsServices {
   /// Converts degrees to radians
   static double _degreesToRadians(double degrees) => degrees * (pi / 180);
 
-  /// Sends location update to server with retry mechanism
-  static Future<bool> sendLocationUpdate({
-    required double latitude,
-    required double longitude,
-    String? tripId,
-    required double distance,
-    double? startLat,
-    double? startLng,
-    double? destinationLat,
-    double? destinationLng,
-    int retryCount = 3,
-  }) async {
-    final token = await _getAuthToken();
-    if (token == null) {
-      AppLogger.e('No authentication token found');
-      return false;
-    }
+ /// Sends location update to server with retry mechanism
+static Future<bool> sendLocationUpdate({
+  required double latitude,
+  required double longitude,
+  String? tripId,
+  required double distance,
+  double? startLat,
+  double? startLng,
+  double? destinationLat,
+  double? destinationLng,
+  int retryCount = 3,
+}) async {
+  for (int attempt = 0; attempt < retryCount; attempt++) {
+    try {
+      final success = await _performLocationUpdate(
+        latitude: latitude,
+        longitude: longitude,
+        tripId: tripId,
+        distance: distance,
+        startLat: startLat,          
+        startLng: startLng,          
+        destinationLat: destinationLat, 
+        destinationLng: destinationLng, 
+      );
 
-    for (int attempt = 0; attempt < retryCount; attempt++) {
-      try {
-        final success = await _performLocationUpdate(
-            latitude: latitude,
-            longitude: longitude,
-            tripId: tripId,
-            token: token,
-            distance: distance);
+      if (success) return true;
 
-        if (success) return true;
-
-        // Add delay before retry
-        if (attempt < retryCount - 1) {
-          await Future.delayed(Duration(seconds: (attempt + 1) * 2));
-        }
-      } catch (e) {
-        AppLogger.e('Location update attempt ${attempt + 1} failed: $e');
-        if (attempt == retryCount - 1) return false;
+      // Add delay before retry
+      if (attempt < retryCount - 1) {
+        await Future.delayed(Duration(seconds: (attempt + 1) * 2));
       }
+    } catch (e) {
+      AppLogger.e('Location update attempt ${attempt + 1} failed: $e');
+      if (attempt == retryCount - 1) return false;
     }
-    return false;
   }
+  return false;
+}
 
-  /// Gets authentication token from secure storage
-  static Future<String?> _getAuthToken() async {
-    return await AppPreferences.getSecureData(AppSharedPrefConsts.userToken);
-  }
 
   /// Performs the actual location update HTTP request
   static Future<bool> _performLocationUpdate({
     required double latitude,
     required double longitude,
-    required String token,
     String? tripId,
     required double distance,
     double? startLat,

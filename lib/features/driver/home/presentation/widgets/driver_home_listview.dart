@@ -45,6 +45,7 @@ class DriverHomeListview extends StatelessWidget {
                     status: trip.status,
                     onPressed: () 
                     {
+                      
                     context.read<DriverHomeCubit>().startTrip(trip);
                     },
                     tripInfo: TripCardInfo(

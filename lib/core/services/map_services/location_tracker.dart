@@ -202,6 +202,8 @@ class LocationTracker {
     LatLng location,
     String? driverId,
     String? tripId,
+    
+
   ) async {
     try {
       final tripDistance = _calculateTripDistance(location);

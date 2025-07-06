@@ -17,14 +17,15 @@ extension VehicleResponseMapper on VehicleResponse {
 extension MechanicResponseMapper on MaintenanceResponse {
   MaintenanceEntity toDomain() {
     return MaintenanceEntity(
-       initialReport?.toDomain() ?? InitialReportIdEntity(initialReportId: ''),
-      maintenaceCategory: maintenaceCategory ?? '', 
+      initialReport?.toDomain() ?? InitialReportIdEntity(initialReportId: ''),
+      maintenaceCategory: maintenaceCategory ?? '',
       description: description ?? '',
       vehicle: vehicle?.toDomain() ??
           VehicleEntity(name: '', palletNumber: '', category: ''),
-      status: status ?? '', id: id ?? '', category: maintenaceCategory ?? '',
+      status: status ?? '',
+      id: id ?? '',
+      category: maintenaceCategory ?? '',
       parts: parts?.map((part) => part.toDomain()).toList() ?? [],
-      
     );
   }
 }
@@ -36,15 +37,14 @@ extension PartResponseMapper on PartModel {
       quantity: quantity ?? 0,
     );
   }
-  
 }
 
 extension MaintenanceListSorter on List<MaintenanceEntity> {
   void sortByStatus() {
     final statusOrder = {
-      'in_progress': 1,
-      'pending': 2,
-      'finished': 3,
+      'InProgress': 2,
+      'Pending': 1,
+      'Completed': 3,
     };
 
     sort((a, b) {
