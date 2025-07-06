@@ -2,20 +2,18 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
+import 'package:vee/core/network/api_service.dart';
 
-import '../../network/endpoint_constants.dart';
-import '../../utils/app_shared_pref_consts.dart';
-import '../../utils/app_shared_preferences.dart';
+import '../../../features/driver/home/data/models/lcation_update_model.dart';
+import '../../network/dio_factory.dart';
 import '../logger_service.dart';
-
-
 
 /// Service class for handling map-related operations
 class MapsServices {
   static const int _defaultTimeoutSeconds = 30;
-  static const int _locationUpdateTimeoutSeconds = 15;
   static const double _earthRadiusMeters = 6371000;
 
   /// Fetches route coordinates between two points using OpenRouteService
@@ -30,15 +28,13 @@ class MapsServices {
         '?api_key=$apiKey&start=$fromLng,$fromLat&end=$toLng,$toLat';
 
     try {
-      final response = await http
-          .get(
-            Uri.parse(url),
-            headers: {'timeout': '$_defaultTimeoutSeconds'},
-          )
-          .timeout(
-            const Duration(seconds: _defaultTimeoutSeconds),
-            onTimeout: () => throw TimeoutException('Route request timeout'),
-          );
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {'timeout': '$_defaultTimeoutSeconds'},
+      ).timeout(
+        const Duration(seconds: _defaultTimeoutSeconds),
+        onTimeout: () => throw TimeoutException('Route request timeout'),
+      );
 
       if (response.statusCode == 200) {
         return _parseRouteResponse(response.body);
@@ -54,24 +50,25 @@ class MapsServices {
   /// Parses route response and extracts coordinates
   static List<LatLng> _parseRouteResponse(String responseBody) {
     final data = json.decode(responseBody);
-    final List<dynamic> coordinates = data['features'][0]['geometry']['coordinates'];
+    final List<dynamic> coordinates =
+        data['features'][0]['geometry']['coordinates'];
     return coordinates.map((coord) => LatLng(coord[1], coord[0])).toList();
   }
 
   /// Fetches coordinates from Nominatim API link
   static Future<LatLng> getLatLngFromNominatimLink(String link) async {
     try {
-      final response = await http
-          .get(Uri.parse(link))
-          .timeout(
+      final response = await http.get(Uri.parse(link)).timeout(
             const Duration(seconds: _defaultTimeoutSeconds),
-            onTimeout: () => throw TimeoutException('Nominatim request timeout'),
+            onTimeout: () =>
+                throw TimeoutException('Nominatim request timeout'),
           );
 
       if (response.statusCode == 200) {
         return _parseNominatimResponse(response.body);
       } else {
-        throw NominatimException('Failed to get Nominatim data: ${response.statusCode}');
+        throw NominatimException(
+            'Failed to get Nominatim data: ${response.statusCode}');
       }
     } catch (e) {
       if (e is NominatimException) rethrow;
@@ -110,94 +107,93 @@ class MapsServices {
   /// Converts degrees to radians
   static double _degreesToRadians(double degrees) => degrees * (pi / 180);
 
-  /// Sends location update to server with retry mechanism
-  static Future<bool> sendLocationUpdate({
-    required double latitude,
-    required double longitude,
-    String? tripId,
-    required double distance,
-    int retryCount = 3,
-  }) async {
-    final token = await _getAuthToken();
-    if (token == null) {
-      AppLogger.e('No authentication token found');
-      return false;
-    }
+ /// Sends location update to server with retry mechanism
+static Future<bool> sendLocationUpdate({
+  required double latitude,
+  required double longitude,
+  String? tripId,
+  required double distance,
+  double? startLat,
+  double? startLng,
+  double? destinationLat,
+  double? destinationLng,
+  int retryCount = 3,
+}) async {
+  for (int attempt = 0; attempt < retryCount; attempt++) {
+    try {
+      final success = await _performLocationUpdate(
+        latitude: latitude,
+        longitude: longitude,
+        tripId: tripId,
+        distance: distance,
+        startLat: startLat,          
+        startLng: startLng,          
+        destinationLat: destinationLat, 
+        destinationLng: destinationLng, 
+      );
 
-    for (int attempt = 0; attempt < retryCount; attempt++) {
-      try {
-        final success = await _performLocationUpdate(
-          latitude: latitude,
-          longitude: longitude,
-          tripId: tripId,
-          token: token,
-          distance: distance
-        );
+      if (success) return true;
 
-        if (success) return true;
-
-        // Add delay before retry
-        if (attempt < retryCount - 1) {
-          await Future.delayed(Duration(seconds: (attempt + 1) * 2));
-        }
-      } catch (e) {
-        AppLogger.e('Location update attempt ${attempt + 1} failed: $e');
-        if (attempt == retryCount - 1) return false;
+      // Add delay before retry
+      if (attempt < retryCount - 1) {
+        await Future.delayed(Duration(seconds: (attempt + 1) * 2));
       }
+    } catch (e) {
+      AppLogger.e('Location update attempt ${attempt + 1} failed: $e');
+      if (attempt == retryCount - 1) return false;
     }
-    return false;
   }
+  return false;
+}
 
-  /// Gets authentication token from secure storage
-  static Future<String?> _getAuthToken() async {
-    return await AppPreferences.getSecureData(AppSharedPrefConsts.userToken);
-  }
 
   /// Performs the actual location update HTTP request
   static Future<bool> _performLocationUpdate({
     required double latitude,
     required double longitude,
-    required String token,
     String? tripId,
-   required double distance
+    required double distance,
+    double? startLat,
+    double? startLng,
+    double? destinationLat,
+    double? destinationLng,
   }) async {
-    final response = await http
-        .post(
-          Uri.parse(ApiConstants.tripLocation),
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer $token',
-          },
-          body: json.encode({
-            'statusCode': 200,
-            'lat': latitude,
-            'lng': longitude,
-            'timestamp': DateTime.now().toUtc().toIso8601String(),
-            'tripId': tripId,
-            "distance" : distance
-          }),
-        )
-        .timeout(
-          const Duration(seconds: _locationUpdateTimeoutSeconds),
-          onTimeout: () => throw TimeoutException('Location update timeout'),
-        );
+      Dio dio = await DioFactory.getDio();
+
+    final apiService = ApiService(dio);
+    final response = await apiService.updateTripLocation(
+      LcationUpdateModel(
+        statusCode: 200,
+        lat: latitude,
+        lng: longitude,
+        tripId: tripId ?? '',
+        distance: distance,
+        startLat: startLat ?? 0.0,
+        startLng: startLng ?? 0.0,
+        destinationLat: destinationLat ?? 0.0,
+        destinationLng: destinationLng ?? 0.0,
+        timestamp: DateTime.now().toIso8601String(),
+      ),
+    );
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       AppLogger.d('Location updated successfully: ${response.statusCode}');
       return true;
     } else {
-      AppLogger.w('Location update failed: ${response.statusCode} - ${response.body}');
+      AppLogger.w(
+          'Location update failed: ${response.statusCode} - ${response.message}');
       // Don't retry client errors (4xx)
-      return response.statusCode < 400 || response.statusCode >= 500;
     }
+     return false;
   }
+ 
 }
 
 /// Custom exception for route-related errors
 class RouteException implements Exception {
   final String message;
   RouteException(this.message);
-  
+
   @override
   String toString() => 'RouteException: $message';
 }
@@ -206,7 +202,7 @@ class RouteException implements Exception {
 class NominatimException implements Exception {
   final String message;
   NominatimException(this.message);
-  
+
   @override
   String toString() => 'NominatimException: $message';
 }

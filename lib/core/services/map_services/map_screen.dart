@@ -382,7 +382,6 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    AppLogger.d('🐛 🐛 🐛 🐛 🐛 Building map screen🐛 🐛 🐛 🐛 🐛 🐛 🐛 ');
     // Show loading screen while fetching locations
     if (!_locationsLoaded || _pickupLocation == null || _destinationLocation == null) {
       return const Scaffold(

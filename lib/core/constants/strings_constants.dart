@@ -20,7 +20,12 @@ class AppStrings {
   static const String no = 'No';
   static const String loading = 'Loading...';
   static const String pending = 'Pending';
+  static const String inProgress = 'InProgress';
   static const String completed = 'Completed !';
+  static const String finish = 'Finish';
+  static const String finished = 'Finished';
+  static const String description = 'Description';
+  static const String mechanicTasks = 'Mechanic Task List';
 
   //******************************************************************************************************************* *//
   //? Authentication
@@ -67,6 +72,11 @@ class AppStrings {
   static const String tripReportDesc = 'Please fill in all the required fields';
   static const String fuelRefile = "Fuel Refill (Liters)";
 
+  //******************************************************************************************************************* *//
+  //?  mechanic
+  //******************************************************************************************************************* *//
+  static const String upcomingMaintenances = 'Upcoming Maintenances';
+  static const String problem = 'Problem';
   //******************************************************************************************************************* *//
   //? Notifications Screen
   //******************************************************************************************************************* *//

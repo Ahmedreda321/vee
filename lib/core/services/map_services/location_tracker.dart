@@ -126,17 +126,16 @@ class LocationTracker {
 
   /// Starts listening to location changes
   void _startLocationListener(String? driverId, String? tripId) {
-    _locationSubscription = _location.onLocationChanged
-        .timeout(_locationTimeout)
-        .listen(
-          (LocationData locationData) {
-            _handleLocationUpdate(locationData, driverId, tripId);
-          },
-          onError: (error) {
-            AppLogger.e('Location tracking error: $error');
-            _onError?.call(error.toString());
-          },
-        );
+    _locationSubscription =
+        _location.onLocationChanged.timeout(_locationTimeout).listen(
+      (LocationData locationData) {
+        _handleLocationUpdate(locationData, driverId, tripId);
+      },
+      onError: (error) {
+        AppLogger.e('Location tracking error: $error');
+        _onError?.call(error.toString());
+      },
+    );
   }
 
   /// Handles incoming location updates
@@ -179,7 +178,7 @@ class LocationTracker {
       _lastSentLocation!,
       currentLocation,
     );
-    
+
     return distance >= _minimumDistanceThreshold;
   }
 
@@ -203,20 +202,27 @@ class LocationTracker {
     LatLng location,
     String? driverId,
     String? tripId,
+    
+
   ) async {
     try {
       final tripDistance = _calculateTripDistance(location);
-      
+
       final success = await MapsServices.sendLocationUpdate(
         distance: tripDistance,
         latitude: location.latitude,
         longitude: location.longitude,
         tripId: tripId,
+        startLat: _pickupLocation?.latitude,
+        startLng: _pickupLocation?.longitude,
+        destinationLat: _destinationLocation?.latitude,
+        destinationLng: _destinationLocation?.longitude,
       );
 
       if (success) {
         _lastSentLocation = location;
-        AppLogger.d('Location sent: ${location.latitude}, ${location.longitude}, Trip distance: $tripDistance');
+        AppLogger.d(
+            'Location sent: ${location.latitude}, ${location.longitude}, Trip distance: $tripDistance');
       } else {
         AppLogger.w('Failed to send location update');
         _onError?.call('Failed to send location update to server');
@@ -240,7 +246,7 @@ class LocationTracker {
     _periodicTimer?.cancel();
     _periodicTimer = null;
     _lastSentLocation = null;
-    
+
     AppLogger.d('Location tracking stopped');
   }
 

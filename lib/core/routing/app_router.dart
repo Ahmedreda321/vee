@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart';
+import 'package:vee/features/mechanic/home/presentation/cubit/mechanic_home_cubit.dart';
 
 import '../../features/driver/home/domain/entities/driver_home_entities.dart';
 import '../../features/driver/home/presentation/cubits/driver_home_cubit/driver_home_cubit.dart';
 import '../../features/driver/home/presentation/screens/map_view.dart';
+import '../../features/mechanic/home/presentation/screens/mechanic_home_screen.dart';
 import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import '../../features/shared/auth/presentation/screens/reset_password_screen.dart';
@@ -54,7 +56,9 @@ class AppRouter {
             child: MapView(trip: trip),
           ));
         }
+        else {
         return _createRoute(const NotFoundRouteScreen());
+      }
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(
@@ -65,6 +69,11 @@ class AppRouter {
 
       case Routes.notificationScreen:
         return _createRoute(const NotificationScreen());
+      case Routes.mechanicHomeScreen:
+        return _createRoute(BlocProvider(
+          create: (context) => MechanicHomeCubit(getIt(), getIt(), getIt(), getIt())..getMechanicHomeData(),
+          child: const MechanicHomeScreen(),
+        ));
 
       default:
         return _createRoute(const NotFoundRouteScreen());

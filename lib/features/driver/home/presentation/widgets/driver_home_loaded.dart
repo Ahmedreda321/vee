@@ -32,7 +32,7 @@ class DriverHomeLoaded extends StatelessWidget {
             onNotificationTap: () =>
                 context.pushNamed(Routes.notificationScreen),
           ),
-          body: DriverHomeListView(
+          body: DriverHomeListview(
             trips: data.trips,
           ),
         ),

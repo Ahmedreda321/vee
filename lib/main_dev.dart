@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vee/features/driver/home/di/driver_home_di.dart';
 
 import 'core/di/dependency_injection.dart';
 import 'core/utils/app_functions.dart';
@@ -9,6 +8,8 @@ import 'core/utils/app_shared_preferences.dart';
 import 'core/routing/app_router.dart';
 import 'app.dart';
 import 'app_bloc_observer.dart';
+import 'features/driver/home/di/driver_home_di.dart';
+import 'features/mechanic/home/di/mechanic_di.dart';
 import 'features/shared/auth/di/auth_di.dart';
 
 void main() async {
@@ -19,6 +20,7 @@ void main() async {
     driverHomeSetup(),
     AppPreferences().init(),
     ScreenUtil.ensureScreenSize(),
+    mechanicHomeSetup()
   ]);
   Bloc.observer = AppBlocObserver();
 
