@@ -34,7 +34,7 @@ class TripLoding extends StatelessWidget {
                   title: "${data.trips.length} ${AppStrings.trips}",
                   subtitle: AppStrings.upcomingTrips,
                   onNotificationTap: () =>
-                      context.pushNamed(Routes.notificationScreen),
+                      context.pushNamed(Routes.driverReportsScreen),
                 ),
                 body: DriverHomeListview(
                   trips: data.trips,

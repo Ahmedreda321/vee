@@ -6,6 +6,7 @@ import 'package:vee/features/driver/home/data/models/fault_report_model.dart';
 import '../../features/driver/home/data/models/driver_home_response.dart';
 import '../../features/driver/home/data/models/lcation_update_model.dart';
 import '../../features/driver/home/data/models/trip_report_model.dart';
+import '../../features/driver/reports/data/models/reports_respons_models.dart';
 import '../../features/mechanic/home/data/models/finish_repair_model.dart';
 import '../../features/mechanic/home/data/models/mechanic_home_response.dart';
 import '../../features/mechanic/home/data/models/part_model.dart';
@@ -83,5 +84,15 @@ abstract class ApiService {
   @POST(ApiConstants.finishRepair)
   Future<BaseResponse> finishRepair(
     @Body() FinishRepairModel finishRepairModel,
+  );
+
+  // **************************************************************************
+  // Driver Reports Endpoints
+  // **************************************************************************
+
+  @GET(ApiConstants.driverReports)
+  Future<List<DriverReportsBaseRespons>> getDriverReports(
+    @Query('DriverId') String driverId,
+    @Query('Sort') String sort,
   );
 }

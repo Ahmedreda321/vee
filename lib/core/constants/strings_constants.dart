@@ -26,6 +26,7 @@ class AppStrings {
   static const String finished = 'Finished';
   static const String description = 'Description';
   static const String mechanicTasks = 'Mechanic Task List';
+  static const String tryAgain = 'Try Again';
 
   //******************************************************************************************************************* *//
   //? Authentication

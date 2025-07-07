@@ -11,4 +11,5 @@ class ApiConstants {
   static const String getParts = "/api/Part";
   static const String startRepair = "/api/Maintenance/Report/Initial";
   static const String finishRepair = "/api/Maintenance/Report/Final";
+  static const String driverReports = "/api/DriverReport/reports";
 }

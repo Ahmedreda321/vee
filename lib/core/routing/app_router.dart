@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vee/features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart';
-import 'package:vee/features/mechanic/home/presentation/cubit/mechanic_home_cubit.dart';
+import 'package:vee/features/driver/reports/presentation/cubit/reports_cubit.dart';
 
 import '../../features/driver/home/domain/entities/driver_home_entities.dart';
+import '../../features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart';
 import '../../features/driver/home/presentation/cubits/driver_home_cubit/driver_home_cubit.dart';
 import '../../features/driver/home/presentation/screens/map_view.dart';
+import '../../features/driver/reports/presentation/screens/driver_reports_screen.dart';
+import '../../features/mechanic/home/presentation/cubit/mechanic_home_cubit.dart';
 import '../../features/mechanic/home/presentation/screens/mechanic_home_screen.dart';
 import '../../features/shared/auth/presentation/cubits/forgot_passwprd_cubit/forgot_password_cubit.dart';
 import '../../features/shared/auth/presentation/cubits/login_cubit/login_cubit.dart';
@@ -14,7 +16,6 @@ import '../../features/shared/auth/presentation/screens/forgot_password_screen.d
 import '../../features/shared/auth/presentation/screens/login_screen.dart';
 import '../../features/shared/auth/presentation/screens/verify_code_screen.dart';
 import '../../features/driver/home/presentation/screens/driver_home_screen.dart';
-import '../../features/driver/notifications/presentation/screens/notification_screen.dart';
 import '../../features/shared/profile/presentation/cubit/profile_cubit.dart';
 import '../../features/shared/profile/presentation/screens/profile_screen.dart';
 import '../di/dependency_injection.dart';
@@ -55,10 +56,9 @@ class AppRouter {
             create: (context) => MapScreenCubit(getIt(), getIt()),
             child: MapView(trip: trip),
           ));
+        } else {
+          return _createRoute(const NotFoundRouteScreen());
         }
-        else {
-        return _createRoute(const NotFoundRouteScreen());
-      }
       case Routes.profileScreen:
         return _createRoute(
           BlocProvider<ProfileCubit>(
@@ -67,11 +67,16 @@ class AppRouter {
           ),
         );
 
-      case Routes.notificationScreen:
-        return _createRoute(const NotificationScreen());
+      case Routes.driverReportsScreen:
+        return _createRoute(BlocProvider(
+          create: (context) => DriverReportsCubit(getIt())..getDriverReports(),
+          child: const DriverReportsScreen(),
+        ));
       case Routes.mechanicHomeScreen:
         return _createRoute(BlocProvider(
-          create: (context) => MechanicHomeCubit(getIt(), getIt(), getIt(), getIt())..getMechanicHomeData(),
+          create: (context) =>
+              MechanicHomeCubit(getIt(), getIt(), getIt(), getIt())
+                ..getMechanicHomeData(),
           child: const MechanicHomeScreen(),
         ));
 

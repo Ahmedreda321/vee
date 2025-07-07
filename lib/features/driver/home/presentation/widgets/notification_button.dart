@@ -34,7 +34,8 @@ class NotificationButton extends StatelessWidget {
                 ),
           alignment: Alignment.topRight,
           backgroundColor: AppColor.red,
-          child: Icon(Icons.notifications_none,
+          child: Icon(Icons.receipt_long_rounded,
+              
               size: AppSize.homeAppBarNotificationSize),
         ),
       ),

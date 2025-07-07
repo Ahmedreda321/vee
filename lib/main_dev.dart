@@ -9,6 +9,7 @@ import 'core/routing/app_router.dart';
 import 'app.dart';
 import 'app_bloc_observer.dart';
 import 'features/driver/home/di/driver_home_di.dart';
+import 'features/driver/reports/di /driver_reports_di.dart';
 import 'features/mechanic/home/di/mechanic_di.dart';
 import 'features/shared/auth/di/auth_di.dart';
 
@@ -20,7 +21,8 @@ void main() async {
     driverHomeSetup(),
     AppPreferences().init(),
     ScreenUtil.ensureScreenSize(),
-    mechanicHomeSetup()
+    mechanicHomeSetup(),
+    driverReportsSetup()
   ]);
   Bloc.observer = AppBlocObserver();
 

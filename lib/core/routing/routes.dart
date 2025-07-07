@@ -7,6 +7,6 @@ class Routes {
   static const String driverHomeScreen = '/driverHomeScreen';
   static const String mechanicHomeScreen = '/mechanicHomeScreen';
   static const String profileScreen = '/profileScreen';
-  static const String notificationScreen = '/notificationScreen';
+  static const String driverReportsScreen = '/notificationScreen';
   static const String mapScreen = '/mapScreen';
 }

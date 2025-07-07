@@ -14,7 +14,7 @@ import '../cubits/driver_home_cubit/driver_home_cubit.dart';
 import 'driver_trip_card.dart';
 
 
-class DriverHomeListview extends StatelessWidget {
+class DriverHomeListview extends StatelessWidget  {
   final List <TripEntity> trips;
   const DriverHomeListview({
     super.key,
