@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constants/app_assets.dart';
-import '../../../../../core/utils/app_size.dart';
 
 class OnBoardingIcon extends StatelessWidget {
   const OnBoardingIcon({
@@ -12,10 +10,8 @@ class OnBoardingIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      Assets.assetsSvgsOnBoradingIcon,
-      width: AppSize.onBoardingIconSize.w,
-      height: AppSize.onBoardingIconSize.h,
-    );
+    return Image.asset(Assets.assetsImagesLogo,
+    
+        width: 170.w); 
   }
 }

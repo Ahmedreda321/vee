@@ -14,8 +14,8 @@ import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/widgets/app_circular_indicator.dart';
 import '../../data/models/fault_report_model.dart';
 import '../../data/models/trip_report_model.dart';
-import '../cubits/cubit/map_screen_cubit.dart';
-import '../cubits/cubit/map_screen_state.dart';
+import '../cubits/map_cubit/map_screen_cubit.dart';
+import '../cubits/map_cubit/map_screen_state.dart';
 import '../widgets/app_error_dialog.dart';
 
 class MapView extends StatelessWidget {
@@ -32,7 +32,10 @@ class MapView extends StatelessWidget {
           current is Loading ||
           current is FaultLoading ||
           current is FaultLoaded ||
-          current is FaultError,
+          current is FaultError ||
+          current is CameraLoading ||
+          current is CameraError ||
+          current is ManualOdometerInput,
       listener: (context, state) {
         state.whenOrNull(
           reportError: (message) {
@@ -47,6 +50,8 @@ class MapView extends StatelessWidget {
           },
           reportLoaded: () {
             context.back();
+            context.read<MapScreenCubit>().captureOdometerImage(trip.id);
+
             context.pushReplacementNamed(Routes.driverHomeScreen);
           },
           faultError: (message) {
@@ -61,7 +66,24 @@ class MapView extends StatelessWidget {
           },
           faultLoaded: () {
             context.back();
+            context.read<MapScreenCubit>().captureOdometerImage(trip.id);
+
             context.pushReplacementNamed(Routes.driverHomeScreen);
+          },
+          cameraLoading: () {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (_) => const Center(child: AppCircularIndicator()),
+            );
+          },
+          cameraError: (message) {
+            Navigator.of(context).pop();
+            showErrorDialog(context, message);
+          },
+          manualOdometerInput: (tripId) {
+            Navigator.of(context).pop();
+            _showManualOdometerInput(context, tripId);
           },
         );
       },
@@ -124,7 +146,7 @@ class MapView extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Column(
-              spacing: AppSize.large.h ,
+              spacing: AppSize.large.h,
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
@@ -179,14 +201,15 @@ class MapView extends StatelessWidget {
                   controller: context.read<MapScreenCubit>().addressController,
                 ),
                 Row(
-                  spacing: AppSize.large.w ,
+                  spacing: AppSize.large.w,
                   children: [
                     Expanded(
                       child: TextButton(
                         onPressed: () {
                           bottomSheetContext.back();
                         },
-                        child: const Text(AppStrings.cancel),
+                        child: const Text(AppStrings.cancel,
+                            style: TextStyle(color: AppColor.red)),
                       ),
                     ),
                     Expanded(
@@ -272,10 +295,10 @@ void _showReportBottomSheet(BuildContext context) {
               controller: context.read<MapScreenCubit>().fuelRefileController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: AppStrings.fuelRefile ,
+                labelText: AppStrings.fuelRefile,
               ),
             ),
-           verticalSpace(5),
+            verticalSpace(5),
             Row(
               spacing: AppSize.large.w,
               children: [
@@ -284,7 +307,10 @@ void _showReportBottomSheet(BuildContext context) {
                     onPressed: () {
                       bottomSheetContext.back();
                     },
-                    child: const Text(AppStrings.cancel,style: TextStyle(color: AppColor.red),),
+                    child: const Text(
+                      AppStrings.cancel,
+                      style: TextStyle(color: AppColor.red),
+                    ),
                   ),
                 ),
                 Expanded(
@@ -452,5 +478,32 @@ void _submitFaultReport(BuildContext context, BuildContext bottomSheetContext) {
   cubit.faultReport(faultReport);
 }
 
+void _showManualOdometerInput(BuildContext context, String tripId) {
+  showModalBottomSheet(
+    context: context,
+    builder: (ctx) => Padding(
+      padding: EdgeInsets.all(16.w),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('أدخل قراءة العداد', style: TextStyle(fontSize: 18.sp)),
+          const TextField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(labelText: 'العداد (كم)'),
+          ),
+          SizedBox(height: 20.h),
+          ElevatedButton(
+            onPressed: () {
+              // أرسل القراءة يدويًا
+              Navigator.pop(ctx);
+              context.pushReplacementNamed(Routes.driverHomeScreen);
+            },
+            child: const Text('إرسال'),
+          )
+        ],
+      ),
+    ),
+  );
+}
 
-////  TODO: Refactor 
+////  TODO: Refactor

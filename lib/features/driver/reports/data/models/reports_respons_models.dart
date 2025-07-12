@@ -67,8 +67,8 @@ class ReportsVehicleResponse {
 class ReportsVehicleModelDtoResponse {
   String id;
   String name;
-  String fuelEfficiency;
-  ReportsBrandResponse brand;
+  String? fuelEfficiency;
+  String brand;
   ReportsCategoryResponse category;
 
   ReportsVehicleModelDtoResponse({
@@ -81,23 +81,6 @@ class ReportsVehicleModelDtoResponse {
   factory ReportsVehicleModelDtoResponse.fromJson(Map<String, dynamic> json) =>
       _$ReportsVehicleModelDtoResponseFromJson(json);
   Map<String, dynamic> toJson() => _$ReportsVehicleModelDtoResponseToJson(this);
-}
-
-@JsonSerializable()
-class ReportsBrandResponse {
-  String id;
-  String name;
-  String country;
-
-  ReportsBrandResponse({
-    required this.id,
-    required this.name,
-    required this.country,
-  });
-  factory ReportsBrandResponse.fromJson(Map<String, dynamic> json) =>
-      _$ReportsBrandResponseFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ReportsBrandResponseToJson(this);
 }
 
 @JsonSerializable()

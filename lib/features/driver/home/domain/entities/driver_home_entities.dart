@@ -66,7 +66,7 @@ class VehicleModelEntity {
   final String id;
   final String name;
   final String fuelEfficiency;
-  final BrandEntity brand;
+  final String brand;
   final CategoryEntity category;
 
   const VehicleModelEntity({

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:vee/core/services/logger_service.dart';
 import 'package:vee/features/driver/home/data/models/fault_report_model.dart';
 import 'package:vee/features/driver/home/data/models/trip_report_model.dart';
 
@@ -24,7 +25,10 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
   Future<Either<Failure, DriverHomeEntities>> getDriverHomeData() async {
     if (await _networkInfo.isConnected) {
       try {
+                AppLogger.f("يسينةكسيةسيمنةبنيسة");
+
         final response = await _driverHomeRemoteDataSource.getDriverTrips();
+        AppLogger.f(response.statusCode);
         if (response.statusCode == ResponseCode.SUCCESS) {
           final trips = response.trips
                   ?.map((trip) => trip.toDomain())
@@ -34,6 +38,7 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
 
           return Right(DriverHomeEntities(trips: trips));
         } else {
+          AppLogger.f("sdjfhkjdshfsbfulvsufbkjdsfl;sdf");
           return Left(
             ErrorHandler.handle(
               Failure(response.message ?? ResponseMessage.DEFAULT,
@@ -42,6 +47,7 @@ class DriverHomeRepositoryImpl implements DriverHomeRepository {
           );
         }
       } catch (e) {
+        AppLogger.f(e);
         return Left(ErrorHandler.handle(e).failure);
       }
     } else {

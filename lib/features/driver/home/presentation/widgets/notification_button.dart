@@ -7,12 +7,10 @@ import '../../../../../core/utils/app_size.dart';
 
 class NotificationButton extends StatelessWidget {
   final VoidCallback onTap;
-  final int notificationCount;
 
   const NotificationButton({
     super.key,
     required this.onTap,
-    this.notificationCount = 0,
   });
 
   @override
@@ -25,19 +23,9 @@ class NotificationButton extends StatelessWidget {
             color: AppColor.white,
             boxShadow: AppShadows.secondaryShadow),
         padding: AppPadding.small,
-        child: Badge(
-          isLabelVisible: notificationCount > 0,
-          label: notificationCount > 9
-              ? const Text('9+')
-              : Text(
-                  notificationCount.toString(),
-                ),
-          alignment: Alignment.topRight,
-          backgroundColor: AppColor.red,
-          child: Icon(Icons.receipt_long_rounded,
-              
-              size: AppSize.homeAppBarNotificationSize),
-        ),
+        child: Icon(Icons.receipt_long_rounded,
+            
+            size: AppSize.homeAppBarNotificationSize),
       ),
     );
   }

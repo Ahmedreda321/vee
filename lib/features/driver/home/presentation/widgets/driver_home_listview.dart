@@ -54,7 +54,7 @@ class DriverHomeListview extends StatelessWidget  {
                     ),
                     vehicleInfo: TripCardInfo(
                       title: AppStrings.vehicle,
-                      value: "${trip.vehicle.vehicleModel.brand.name} - (${trip.vehicle.palletNumber})",
+                      value: "${trip.vehicle.vehicleModel.brand} - (${trip.vehicle.palletNumber})",
                     ),
                     date: trip.date,
                     time: trip.time,

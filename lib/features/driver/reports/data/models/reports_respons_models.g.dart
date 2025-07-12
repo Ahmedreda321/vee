@@ -76,9 +76,8 @@ ReportsVehicleModelDtoResponse _$ReportsVehicleModelDtoResponseFromJson(
     ReportsVehicleModelDtoResponse(
       id: json['id'] as String,
       name: json['name'] as String,
-      fuelEfficiency: json['fuelEfficiency'] as String,
-      brand:
-          ReportsBrandResponse.fromJson(json['brand'] as Map<String, dynamic>),
+      fuelEfficiency: json['fuelEfficiency'] as String?,
+      brand: json['brand'] as String,
       category: ReportsCategoryResponse.fromJson(
           json['category'] as Map<String, dynamic>),
     );
@@ -91,22 +90,6 @@ Map<String, dynamic> _$ReportsVehicleModelDtoResponseToJson(
       'fuelEfficiency': instance.fuelEfficiency,
       'brand': instance.brand,
       'category': instance.category,
-    };
-
-ReportsBrandResponse _$ReportsBrandResponseFromJson(
-        Map<String, dynamic> json) =>
-    ReportsBrandResponse(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      country: json['country'] as String,
-    );
-
-Map<String, dynamic> _$ReportsBrandResponseToJson(
-        ReportsBrandResponse instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'country': instance.country,
     };
 
 ReportsCategoryResponse _$ReportsCategoryResponseFromJson(

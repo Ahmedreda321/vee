@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../../../../shared/profile/presentation/widgets/back_button.dart';
 import '../../domain/entities/driver_reports_entites.dart';
+import 'reports_list_view.dart';
 
 class DriverReportsLoadedScreen extends StatelessWidget {
   final List<DriverReportsEntites> data;
@@ -21,31 +23,4 @@ class DriverReportsLoadedScreen extends StatelessWidget {
     );
   }
 }
-//TODO: refactor
-class ReportsListView extends StatelessWidget {
-  final List<DriverReportsEntites> data;
-  const ReportsListView({super.key, required this.data});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: data.length,
-      itemBuilder: (context, index) {
-        final report = data[index];
-        return Container(
-          margin: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: ListTile(
-            leading: Text(report.driverName),
-            title: Text(report.decription),
-            subtitle: Text(report.date),
-          ),
-        );
-      },
-    );
-  }
-}

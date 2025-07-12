@@ -47,7 +47,7 @@ extension TripResponseMapper on TripResponse {
       date: datePart,
       time: time,
       driver: driver?.toDomain() ?? const TripDriverEntity(id: '', name: ''),
-      vehicle: vehicle?.toDomain() ?? const VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: ''))),
+      vehicle: vehicle?.toDomain() ?? const VehicleEntity(id: '', palletNumber: '', vehicleModel: VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: "", category: CategoryEntity(id: '', name: '', description: ''))),
       status: status ?? '',
       pickupLocation: pickupLocation ?? '',
       pickupLocationNominatimLink: pickupLocationNominatimLink ?? '',
@@ -69,7 +69,7 @@ extension VehicleResponseMapper on VehicleResponse {
     return VehicleEntity(
       id: id ?? '',
       palletNumber: palletNumber ?? '',
-      vehicleModel: vehicleModelDto?.toDomain() ?? const VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: BrandEntity(id: '', name: '', country: ''), category: CategoryEntity(id: '', name: '', description: '')),
+      vehicleModel: vehicleModelDto?.toDomain() ?? const VehicleModelEntity(id: '', name: '', fuelEfficiency: '', brand: "", category: CategoryEntity(id: '', name: '', description: '')),
     );
   }
 }
@@ -79,7 +79,7 @@ extension VehicleModelDtoResponseMapper on VehicleModelDtoResponse {
       id: id ?? '',
       name: name ?? '',
       fuelEfficiency: fuelEfficiency ?? '',
-      brand: brand?.toDomain() ?? const BrandEntity(id: '', name: '', country: ''),
+      brand: brand ?? "",
       category: category?.toDomain() ?? const CategoryEntity(id: '', name: '', description: ''),
     );
   }
@@ -93,14 +93,6 @@ extension CategoryResponseMapper on CategoryResponse {
     );
   }
 }
-extension BrandResponseMapper on BrandResponse {
-  BrandEntity toDomain() {
-    return BrandEntity(
-      id: id ?? '',
-      name: name ?? '',
-      country: country ?? '',
-    );
-  }
-}
+
 
 

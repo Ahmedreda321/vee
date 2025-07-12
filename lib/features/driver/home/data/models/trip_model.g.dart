@@ -79,9 +79,7 @@ VehicleModelDtoResponse _$VehicleModelDtoResponseFromJson(
       id: json['id'] as String?,
       name: json['name'] as String?,
       fuelEfficiency: json['fuelEfficiency'] as String?,
-      brand: json['brand'] == null
-          ? null
-          : BrandResponse.fromJson(json['brand'] as Map<String, dynamic>),
+      brand: json['brand'] as String?,
       category: json['category'] == null
           ? null
           : CategoryResponse.fromJson(json['category'] as Map<String, dynamic>),

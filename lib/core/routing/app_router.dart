@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vee/features/driver/reports/presentation/cubit/reports_cubit.dart';
 
 import '../../features/driver/home/domain/entities/driver_home_entities.dart';
-import '../../features/driver/home/presentation/cubits/cubit/map_screen_cubit.dart';
+import '../../features/driver/home/presentation/cubits/map_cubit/map_screen_cubit.dart';
 import '../../features/driver/home/presentation/cubits/driver_home_cubit/driver_home_cubit.dart';
 import '../../features/driver/home/presentation/screens/map_view.dart';
 import '../../features/driver/reports/presentation/screens/driver_reports_screen.dart';

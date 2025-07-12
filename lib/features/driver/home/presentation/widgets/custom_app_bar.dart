@@ -52,7 +52,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           // Notification Button
           NotificationButton(
             onTap: onNotificationTap,
-            notificationCount: 50,
           )
         ],
       ),

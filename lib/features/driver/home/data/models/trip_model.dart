@@ -14,7 +14,7 @@ class TripResponse {
   final VehicleResponse? vehicle;
   final String? status;
   final String? pickupLocation;
- final String? pickupLocationNominatimLink;
+  final String? pickupLocationNominatimLink;
   final String? destinationLocationNominatimLink;
 
   const TripResponse({
@@ -70,7 +70,7 @@ class VehicleModelDtoResponse {
   final String? id;
   final String? name;
   final String? fuelEfficiency;
-  final BrandResponse? brand;
+  final String? brand;
   final CategoryResponse? category;
 
   const VehicleModelDtoResponse({

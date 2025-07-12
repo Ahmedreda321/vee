@@ -26,6 +26,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   get_it: ^7.6.7
   http: ^1.4.0
+  image_picker: ^1.1.2
   internet_connection_checker: ^3.0.1
   json_annotation: ^4.9.0
   latlong2: ^0.9.1
@@ -60,8 +61,6 @@ flutter:
     - assets/svgs/
     - assets/svgs/auth/
     - assets/icons/
-    - assets/lottie/
-    - assets/lang/
 
   fonts:
     - family: InstrumentSans

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vee/features/driver/home/domain/usecases/fault_report_use_case.dart';
 
 import '../../../data/models/fault_report_model.dart';
@@ -23,6 +24,37 @@ class MapScreenCubit extends Cubit<MapScreenState> {
   final faultDetailsController = TextEditingController(); // for fault details
   final faultCostController = TextEditingController();
   final faultFuelRefillController = TextEditingController();
+
+    Future<void> captureOdometerImage(String tripId) async {
+    emit(const MapScreenState.cameraLoading());
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+      
+      if (image == null) {
+        emit(MapScreenState.manualOdometerInput(tripId));
+        return;
+      }
+
+      final bool isAccepted = await _validateImage(image.path);
+      
+      if (!isAccepted) {
+        emit(MapScreenState.manualOdometerInput(tripId));
+      } else {
+        await _submitOdometerReading(tripId, image.path);
+        emit(const MapScreenState.reportLoaded());
+      }
+    } catch (e) {
+      emit(MapScreenState.cameraError('Failed to capture image: $e'));
+    }
+  }
+
+  Future<bool> _validateImage(String imagePath) async {
+    await Future.delayed(const Duration(seconds: 3));
+    return false; // افتراضيًا الصورة غير مقبولة
+  }
+
+  Future<void> _submitOdometerReading(String tripId, String imagePath) async {
+  }
 
   void reportTrip( TripReportModel tripReportModel) async{
     emit(const MapScreenState.reportLoading());

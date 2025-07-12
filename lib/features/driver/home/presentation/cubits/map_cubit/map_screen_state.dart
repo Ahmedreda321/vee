@@ -11,4 +11,9 @@ class MapScreenState<T> with _$MapScreenState<T> {
   const factory MapScreenState.faultLoading() = FaultLoading;
   const factory MapScreenState.faultLoaded() = FaultLoaded;
   const factory MapScreenState.faultError(String message) = FaultError;
+
+  const factory MapScreenState.cameraLoading() = CameraLoading;
+  const factory MapScreenState.cameraError(String message) = CameraError;
+  const factory MapScreenState.manualOdometerInput(String tripId) =
+      ManualOdometerInput;
 }

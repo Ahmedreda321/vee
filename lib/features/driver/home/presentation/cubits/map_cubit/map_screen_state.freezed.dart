@@ -25,6 +25,9 @@ mixin _$MapScreenState<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$MapScreenState<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$MapScreenState<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +68,9 @@ mixin _$MapScreenState<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +82,9 @@ mixin _$MapScreenState<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +96,9 @@ mixin _$MapScreenState<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +173,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return initial();
   }
@@ -169,6 +190,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return initial?.call();
   }
@@ -183,6 +207,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,6 +228,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return initial(this);
   }
@@ -215,6 +245,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return initial?.call(this);
   }
@@ -229,6 +262,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -290,6 +326,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return reportLoading();
   }
@@ -304,6 +343,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return reportLoading?.call();
   }
@@ -318,6 +360,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportLoading != null) {
@@ -336,6 +381,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return reportLoading(this);
   }
@@ -350,6 +398,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return reportLoading?.call(this);
   }
@@ -364,6 +415,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportLoading != null) {
@@ -425,6 +479,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return reportLoaded();
   }
@@ -439,6 +496,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return reportLoaded?.call();
   }
@@ -453,6 +513,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportLoaded != null) {
@@ -471,6 +534,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return reportLoaded(this);
   }
@@ -485,6 +551,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return reportLoaded?.call(this);
   }
@@ -499,6 +568,9 @@ class _$LoadedImpl<T> implements Loaded<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportLoaded != null) {
@@ -587,6 +659,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return reportError(message);
   }
@@ -601,6 +676,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return reportError?.call(message);
   }
@@ -615,6 +693,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportError != null) {
@@ -633,6 +714,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return reportError(this);
   }
@@ -647,6 +731,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return reportError?.call(this);
   }
@@ -661,6 +748,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (reportError != null) {
@@ -730,6 +820,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return faultLoading();
   }
@@ -744,6 +837,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return faultLoading?.call();
   }
@@ -758,6 +854,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultLoading != null) {
@@ -776,6 +875,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return faultLoading(this);
   }
@@ -790,6 +892,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return faultLoading?.call(this);
   }
@@ -804,6 +909,9 @@ class _$FaultLoadingImpl<T> implements FaultLoading<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultLoading != null) {
@@ -865,6 +973,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return faultLoaded();
   }
@@ -879,6 +990,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return faultLoaded?.call();
   }
@@ -893,6 +1007,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultLoaded != null) {
@@ -911,6 +1028,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return faultLoaded(this);
   }
@@ -925,6 +1045,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return faultLoaded?.call(this);
   }
@@ -939,6 +1062,9 @@ class _$FaultLoadedImpl<T> implements FaultLoaded<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultLoaded != null) {
@@ -1027,6 +1153,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     required TResult Function() faultLoading,
     required TResult Function() faultLoaded,
     required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
   }) {
     return faultError(message);
   }
@@ -1041,6 +1170,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     TResult? Function()? faultLoading,
     TResult? Function()? faultLoaded,
     TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
   }) {
     return faultError?.call(message);
   }
@@ -1055,6 +1187,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     TResult Function()? faultLoading,
     TResult Function()? faultLoaded,
     TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultError != null) {
@@ -1073,6 +1208,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     required TResult Function(FaultLoading<T> value) faultLoading,
     required TResult Function(FaultLoaded<T> value) faultLoaded,
     required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
   }) {
     return faultError(this);
   }
@@ -1087,6 +1225,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     TResult? Function(FaultLoading<T> value)? faultLoading,
     TResult? Function(FaultLoaded<T> value)? faultLoaded,
     TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
   }) {
     return faultError?.call(this);
   }
@@ -1101,6 +1242,9 @@ class _$FaultErrorImpl<T> implements FaultError<T> {
     TResult Function(FaultLoading<T> value)? faultLoading,
     TResult Function(FaultLoaded<T> value)? faultLoaded,
     TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
     required TResult orElse(),
   }) {
     if (faultError != null) {
@@ -1120,4 +1264,536 @@ abstract class FaultError<T> implements MapScreenState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FaultErrorImplCopyWith<T, _$FaultErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CameraLoadingImplCopyWith<T, $Res> {
+  factory _$$CameraLoadingImplCopyWith(_$CameraLoadingImpl<T> value,
+          $Res Function(_$CameraLoadingImpl<T>) then) =
+      __$$CameraLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$CameraLoadingImplCopyWithImpl<T, $Res>
+    extends _$MapScreenStateCopyWithImpl<T, $Res, _$CameraLoadingImpl<T>>
+    implements _$$CameraLoadingImplCopyWith<T, $Res> {
+  __$$CameraLoadingImplCopyWithImpl(_$CameraLoadingImpl<T> _value,
+      $Res Function(_$CameraLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CameraLoadingImpl<T> implements CameraLoading<T> {
+  const _$CameraLoadingImpl();
+
+  @override
+  String toString() {
+    return 'MapScreenState<$T>.cameraLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CameraLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() reportLoading,
+    required TResult Function() reportLoaded,
+    required TResult Function(String message) reportError,
+    required TResult Function() faultLoading,
+    required TResult Function() faultLoaded,
+    required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
+  }) {
+    return cameraLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? reportLoading,
+    TResult? Function()? reportLoaded,
+    TResult? Function(String message)? reportError,
+    TResult? Function()? faultLoading,
+    TResult? Function()? faultLoaded,
+    TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
+  }) {
+    return cameraLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? reportLoading,
+    TResult Function()? reportLoaded,
+    TResult Function(String message)? reportError,
+    TResult Function()? faultLoading,
+    TResult Function()? faultLoaded,
+    TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (cameraLoading != null) {
+      return cameraLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) reportLoading,
+    required TResult Function(Loaded<T> value) reportLoaded,
+    required TResult Function(Error<T> value) reportError,
+    required TResult Function(FaultLoading<T> value) faultLoading,
+    required TResult Function(FaultLoaded<T> value) faultLoaded,
+    required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
+  }) {
+    return cameraLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? reportLoading,
+    TResult? Function(Loaded<T> value)? reportLoaded,
+    TResult? Function(Error<T> value)? reportError,
+    TResult? Function(FaultLoading<T> value)? faultLoading,
+    TResult? Function(FaultLoaded<T> value)? faultLoaded,
+    TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
+  }) {
+    return cameraLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? reportLoading,
+    TResult Function(Loaded<T> value)? reportLoaded,
+    TResult Function(Error<T> value)? reportError,
+    TResult Function(FaultLoading<T> value)? faultLoading,
+    TResult Function(FaultLoaded<T> value)? faultLoaded,
+    TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (cameraLoading != null) {
+      return cameraLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CameraLoading<T> implements MapScreenState<T> {
+  const factory CameraLoading() = _$CameraLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CameraErrorImplCopyWith<T, $Res> {
+  factory _$$CameraErrorImplCopyWith(_$CameraErrorImpl<T> value,
+          $Res Function(_$CameraErrorImpl<T>) then) =
+      __$$CameraErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$CameraErrorImplCopyWithImpl<T, $Res>
+    extends _$MapScreenStateCopyWithImpl<T, $Res, _$CameraErrorImpl<T>>
+    implements _$$CameraErrorImplCopyWith<T, $Res> {
+  __$$CameraErrorImplCopyWithImpl(
+      _$CameraErrorImpl<T> _value, $Res Function(_$CameraErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$CameraErrorImpl<T>(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CameraErrorImpl<T> implements CameraError<T> {
+  const _$CameraErrorImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'MapScreenState<$T>.cameraError(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CameraErrorImpl<T> &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CameraErrorImplCopyWith<T, _$CameraErrorImpl<T>> get copyWith =>
+      __$$CameraErrorImplCopyWithImpl<T, _$CameraErrorImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() reportLoading,
+    required TResult Function() reportLoaded,
+    required TResult Function(String message) reportError,
+    required TResult Function() faultLoading,
+    required TResult Function() faultLoaded,
+    required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
+  }) {
+    return cameraError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? reportLoading,
+    TResult? Function()? reportLoaded,
+    TResult? Function(String message)? reportError,
+    TResult? Function()? faultLoading,
+    TResult? Function()? faultLoaded,
+    TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
+  }) {
+    return cameraError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? reportLoading,
+    TResult Function()? reportLoaded,
+    TResult Function(String message)? reportError,
+    TResult Function()? faultLoading,
+    TResult Function()? faultLoaded,
+    TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (cameraError != null) {
+      return cameraError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) reportLoading,
+    required TResult Function(Loaded<T> value) reportLoaded,
+    required TResult Function(Error<T> value) reportError,
+    required TResult Function(FaultLoading<T> value) faultLoading,
+    required TResult Function(FaultLoaded<T> value) faultLoaded,
+    required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
+  }) {
+    return cameraError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? reportLoading,
+    TResult? Function(Loaded<T> value)? reportLoaded,
+    TResult? Function(Error<T> value)? reportError,
+    TResult? Function(FaultLoading<T> value)? faultLoading,
+    TResult? Function(FaultLoaded<T> value)? faultLoaded,
+    TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
+  }) {
+    return cameraError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? reportLoading,
+    TResult Function(Loaded<T> value)? reportLoaded,
+    TResult Function(Error<T> value)? reportError,
+    TResult Function(FaultLoading<T> value)? faultLoading,
+    TResult Function(FaultLoaded<T> value)? faultLoaded,
+    TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (cameraError != null) {
+      return cameraError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CameraError<T> implements MapScreenState<T> {
+  const factory CameraError(final String message) = _$CameraErrorImpl<T>;
+
+  String get message;
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CameraErrorImplCopyWith<T, _$CameraErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ManualOdometerInputImplCopyWith<T, $Res> {
+  factory _$$ManualOdometerInputImplCopyWith(_$ManualOdometerInputImpl<T> value,
+          $Res Function(_$ManualOdometerInputImpl<T>) then) =
+      __$$ManualOdometerInputImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String tripId});
+}
+
+/// @nodoc
+class __$$ManualOdometerInputImplCopyWithImpl<T, $Res>
+    extends _$MapScreenStateCopyWithImpl<T, $Res, _$ManualOdometerInputImpl<T>>
+    implements _$$ManualOdometerInputImplCopyWith<T, $Res> {
+  __$$ManualOdometerInputImplCopyWithImpl(_$ManualOdometerInputImpl<T> _value,
+      $Res Function(_$ManualOdometerInputImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tripId = null,
+  }) {
+    return _then(_$ManualOdometerInputImpl<T>(
+      null == tripId
+          ? _value.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ManualOdometerInputImpl<T> implements ManualOdometerInput<T> {
+  const _$ManualOdometerInputImpl(this.tripId);
+
+  @override
+  final String tripId;
+
+  @override
+  String toString() {
+    return 'MapScreenState<$T>.manualOdometerInput(tripId: $tripId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ManualOdometerInputImpl<T> &&
+            (identical(other.tripId, tripId) || other.tripId == tripId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tripId);
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ManualOdometerInputImplCopyWith<T, _$ManualOdometerInputImpl<T>>
+      get copyWith => __$$ManualOdometerInputImplCopyWithImpl<T,
+          _$ManualOdometerInputImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() reportLoading,
+    required TResult Function() reportLoaded,
+    required TResult Function(String message) reportError,
+    required TResult Function() faultLoading,
+    required TResult Function() faultLoaded,
+    required TResult Function(String message) faultError,
+    required TResult Function() cameraLoading,
+    required TResult Function(String message) cameraError,
+    required TResult Function(String tripId) manualOdometerInput,
+  }) {
+    return manualOdometerInput(tripId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? reportLoading,
+    TResult? Function()? reportLoaded,
+    TResult? Function(String message)? reportError,
+    TResult? Function()? faultLoading,
+    TResult? Function()? faultLoaded,
+    TResult? Function(String message)? faultError,
+    TResult? Function()? cameraLoading,
+    TResult? Function(String message)? cameraError,
+    TResult? Function(String tripId)? manualOdometerInput,
+  }) {
+    return manualOdometerInput?.call(tripId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? reportLoading,
+    TResult Function()? reportLoaded,
+    TResult Function(String message)? reportError,
+    TResult Function()? faultLoading,
+    TResult Function()? faultLoaded,
+    TResult Function(String message)? faultError,
+    TResult Function()? cameraLoading,
+    TResult Function(String message)? cameraError,
+    TResult Function(String tripId)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (manualOdometerInput != null) {
+      return manualOdometerInput(tripId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) reportLoading,
+    required TResult Function(Loaded<T> value) reportLoaded,
+    required TResult Function(Error<T> value) reportError,
+    required TResult Function(FaultLoading<T> value) faultLoading,
+    required TResult Function(FaultLoaded<T> value) faultLoaded,
+    required TResult Function(FaultError<T> value) faultError,
+    required TResult Function(CameraLoading<T> value) cameraLoading,
+    required TResult Function(CameraError<T> value) cameraError,
+    required TResult Function(ManualOdometerInput<T> value) manualOdometerInput,
+  }) {
+    return manualOdometerInput(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? reportLoading,
+    TResult? Function(Loaded<T> value)? reportLoaded,
+    TResult? Function(Error<T> value)? reportError,
+    TResult? Function(FaultLoading<T> value)? faultLoading,
+    TResult? Function(FaultLoaded<T> value)? faultLoaded,
+    TResult? Function(FaultError<T> value)? faultError,
+    TResult? Function(CameraLoading<T> value)? cameraLoading,
+    TResult? Function(CameraError<T> value)? cameraError,
+    TResult? Function(ManualOdometerInput<T> value)? manualOdometerInput,
+  }) {
+    return manualOdometerInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? reportLoading,
+    TResult Function(Loaded<T> value)? reportLoaded,
+    TResult Function(Error<T> value)? reportError,
+    TResult Function(FaultLoading<T> value)? faultLoading,
+    TResult Function(FaultLoaded<T> value)? faultLoaded,
+    TResult Function(FaultError<T> value)? faultError,
+    TResult Function(CameraLoading<T> value)? cameraLoading,
+    TResult Function(CameraError<T> value)? cameraError,
+    TResult Function(ManualOdometerInput<T> value)? manualOdometerInput,
+    required TResult orElse(),
+  }) {
+    if (manualOdometerInput != null) {
+      return manualOdometerInput(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ManualOdometerInput<T> implements MapScreenState<T> {
+  const factory ManualOdometerInput(final String tripId) =
+      _$ManualOdometerInputImpl<T>;
+
+  String get tripId;
+
+  /// Create a copy of MapScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ManualOdometerInputImplCopyWith<T, _$ManualOdometerInputImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

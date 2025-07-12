@@ -20,7 +20,7 @@ class AppStrings {
   static const String no = 'No';
   static const String loading = 'Loading...';
   static const String pending = 'Pending';
-  static const String inProgress = 'InProgress';
+  static const String inProgress = 'In Progress';
   static const String completed = 'Completed !';
   static const String finish = 'Finish';
   static const String finished = 'Finished';
